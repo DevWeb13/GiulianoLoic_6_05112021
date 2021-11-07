@@ -5,13 +5,13 @@ header {
   grid-template-areas:
     "logo p"
     "nav nav";
+  margin-bottom: 2.8125rem;
   @include desktop {
     grid-template-rows: 8.25rem;
     grid-template-columns: auto;
     grid-template-areas: "logo nav p";
   }
   a {
-    text-decoration: none;
     color: $primary1;
   }
   .photographerLink {
