@@ -1,0 +1,20 @@
+header {
+  display: grid;
+  grid-template-rows: 109px 50px;
+  grid-template-columns: 50% 50%;
+  grid-template-areas:
+    "logo p"
+    "nav nav";
+  a {
+    text-decoration: none;
+    color: $primary1;
+  }
+  .photographerLink {
+    grid-area: p;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 22px;
+    font-size: 0.875rem;
+  }
+}
