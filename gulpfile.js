@@ -8,6 +8,7 @@ const sourcemaps = require("gulp-sourcemaps");
 const browserSync = require("browser-sync").create();
 
 function makeCss() {
+  reload();
   return gulp
     .src(["./src/base.scss", "./src/**/*.scss"])
     .pipe(sourcemaps.init())
@@ -24,6 +25,7 @@ function makeCss() {
 }
 
 function makeHtml() {
+  reload();
   return gulp.src("./src/pages/*.html").pipe(ejs()).pipe(gulp.dest("./www"));
 }
 

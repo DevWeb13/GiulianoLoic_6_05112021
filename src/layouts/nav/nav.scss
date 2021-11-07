@@ -5,5 +5,9 @@ nav {
   flex-wrap: wrap;
   justify-content: center;
   align-content: space-between;
-  margin: 1px 48.5px 1px 36.5px;
+  margin: 0 3rem 0 2.25rem;
+  @include desktop {
+    margin: 0;
+    align-content: center;
+  }
 }

@@ -1,10 +1,15 @@
 header {
   display: grid;
-  grid-template-rows: 109px 50px;
+  grid-template-rows: 6.8125rem 3.125rem;
   grid-template-columns: 50% 50%;
   grid-template-areas:
     "logo p"
     "nav nav";
+  @include desktop {
+    grid-template-rows: 8.25rem;
+    grid-template-columns: auto;
+    grid-template-areas: "logo nav p";
+  }
   a {
     text-decoration: none;
     color: $primary1;
@@ -14,7 +19,11 @@ header {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    margin-right: 22px;
+    margin-right: 1.38rem;
     font-size: 0.875rem;
+    @include desktop {
+      margin-right: 7.3rem;
+      font-size: 2.25rem;
+    }
   }
 }
