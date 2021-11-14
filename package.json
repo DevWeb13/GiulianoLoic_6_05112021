@@ -21,6 +21,7 @@
     "gulp-concat": "^2.6.1",
     "gulp-ejs": "^5.1.0",
     "gulp-image": "^6.2.1",
+    "gulp-image-resize": "^0.13.1",
     "gulp-postcss": "^9.0.1",
     "gulp-sass": "^5.0.0",
     "gulp-sourcemaps": "^3.0.0",
@@ -29,5 +30,4 @@
     "gulp-watch": "^5.0.1",
     "sass": "^1.43.4"
   }
- 
 }
