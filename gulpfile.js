@@ -54,27 +54,14 @@ function optimizeImg() {
   );
 }
 
-function watcher() {
-  browserSync.init({
-    server: {
-      baseDir: "./www",
-    },
-  });
-  watch(paths.html.src, series(makeHtml, browserSync.reload));
-  watch(paths.styles.src, series(makeCss, browserSync.reload));
-  //   watch(paths.scripts.src, series(minifyScripts, browserSync.reload));
-  watch(paths.images.src, series(optimizeImg, browserSync.reload));
-  watch("./src/**/*.html", series(makeHtml, browserSync.reload));
-}
-
-function minifyScripts() {
-  return src(paths.scripts.src)
-    .pipe(sourcemaps.init())
-    .pipe(concat("index.js"))
-    .pipe(terser().on("error", (error) => console.log(error)))
-    .pipe(sourcemaps.write("."))
-    .pipe(dest(paths.scripts.dest));
-}
+// function minifyScripts() {
+//   return src(paths.scripts.src)
+//     .pipe(sourcemaps.init())
+//     .pipe(concat("index.js"))
+//     .pipe(terser().on("error",  gulp.logError))
+//     .pipe(sourcemaps.write("."))
+//     .pipe(dest(paths.scripts.dest));
+// }
 
 function makeCss() {
   var plugins = [autoprefixer(), cssnano()];
@@ -92,10 +79,23 @@ function makeHtml() {
   return src(paths.html.src).pipe(ejs()).pipe(dest(paths.html.dest));
 }
 
+function watcher() {
+  browserSync.init({
+    server: {
+      baseDir: "./www",
+    },
+  });
+  watch(paths.html.src, series(makeHtml, browserSync.reload));
+  watch(paths.styles.src, series(makeCss, browserSync.reload));
+  //   watch(paths.scripts.src, series(minifyScripts, browserSync.reload));
+  watch(paths.images.src, series(optimizeImg, browserSync.reload));
+  watch("./src/**/*.html", series(makeHtml, browserSync.reload));
+}
+
 module.exports = {
   makeHtml,
   makeCss,
-  minifyScripts,
+  //   minifyScripts,
   optimizeImg,
   watcher,
 };
