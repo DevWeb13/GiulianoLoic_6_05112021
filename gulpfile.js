@@ -20,7 +20,7 @@ const paths = {
     dest: "./www/",
   },
   images: {
-    src: ["./src/img/**/*.jpg"],
+    src: ["./src/img/**/*.jpg", "./src/img/**/*.svg"],
     dest: "./www/img/",
   },
   styles: {
