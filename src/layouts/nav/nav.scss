@@ -1,0 +1,13 @@
+nav {
+  align-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 0.75rem;
+  grid-area: nav;
+  justify-content: center;
+  margin: 0 3rem 0 2.25rem;
+  @include desktop {
+    align-content: center;
+    margin: 0;
+  }
+}

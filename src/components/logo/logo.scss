@@ -1,0 +1,14 @@
+.logo {
+  align-items: center;
+  display: flex;
+  grid-area: logo;
+  margin-left: 1.25rem;
+  @include desktop {
+    margin-left: 6.25rem;
+    svg {
+      fill: none;
+      height: 50px;
+      width: 200px;
+    }
+  }
+}
