@@ -1,16 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans&display=swap");
-html {
-  display: flex;
-  justify-content: center;
-  body {
-    font-family: DM Sans, sans-serif;
-    max-width: 1440px;
-    button {
-      background-color: transparent;
-      border: 0;
-      color: #901c1c;
-      cursor: pointer;
-    }
+
+body {
+  font-family: DM Sans, sans-serif;
+  max-width: 1440px;
+  button {
+    background-color: transparent;
+    border: 0;
+    color: #901c1c;
+    cursor: pointer;
+    padding: 0;
   }
 }
 

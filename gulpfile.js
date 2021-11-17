@@ -16,7 +16,11 @@ const watch = require("gulp-watch");
 
 const paths = {
   html: {
-    src: ["./src/index.html"],
+    src: ["./src/pages/index/index.html"],
+    dest: "./www/",
+  },
+  photographerHtml: {
+    src: ["./src/pages/photographer/photographer.html"],
     dest: "./www/",
   },
   images: {
@@ -24,7 +28,21 @@ const paths = {
     dest: "./www/img/",
   },
   styles: {
-    src: ["./src/*.scss", "./src/**/*.scss"],
+    src: [
+      "./src/base.scss",
+      "./src/components/**/*.scss",
+      "./src/layouts/**/*scss",
+      "./src/pages/index/index.scss",
+    ],
+    dest: "./www/css/",
+  },
+  photographerStyles: {
+    src: [
+      "./src/base.scss",
+      "./src/components/**/*.scss",
+      "./src/layouts/article/*scss",
+      "./src/pages/photographer/photographer.scss",
+    ],
     dest: "./www/css/",
   },
   scripts: {
@@ -64,7 +82,7 @@ function optimizeImg() {
 // }
 
 function makeCss() {
-  var plugins = [autoprefixer(), cssnano()];
+  let plugins = [autoprefixer(), cssnano()];
   return src(paths.styles.src)
     .pipe(sourcemaps.init())
     .pipe(concat("index.css"))
@@ -75,26 +93,61 @@ function makeCss() {
     .pipe(dest(paths.styles.dest));
 }
 
+function makePhotographerCss() {
+  let plugins = [autoprefixer(), cssnano()];
+  return src(paths.photographerStyles.src)
+    .pipe(sourcemaps.init())
+    .pipe(concat("photographer.css"))
+    .pipe(sass().on("error", sass.logError))
+    .pipe(postcss(plugins))
+    .pipe(uglifycss())
+    .pipe(sourcemaps.write())
+    .pipe(dest(paths.photographerStyles.dest));
+}
+
 function makeHtml() {
   return src(paths.html.src).pipe(ejs()).pipe(dest(paths.html.dest));
+}
+
+function makePhotographerHtml() {
+  return src(paths.photographerHtml.src)
+    .pipe(ejs())
+    .pipe(dest(paths.photographerHtml.dest));
 }
 
 function watcher() {
   browserSync.init({
     server: {
-      baseDir: "./www",
+      baseDir: "./www/",
     },
   });
   watch(paths.html.src, series(makeHtml, browserSync.reload));
+  watch(
+    paths.photographerHtml.src,
+    series(makePhotographerHtml, browserSync.reload)
+  );
   watch(paths.styles.src, series(makeCss, browserSync.reload));
+  watch(
+    paths.photographerStyles.src,
+    series(makePhotographerCss, browserSync.reload)
+  );
   //   watch(paths.scripts.src, series(minifyScripts, browserSync.reload));
   watch(paths.images.src, series(optimizeImg, browserSync.reload));
-  watch("./src/**/*.html", series(makeHtml, browserSync.reload));
+  watch(
+    "./src/**/**/*.html",
+    series(parallel(makeHtml, makePhotographerHtml), browserSync.reload)
+  );
+  watch(
+    "./src/**/**/*.scss",
+    series(parallel(makeCss, makePhotographerCss), browserSync.reload)
+  );
 }
 
 module.exports = {
   makeHtml,
+  makePhotographerHtml,
   makeCss,
+  makePhotographerCss,
   //   minifyScripts,
   optimizeImg,
   watcher,
