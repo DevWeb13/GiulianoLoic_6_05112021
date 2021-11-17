@@ -15,14 +15,18 @@
 <body>
     <header>
         <%- include("../../components/logo/logo.html") %>
-            <%- include("../../layouts/article/article.html", { imgLink:"./img/Mimi/Portrait_Nora.jpg", className
-                : "mimi" , nom : "Mimi Keel" , location: "London,UK" , tagline: "Voir le beau dans le quotidien" ,
+            <%- include("./layouts/article/article.html", { imgLink:"./img/Mimi/Portrait_Nora.jpg", className : "mimi" ,
+                nom : "Mimi Keel" , location: "London,UK" , tagline: "Voir le beau dans le quotidien" ,
                 price: "400€/jour" }); %>
     </header>
-    <%- include("../../layouts/photographerMain/photographerMain.html", { className: "animalRainbow" ,
-        imgLink:"./img/Mimi/Animals_Rainbow.jpg" , imgTitle:"Arc-en-ciel", price:"70€" , like: "12" }) %>
-        <%- include("../../layouts/photographerMain/photographerMain.html", { className: "travelLonesome"
-            ,imgLink:"./img/Mimi/Travel_Lonesome.jpg" ,imgTitle:"Solitude", price:"70€" , like: "12" }) %>
+    <main class="photographerMain">
+        <%- include("./layouts/photographerSection/photographerSection.html", { className: "animalRainbow" ,
+            imgLink:"./img/Mimi/Animals_Rainbow.jpg" , imgTitle:"Arc-en-ciel", price:"70€" , like: "12" }) %>
+            <%- include("./layouts/photographerSection/photographerSection.html", { className: "travelLonesome"
+                ,imgLink:"./img/Mimi/Travel_Lonesome.jpg" ,imgTitle:"Solitude", price:"70€" , like: "12" }) %>
+    </main>
+    <%- include("../../components/btContactMobile/btContactMobile.html") %>
+
 
 </body>
 

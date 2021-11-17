@@ -31,7 +31,7 @@ const paths = {
     src: [
       "./src/base.scss",
       "./src/components/**/*.scss",
-      "./src/layouts/**/*scss",
+      "./src/pages/index/layouts/**/*scss",
       "./src/pages/index/index.scss",
     ],
     dest: "./www/css/",
@@ -40,7 +40,7 @@ const paths = {
     src: [
       "./src/base.scss",
       "./src/components/**/*.scss",
-      "./src/layouts/article/*scss",
+      "./src/pages/photographer/layouts/**/*.scss",
       "./src/pages/photographer/photographer.scss",
     ],
     dest: "./www/css/",
@@ -122,25 +122,28 @@ function watcher() {
     },
   });
   watch(paths.html.src, series(makeHtml, browserSync.reload));
+  watch("./src/pages/index/**/**/*.html", series(makeHtml, browserSync.reload));
+  watch("./src/components/**/*.html", series(makeHtml, browserSync.reload));
   watch(
     paths.photographerHtml.src,
     series(makePhotographerHtml, browserSync.reload)
   );
+  watch(
+    "./src/pages/photographer/**/**/*.html",
+    series(makePhotographerHtml, browserSync.reload)
+  );
+  watch(
+    "./src/components/**/*.html",
+    series(makePhotographerHtml, browserSync.reload)
+  );
+
   watch(paths.styles.src, series(makeCss, browserSync.reload));
   watch(
     paths.photographerStyles.src,
     series(makePhotographerCss, browserSync.reload)
   );
-  //   watch(paths.scripts.src, series(minifyScripts, browserSync.reload));
-  watch(paths.images.src, series(optimizeImg, browserSync.reload));
-  watch(
-    "./src/**/**/*.html",
-    series(parallel(makeHtml, makePhotographerHtml), browserSync.reload)
-  );
-  watch(
-    "./src/**/**/*.scss",
-    series(parallel(makeCss, makePhotographerCss), browserSync.reload)
-  );
+  // //   watch(paths.scripts.src, series(minifyScripts, browserSync.reload));
+  // watch(paths.images.src, series(optimizeImg, browserSync.reload));
 }
 
 module.exports = {
