@@ -1,5 +1,5 @@
 body {
-  margin: 40px 20px;
+  margin: 40px 20px 0 20px;
   header {
     .logo {
       margin-bottom: 30px;
@@ -8,6 +8,8 @@ body {
     article {
       min-width: 100%;
       align-items: unset;
+      margin-bottom: 0;
+      height: 154px;
       .linkContainer {
         position: relative;
         bottom: 10px;
@@ -44,6 +46,54 @@ body {
       }
       .price {
         display: none;
+      }
+    }
+  }
+  .photographerMain {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    section {
+      display: flex;
+      flex-direction: column;
+
+      width: 335px;
+      .imgContainer {
+        height: 191px;
+        width: 100%;
+        overflow: hidden;
+        border-radius: 5px;
+        img {
+          position: relative;
+        }
+        .animalRainbow {
+          bottom: 47px;
+        }
+      }
+      .infoContainer {
+        display: flex;
+        justify-content: space-between;
+        margin: 10px 0;
+        align-items: center;
+        p {
+          color: $primary1;
+        }
+        .imgTitle,
+        .like {
+          font-size: 14px;
+        }
+        .price {
+          font-size: 12px;
+          position: relative;
+          left: 89px;
+        }
+        .like::after {
+          content: "\f004";
+          font-family: "Font Awesome 5 Free";
+          font-weight: bold;
+          margin-left: 5px;
+          font-size: 11px;
+        }
       }
     }
   }

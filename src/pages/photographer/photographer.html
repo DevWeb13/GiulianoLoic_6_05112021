@@ -8,7 +8,8 @@
     <title>Fisheye - photographe</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css" />
     <link rel="stylesheet" href="css/photographer.css" type="text/css">
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
 </head>
 
 <body>
@@ -18,6 +19,10 @@
                 : "mimi" , nom : "Mimi Keel" , location: "London,UK" , tagline: "Voir le beau dans le quotidien" ,
                 price: "400€/jour" }); %>
     </header>
+    <%- include("../../layouts/photographerMain/photographerMain.html", { className: "animalRainbow" ,
+        imgLink:"./img/Mimi/Animals_Rainbow.jpg" , imgTitle:"Arc-en-ciel", price:"70€" , like: "12" }) %>
+        <%- include("../../layouts/photographerMain/photographerMain.html", { className: "travelLonesome"
+            ,imgLink:"./img/Mimi/Travel_Lonesome.jpg" ,imgTitle:"Solitude", price:"70€" , like: "12" }) %>
 
 </body>
 
