@@ -15,9 +15,9 @@
 <body>
     <header>
         <%- include("../../components/logo/logo.html") %>
-            <%- include("./layouts/article/article.html", { imgLink:"./img/Mimi/Portrait_Nora.jpg", className : "mimi" ,
-                nom : "Mimi Keel" , location: "London,UK" , tagline: "Voir le beau dans le quotidien" ,
-                price: "400€/jour" }); %>
+            <%- include("./layouts/photographerArticle/photographerArticle.html", {
+                imgLink:"./img/Mimi/Portrait_Nora.jpg", className : "mimi" , nom : "Mimi Keel" , location: "London,UK" ,
+                tagline: "Voir le beau dans le quotidien" , price: "400€/jour" }); %>
     </header>
     <main class="photographerMain">
         <%- include("./layouts/photographerSection/photographerSection.html", { className: "animalRainbow" ,

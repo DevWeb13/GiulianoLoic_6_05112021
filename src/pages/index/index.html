@@ -15,28 +15,28 @@
 <body>
     <header>
         <%- include("../../components/logo/logo.html"); %>
-            <button href="#" class="photographerLink">Nos photographes</button>
-            <%- include("./layouts/nav/nav.html"); %>
+            <button href="#" class="photographersLink">Nos photographes</button>
+            <%- include("./layouts/indexNav/indexNav.html"); %>
     </header>
     <main>
-        <%- include("./layouts/article/article.html", { imgLink:"./../img/Mimi/Portrait_Nora.jpg", className : "mimi" ,
-            nom : "Mimi Keel" , location: "London,UK" , tagline: "Voir le beau dans le quotidien" , price: "400€/jour"
-            }); %>
-            <%- include("./layouts/article/article.html", { imgLink:"./../img/Ellie/Architecture_Horseshoe.jpg",
-                className : "ellie" , nom : "Ellie-Rose Wilkens" , location: "Paris,France" ,
-                tagline: "Capturer des compositions complexes" , price: "250€/jour" }); %>
-                <%- include("./layouts/article/article.html", {
+        <%- include("./layouts/indexArticle/indexArticle.html", { imgLink:"./../img/Mimi/Portrait_Nora.jpg", className
+            : "mimi" , nom : "Mimi Keel" , location: "London,UK" , tagline: "Voir le beau dans le quotidien" ,
+            price: "400€/jour" }); %>
+            <%- include("./layouts/indexArticle/indexArticle.html", {
+                imgLink:"./../img/Ellie/Architecture_Horseshoe.jpg", className : "ellie" , nom : "Ellie-Rose Wilkens" ,
+                location: "Paris,France" , tagline: "Capturer des compositions complexes" , price: "250€/jour" }); %>
+                <%- include("./layouts/indexArticle/indexArticle.html", {
                     imgLink:"./../img/Tracy/Fashion_Urban_Jungle.jpg",className : "tracy" , nom : "Tracy Galindo" ,
                     location: "Montreal,Canada" , tagline: "Photographe freelance" , price: "500€/jour" }); %>
-                    <%- include("./layouts/article/article.html", {
+                    <%- include("./layouts/indexArticle/indexArticle.html", {
                         imgLink:"./../img/Nabeel/Travel_Outdoor_Baths.jpg",className : "nabeel" , nom
                         : "Nabeel Bradford" , location: "Mexico City,Mexico" , tagline: "Toujours aller de l'avant" ,
                         price: "350€/jour" }); %>
-                        <%- include("./layouts/article/article.html", {
+                        <%- include("./layouts/indexArticle/indexArticle.html", {
                             imgLink:"./../img/Rhode/Fashion_Melody_Red_on_Stripes.jpg",className : "rhode" , nom
                             : "Rhode Dubois" , location: "Barcelona,Spain" , tagline: "Je crée des souvenirs" ,
                             price: "275€/jour" }); %>
-                            <%- include("./layouts/article/article.html", {
+                            <%- include("./layouts/indexArticle/indexArticle.html", {
                                 imgLink:"./../img/Marcel/Travel_Tower.jpg",className : "marcel" , nom : "Marcel Nikolic"
                                 , location: "Berlin,Germany" , tagline: "Toujours à la recherche de LA photo" ,
                                 price: "300€/jour" }); %>

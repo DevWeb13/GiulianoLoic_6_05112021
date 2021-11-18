@@ -1,7 +1,11 @@
 .photographerSection {
+  flex: 1 0 25%;
   display: flex;
   flex-direction: column;
+  min-width: 20.9375rem;
   width: 20.9375rem;
+  max-width: 20.9375rem;
+  margin: 5px;
   .imgContainer {
     height: 11.9375rem;
     width: 100%;
@@ -17,7 +21,7 @@
   .infoContainer {
     display: flex;
     justify-content: space-between;
-    margin: 0.625rem 0;
+    margin-top: 0.625rem;
     align-items: center;
     p {
       color: $primary1;

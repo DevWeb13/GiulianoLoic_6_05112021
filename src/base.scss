@@ -7,6 +7,7 @@ html {
 body {
   font-family: DM Sans, sans-serif;
   max-width: 1440px;
+  width: 100%;
   button {
     background-color: transparent;
     border: 0;
@@ -21,7 +22,7 @@ $primary1: #901c1c;
 $primary2: #d3573c;
 $secondary1: #d3573c;
 $secondary2: #525252;
-$secondary3: #901c1c;
+$secondary3: #fafafa;
 $desktopMinWidth: 992px;
 //mixin
 @mixin desktop {

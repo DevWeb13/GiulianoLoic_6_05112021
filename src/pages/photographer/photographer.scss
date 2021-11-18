@@ -1,5 +1,14 @@
+header {
+  margin: 0 20px;
+  padding-top: 3px;
+  @include desktop {
+    margin: 0 100px;
+  }
+}
 .photographerMain {
   display: flex;
-  flex-direction: column;
+
   align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
