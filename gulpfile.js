@@ -1,5 +1,5 @@
 const gulp = require("gulp");
-const { src, dest, series, parallel, lastRun } = require("gulp");
+const { src, dest, series, lastRun } = require("gulp");
 const ejs = require("gulp-ejs");
 const sourcemaps = require("gulp-sourcemaps");
 const concat = require("gulp-concat");
@@ -8,7 +8,7 @@ const postcss = require("gulp-postcss");
 const autoprefixer = require("autoprefixer");
 const cssnano = require("cssnano");
 const uglifycss = require("gulp-uglifycss");
-const terser = require("gulp-terser");
+const uglify = require("gulp-uglify");
 const image = require("gulp-image");
 // const resizer = require("gulp-image-resize");
 const browserSync = require("browser-sync").create();
@@ -46,7 +46,7 @@ const paths = {
     dest: "./www/css/",
   },
   scripts: {
-    src: ["./src/js/*.js"],
+    src: ["./src/**/*.js"],
     dest: "./www/js/",
   },
   //  Mentor: A quoi sert et dois je installer cachebust? ******************************************************
@@ -72,14 +72,14 @@ function optimizeImg() {
   );
 }
 
-// function minifyScripts() {
-//   return src(paths.scripts.src)
-//     .pipe(sourcemaps.init())
-//     .pipe(concat("index.js"))
-//     .pipe(terser().on("error",  gulp.logError))
-//     .pipe(sourcemaps.write("."))
-//     .pipe(dest(paths.scripts.dest));
-// }
+function minifyScripts() {
+  return src(paths.scripts.src)
+    .pipe(sourcemaps.init())
+    .pipe(concat("index.js"))
+    .pipe(uglify())
+    .pipe(sourcemaps.write(""))
+    .pipe(dest(paths.scripts.dest));
+}
 
 function makeCss() {
   let plugins = [autoprefixer(), cssnano()];
@@ -151,7 +151,7 @@ module.exports = {
   makePhotographerHtml,
   makeCss,
   makePhotographerCss,
-  //   minifyScripts,
+  minifyScripts,
   optimizeImg,
   watcher,
 };
