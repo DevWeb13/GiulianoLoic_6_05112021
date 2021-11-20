@@ -1,1 +1,0 @@
-{"version":3,"sources":["pages/index/index.js"],"names":["Index","jhjkh","document","querySelector"],"mappings":"MAAAA,MACAC,QAEAC,SAAAC,cAAA","file":"index.js","sourcesContent":["class Index{\n\tjhjkh(){\n\n\t\tconst header = document.querySelector(\"header\");\n\t}\n}"]}
