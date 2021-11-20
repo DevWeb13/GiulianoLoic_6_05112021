@@ -15,9 +15,11 @@
 <body>
     <header>
         <%- include("../../components/logo/logo.html") %>
+
             <%- include("./layouts/photographerArticle/photographerArticle.html", {
                 imgLink:"./img/Mimi/Portrait_Nora.jpg", className : "mimi" , nom : "Mimi Keel" , location: "London,UK" ,
                 tagline: "Voir le beau dans le quotidien" , price: "400€/jour" }); %>
+
     </header>
     <main class="photographerMain">
         <%- include("./layouts/photographerSection/photographerSection.html", { className: "animalRainbow" ,
@@ -25,7 +27,7 @@
             <%- include("./layouts/photographerSection/photographerSection.html", { className: "travelLonesome"
                 ,imgLink:"./img/Mimi/Travel_Lonesome.jpg" ,imgTitle:"Solitude", price:"70€" , like: "12" }) %>
     </main>
-    <%- include("../../components/btContactMobile/btContactMobile.html") %>
+    <%- include("../../components/btContact/btContact.html", { className:"btContact btContact-mobile"}) %>
 
 
 </body>

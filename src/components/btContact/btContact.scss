@@ -1,0 +1,31 @@
+.btContact {
+	background-color: $primary1;
+	color: white;
+	font-weight: bold;
+	border-radius: 5px;
+	&-mobile {
+		width: 170px;
+		height: 35px;
+
+		font-size: 18px;
+		position: fixed;
+		bottom: 30px;
+		left: 50vw;
+		transform: translateX(-50%);
+		@include desktop {
+			display: none;
+		}
+	}
+	&-desktop {
+		display: none;
+		@include desktop {
+			position: absolute;
+			left: 450px;
+			top: 63px;
+			width: 170px;
+			height: 69px;
+			font-size: 20px;
+			display: block;
+		}
+	}
+}
