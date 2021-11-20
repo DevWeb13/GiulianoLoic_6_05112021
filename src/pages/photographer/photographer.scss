@@ -1,14 +1,113 @@
-header {
-  margin: 0 20px;
-  padding-top: 3px;
-  @include desktop {
-    margin: 0 100px;
-  }
+body {
+	margin: 0 100px;
 }
-.photographerMain {
-  display: flex;
 
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
+header {
+	margin: 0 20px;
+	padding-top: 3px;
+	@include desktop {
+		margin: 0 0 20px 0;
+	}
+}
+
+label {
+	font-size: 18px;
+	font-weight: bold;
+}
+.select {
+	/* Celui-ci crée un contexte de positionnement pour la liste des options */
+	position: relative;
+
+	/* Celui-ci fait que le widget devient partie du flot textuel
+     et devient en même temps dimensionnable */
+	display: flex;
+	align-items: center;
+	/* Toutes les tailles seront exprimées en valeurs em (lettre M, étalon
+     du cadratin : cadre dans lequel sont dessinées toutes les lettres d'une
+     police de caractères) pour des raisons d'accessibilité (pour être sûrs
+     que le widget reste redimensionnable si l'utilisateur utilise le zoom
+     du navigateur en mode texte exclusif). Les calculs sont faits en
+     supposant que 1em==16px qui est la valeur par défaut dans la majorité
+     des navigateurs. Si vous êtes perdus avec les conversions entre px et
+     em, essayez http://riddle.pl/emcalc/ */
+	background-color: $primary1;
+	color: white;
+	width: 170px;
+	height: 60px;
+	border-radius: 5px;
+
+	&.active,
+	&:focus {
+		outline: none;
+
+		/* Cette propriété box-shadow n'est pas requise à proprement parler, mais il est
+			 important de s'assurer que l'état actif soit visible, c'est pourquoi nous
+			 utilisons une valeur par défaut. Vous êtes libre de la modifier. */
+		box-shadow: 0 0 3px 1px #227755;
+	}
+	&:after {
+		font-family: "Font Awesome 5 Free";
+		content: "\f078";
+		font-weight: bold;
+
+		z-index: 1; /* Il est important d'empêcher la flèche de chevaucher la liste des options */
+		margin-right: 18px;
+		font-size: 19px;
+	}
+	.value {
+		/* Comme la valeur peut être plus large que le widget, nous devons nous
+     assurer qu'elle ne changera pas la largeur du widget. */
+		display: inline-block;
+		width: 100%;
+		overflow: hidden;
+
+		/* Et si le contenu déborde, c'est mieux d'avoir une jolie abreviation. */
+		white-space: nowrap;
+		text-overflow: ellipsis;
+
+		font-size: 18px;
+		font-weight: bold;
+		margin-left: 20px;
+	}
+	/* Le sélecteur .select ici est du sucre syntaxique (le fait de donner au
+   programmeur des possibilités d'écriture plus succinctes ou plus proches
+   d'une notation usuelle) pour s'assurer que les classes que nous définissons
+   sont les seules à l'intérieur du widget. */
+	.optList {
+		/* Ceci assure que la liste des options sera affichée au dessous de la valeur
+			 et en dehors du flot HTML */
+		position: absolute;
+		top: 100%;
+		left: 0;
+		&.hidden {
+			/* Ceci est un moyen simple pour cacher la liste tout en conservant l'accessibilité,
+     nous reparlerons plus loin d'accessibilité */
+			max-height: 0;
+			visibility: hidden;
+		}
+	}
+}
+
+// label {
+// 	font-size: 18px;
+// 	font-weight: bold;
+// }
+// select,
+// option {
+// 	height: 60px;
+// 	width: 170px;
+// 	background-color: $primary1;
+// 	color: white;
+// 	border-radius: 5px;
+// 	margin-left: 25px;
+// 	font-size: 18px;
+// 	font-weight: bold;
+// }
+
+.photographerMain {
+	display: flex;
+
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
 }

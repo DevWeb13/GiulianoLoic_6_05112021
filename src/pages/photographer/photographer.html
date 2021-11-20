@@ -21,6 +21,33 @@
                 tagline: "Voir le beau dans le quotidien" , price: "400€/jour" }); %>
 
     </header>
+
+
+    <label for="select">Trier par</label>
+    <div class="select" tabindex="0" id="select">
+
+        <!-- Ce containeur sera utilisé pour afficher la valeur courante du widget -->
+        <span class="value">Popularité</span>
+
+        <!-- Ce conteneur contiendra toutes les options disponibles pour le widget.
+             Comme c'est une liste, il y sens à utiliser l'élément ul. -->
+        <ul class="optList">
+            <!-- Chaque option ne contient que la valeur à afficher, Nous verrons plus loin
+               comment gérer la valeur réelle qui sera envoyée avec les données du formulaire -->
+            <li class="option">Popularité</li>
+            <li class="option">Date</li>
+            <li class="option">Titre</li>
+        </ul>
+
+    </div>
+
+    <!-- <label for="selectBy">Trier par</label>
+    <select name="selectBy" id="selectBy">
+        <option value="Popularité">Popularité</option>
+        <option value="Date">Date</option>
+        <option value="Titre">Titre</option>
+    </select> -->
+
     <main class="photographerMain">
         <%- include("./layouts/photographerSection/photographerSection.html", { className: "animalRainbow" ,
             imgLink:"./img/Mimi/Animals_Rainbow.jpg" , imgTitle:"Arc-en-ciel", price:"70€" , like: "12" }) %>
