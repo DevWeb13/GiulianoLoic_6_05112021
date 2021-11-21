@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/photographer.css" type="text/css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <script src="js/photographer.js" defer></script>
 </head>
 
 <body>
@@ -17,8 +18,10 @@
         <button class="logo" title="logo" onclick="document.location.href='index.html'">
     <img src=" ./img/logo/logo.svg" alt="logo">
 </button>
+    </header>
 
-            <article class="photographerArticle">
+    <main class="photographerMain">
+        <article class="photographerArticle">
   <div class="imgNameContainer">
     <div class="imgContainer">
       <img src="./img/Mimi/Portrait_Nora.jpg" class="mimi" alt="" cover />
@@ -47,36 +50,32 @@
     </nav>
 </article>
 
-    </header>
-
-
-    <label for="select">Trier par</label>
-    <div class="select" tabindex="0" id="select">
-
-        <!-- Ce containeur sera utilisé pour afficher la valeur courante du widget -->
-        <span class="value">Popularité</span>
-
-        <!-- Ce conteneur contiendra toutes les options disponibles pour le widget.
+            <div class="no-widget" id="widget">
+                <label for="select" onclick=toggleOptList(select)>Trier par</label>
+                <form>
+                    <select name="Popularité">
+                        <option>Popularité</option>
+                        <option>Date</option>
+                        <option>Titre</option>
+                    </select>
+                    <div class="select" tabindex="0" id="select" role="listbox">
+                        <!-- Ce containeur sera utilisé pour afficher la valeur courante du widget -->
+                        <span class="value">Popularité</span>
+                        <!-- Ce conteneur contiendra toutes les options disponibles pour le widget.
              Comme c'est une liste, il y sens à utiliser l'élément ul. -->
-        <ul class="optList">
-            <!-- Chaque option ne contient que la valeur à afficher, Nous verrons plus loin
+                        <ul class="optList hidden" role="presentation">
+                            <!-- Chaque option ne contient que la valeur à afficher, Nous verrons plus loin
                comment gérer la valeur réelle qui sera envoyée avec les données du formulaire -->
-            <li class="option">Popularité</li>
-            <li class="option">Date</li>
-            <li class="option">Titre</li>
-        </ul>
+                            <li class="option" role="option">Popularité</li>
+                            <li class="option" role="option">Date</li>
+                            <li class="option" role="option">Titre</li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
 
-    </div>
-
-    <!-- <label for="selectBy">Trier par</label>
-    <select name="selectBy" id="selectBy">
-        <option value="Popularité">Popularité</option>
-        <option value="Date">Date</option>
-        <option value="Titre">Titre</option>
-    </select> -->
-
-    <main class="photographerMain">
-        <section class="photographerSection">
+            <article class="photoArticle">
+                <section class="photographerSection">
     <button class="imgContainer" onclick="openLightbox()">
         <img class="animalRainbow" src="./img/Mimi/Animals_Rainbow.jpg" alt="" cover>
     </button>
@@ -92,7 +91,7 @@
         </p>
     </div>
 </section>
-            <section class="photographerSection">
+                    <section class="photographerSection">
     <button class="imgContainer" onclick="openLightbox()">
         <img class="travelLonesome" src="./img/Mimi/Travel_Lonesome.jpg" alt="" cover>
     </button>
@@ -108,6 +107,7 @@
         </p>
     </div>
 </section>
+            </article>
     </main>
     <button class="btContact btContact-mobile">
     Contactez-moi</button>

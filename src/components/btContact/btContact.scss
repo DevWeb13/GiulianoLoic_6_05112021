@@ -4,12 +4,12 @@
 	font-weight: bold;
 	border-radius: 5px;
 	&-mobile {
-		width: 170px;
-		height: 35px;
+		width: 10.625rem;
+		height: 2.1875rem;
 
-		font-size: 18px;
+		font-size: 1.125rem;
 		position: fixed;
-		bottom: 30px;
+		bottom: 1.875rem;
 		left: 50vw;
 		transform: translateX(-50%);
 		@include desktop {
@@ -20,11 +20,11 @@
 		display: none;
 		@include desktop {
 			position: absolute;
-			left: 450px;
-			top: 63px;
-			width: 170px;
-			height: 69px;
-			font-size: 20px;
+			left: 28.125rem;
+			top: 3.9375rem;
+			width: 10.625rem;
+			height: 4.3125rem;
+			font-size: 1.25rem;
 			display: block;
 		}
 	}

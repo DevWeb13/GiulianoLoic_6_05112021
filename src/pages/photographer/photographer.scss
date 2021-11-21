@@ -13,11 +13,27 @@ header {
 label {
 	font-size: 18px;
 	font-weight: bold;
+	cursor: pointer;
+}
+
+#widget {
+	display: flex;
+	align-items: center;
+}
+.widget select,
+.no-widget .select {
+	/* Ce sélecteur CSS dit fondamentalement :
+     - soit la classe body est "widget" et donc l'élément <select> réel sera caché
+     - soit la classe body n'a pas changé, elle est toujours "no-widget",
+       et donc les éléments, dont la classe est « select », doivent être cachés */
+	position: absolute;
+	left: -5000em;
+	height: 0;
+	overflow: hidden;
 }
 .select {
 	/* Celui-ci crée un contexte de positionnement pour la liste des options */
 	position: relative;
-
 	/* Celui-ci fait que le widget devient partie du flot textuel
      et devient en même temps dimensionnable */
 	display: flex;
@@ -35,24 +51,30 @@ label {
 	width: 170px;
 	height: 60px;
 	border-radius: 5px;
-
-	&.active,
-	&:focus {
+	margin-left: 25px;
+	&.active {
 		outline: none;
-
 		/* Cette propriété box-shadow n'est pas requise à proprement parler, mais il est
 			 important de s'assurer que l'état actif soit visible, c'est pourquoi nous
 			 utilisons une valeur par défaut. Vous êtes libre de la modifier. */
-		box-shadow: 0 0 3px 1px #227755;
+		border-radius: 5px 5px 0 0;
+		&:after {
+			transform: rotate(180deg);
+		}
 	}
 	&:after {
 		font-family: "Font Awesome 5 Free";
 		content: "\f078";
 		font-weight: bold;
-
-		z-index: 1; /* Il est important d'empêcher la flèche de chevaucher la liste des options */
+		z-index: 5; /* Il est important d'empêcher la flèche de chevaucher la liste des options */
 		margin-right: 18px;
 		font-size: 19px;
+		transform: rotate(0);
+	}
+	.highlight {
+		background: $secondary1;
+		color: #ffffff;
+		border-radius: 5px;
 	}
 	.value {
 		/* Comme la valeur peut être plus large que le widget, nous devons nous
@@ -60,11 +82,9 @@ label {
 		display: inline-block;
 		width: 100%;
 		overflow: hidden;
-
 		/* Et si le contenu déborde, c'est mieux d'avoir une jolie abreviation. */
 		white-space: nowrap;
 		text-overflow: ellipsis;
-
 		font-size: 18px;
 		font-weight: bold;
 		margin-left: 20px;
@@ -77,36 +97,55 @@ label {
 		/* Ceci assure que la liste des options sera affichée au dessous de la valeur
 			 et en dehors du flot HTML */
 		position: absolute;
-		top: 100%;
+		top: 0;
 		left: 0;
+		z-index: 2; /* Nous disons explicitement que la liste des options doit toujours passer sur la flèche */
+		/* cela réinitialiser le style par défaut de l'élément ul */
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		/* Cela nous assure que même si les valeurs sont plus petites que le widget,
+     la liste des options sera aussi large que le widget lui‑même */
+		min-width: 100%;
+		/* Dans le cas où la liste est trop longue, son contenu débordera verticalement
+     (ce qui ajoutera une barre de déroulement automatiquement) mais jamais horizontalement
+     (car nous n'avons jamais défini de largeur, la liste ajustera automatiquement sa largeur
+     Si ce n'est pas possible, le contenu sera tronqué) */
+		max-height: 10em; /* 100px */
+		overflow-y: hidden;
+		overflow-x: hidden;
+		// border: 0.2em solid #000; /* 2px */
+		border-top-width: 0.1em; /* 1px */
+		border-radius: 0.4em 0.4em 0.4em 0.4em; /* 0 0 4px 4px */
+		box-shadow: 0 0.2em 0.4em rgba(0, 0, 0, 0.4); /* 0 2px 4px */
+		background: $primary1;
+		height: 170px;
+		font-size: 18px;
 		&.hidden {
 			/* Ceci est un moyen simple pour cacher la liste tout en conservant l'accessibilité,
      nous reparlerons plus loin d'accessibilité */
 			max-height: 0;
 			visibility: hidden;
 		}
+		.option {
+			display: flex;
+			align-items: center;
+			margin: 0 10px;
+			padding-left: 10px;
+			height: 33.33%;
+			font-weight: bold;
+			border-top: 1px solid white;
+		}
+		.borderOff {
+			border: none;
+		}
 	}
 }
 
-// label {
-// 	font-size: 18px;
-// 	font-weight: bold;
-// }
-// select,
-// option {
-// 	height: 60px;
-// 	width: 170px;
-// 	background-color: $primary1;
-// 	color: white;
-// 	border-radius: 5px;
-// 	margin-left: 25px;
-// 	font-size: 18px;
-// 	font-weight: bold;
-// }
-
-.photographerMain {
+.photoArticle {
 	display: flex;
-
 	align-items: center;
 	justify-content: center;
 	flex-wrap: wrap;
