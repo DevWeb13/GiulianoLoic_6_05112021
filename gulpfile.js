@@ -81,7 +81,7 @@ function minifyScripts() {
 		.pipe(sourcemaps.init())
 		.pipe(concat("index.js"))
 		.pipe(uglify())
-		.pipe(sourcemaps.write(""))
+		.pipe(sourcemaps.write())
 		.pipe(dest(paths.scripts.dest));
 }
 
@@ -90,7 +90,7 @@ function minifyPhotographerScripts() {
 		.pipe(sourcemaps.init())
 		.pipe(concat("photographer.js"))
 		.pipe(uglify())
-		.pipe(sourcemaps.write(""))
+		.pipe(sourcemaps.write())
 		.pipe(dest(paths.photographerScripts.dest));
 }
 
@@ -103,7 +103,7 @@ function makeCss() {
 		.pipe(sass().on("error", sass.logError))
 		.pipe(postcss(plugins))
 		.pipe(uglifycss())
-		.pipe(sourcemaps.write(""))
+		.pipe(sourcemaps.write())
 		.pipe(dest(paths.styles.dest));
 }
 
@@ -115,7 +115,7 @@ function makePhotographerCss() {
 		.pipe(sass().on("error", sass.logError))
 		.pipe(postcss(plugins))
 		.pipe(uglifycss())
-		.pipe(sourcemaps.write(""))
+		.pipe(sourcemaps.write())
 		.pipe(dest(paths.photographerStyles.dest));
 }
 
