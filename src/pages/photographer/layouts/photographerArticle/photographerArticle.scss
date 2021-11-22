@@ -13,6 +13,7 @@
 		background-color: $secondary3;
 		height: auto;
 		border-radius: 0.3125rem;
+		margin-bottom: 5px;
 	}
 	.imgNameContainer {
 		display: flex;
@@ -24,6 +25,7 @@
 		justify-content: space-between;
 		margin: 0;
 		padding: 0;
+		height: 136px;
 		.imgContainer {
 			display: flex;
 			align-items: center;

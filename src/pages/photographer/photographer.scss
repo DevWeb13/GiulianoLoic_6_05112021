@@ -6,7 +6,7 @@ header {
 	margin: 0 20px;
 	padding-top: 3px;
 	@include desktop {
-		margin: 0 0 20px 0;
+		margin: 0;
 	}
 }
 
@@ -17,8 +17,12 @@ label {
 }
 
 #widget {
-	display: flex;
-	align-items: center;
+	display: none;
+	@include desktop {
+		display: flex;
+		align-items: center;
+		margin-bottom: 25px;
+	}
 }
 .widget select,
 .no-widget .select {
@@ -149,4 +153,7 @@ label {
 	align-items: center;
 	justify-content: center;
 	flex-wrap: wrap;
+	@include desktop {
+		width: 106.59%;
+	}
 }

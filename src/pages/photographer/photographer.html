@@ -49,9 +49,12 @@
 
             <article class="photoArticle">
                 <%- include("./layouts/photographerSection/photographerSection.html", { className: "animalRainbow" ,
-                    imgLink:"./img/Mimi/Animals_Rainbow.jpg" , imgTitle:"Arc-en-ciel", price:"70€" , like: "12" }) %>
+                    imgLink:"./img/Mimi/Animals_Rainbow.jpg" , imgTitle:"Arc-en-ciel", like: "12" }) %>
                     <%- include("./layouts/photographerSection/photographerSection.html", { className: "travelLonesome"
-                        ,imgLink:"./img/Mimi/Travel_Lonesome.jpg" ,imgTitle:"Solitude", price:"70€" , like: "12" }) %>
+                        ,imgLink:"./img/Mimi/Travel_Lonesome.jpg" ,imgTitle:"Solitude", like: "12" }) %>
+                        <%- include("./layouts/photographerSection/photographerSection.html", {
+                            className: "travelLonesome" ,imgLink:"./img/Mimi/Travel_Lonesome.jpg" ,imgTitle:"Solitude",
+                            like: "12" }) %>
             </article>
     </main>
     <%- include("../../components/btContact/btContact.html", { className:"btContact btContact-mobile"}) %>

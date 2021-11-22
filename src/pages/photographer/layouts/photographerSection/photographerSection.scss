@@ -1,46 +1,73 @@
 .photographerSection {
-  flex: 1 0 25%;
-  display: flex;
-  flex-direction: column;
-  min-width: 20.9375rem;
-  width: 20.9375rem;
-  max-width: 20.9375rem;
-  margin: 5px;
-  .imgContainer {
-    height: 11.9375rem;
-    width: 100%;
-    overflow: hidden;
-    border-radius: 5px;
-    img {
-      position: relative;
-    }
-    .animalRainbow {
-      bottom: 2.9375rem;
-    }
-  }
-  .infoContainer {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 0.625rem;
-    align-items: center;
-    p {
-      color: $primary1;
-    }
-    .imgTitle,
-    .like {
-      font-size: 0.875rem;
-    }
-    .price {
-      font-size: 0.75rem;
-      position: relative;
-      left: 5.5625rem;
-    }
-    .like::after {
-      content: "\f004";
-      font-family: "Font Awesome 5 Free";
-      font-weight: bold;
-      margin-left: 0.3125rem;
-      font-size: 0.6875rem;
-    }
-  }
+	flex: 1 0 25%;
+	display: flex;
+	flex-direction: column;
+	min-width: 20.9375rem;
+	width: 20.9375rem;
+	max-width: 20.9375rem;
+	margin: 5px;
+	@include desktop {
+		width: 350px;
+		min-width: 350px;
+		max-width: 350px;
+		margin-right: 6.47%;
+	}
+
+	.imgContainer {
+		height: 11.9375rem;
+		width: 100%;
+
+		overflow: hidden;
+		border-radius: 5px;
+		@include desktop {
+			height: 300px;
+		}
+
+		img {
+			position: relative;
+		}
+		.animalRainbow {
+			bottom: 2.9375rem;
+		}
+		.travelLonesome {
+			@include desktop {
+				height: 100%;
+			}
+		}
+	}
+	.infoContainer {
+		display: flex;
+		justify-content: space-between;
+		margin-top: 0.625rem;
+		align-items: center;
+
+		p {
+			color: $primary1;
+		}
+		.imgTitle,
+		.like {
+			font-size: 0.875rem;
+		}
+		.imgTitle {
+			@include desktop {
+				font-size: 24px;
+			}
+		}
+		.like {
+			@include desktop {
+				font-size: 16px;
+			}
+		}
+
+		.like::after {
+			content: "\f004";
+			font-family: "Font Awesome 5 Free";
+			font-weight: bold;
+			margin-left: 0.3125rem;
+			font-size: 0.6875rem;
+			@include desktop {
+				font-size: 18px;
+			}
+		}
+	}
 }
