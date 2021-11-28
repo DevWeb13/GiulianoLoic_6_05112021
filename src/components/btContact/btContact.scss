@@ -6,7 +6,6 @@
 	&-mobile {
 		width: 10.625rem;
 		height: 2.1875rem;
-
 		font-size: 1.125rem;
 		position: fixed;
 		bottom: 1.875rem;
@@ -20,8 +19,8 @@
 		display: none;
 		@include desktop {
 			position: absolute;
-			left: 28.125rem;
-			top: 3.9375rem;
+			left: 36.5%;
+			top: 3.9rem;
 			width: 10.625rem;
 			height: 4.3125rem;
 			font-size: 1.25rem;

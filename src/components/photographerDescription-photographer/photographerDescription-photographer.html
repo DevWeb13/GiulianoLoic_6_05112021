@@ -1,0 +1,26 @@
+<article class="photographerDescription photographerDescription-photographer">
+
+  <div class="photographerDescriptionImgContainer">
+    <img src="<%- imgLink %>" class="<%- photoClassName %>" alt="" cover />
+  </div>
+
+  <h2>
+    <%- nom %>
+  </h2>
+
+
+  <p class="location">
+    <%- location %>
+  </p>
+  <p class="tagline">
+    <%- tagline %>
+  </p>
+
+  <nav>
+    <%- include("../filterLink/filterLink.html",{ nom: "portrait" }); %>
+      <%- include("../filterLink/filterLink.html",{ nom: "events" }); %>
+        <%- include("../filterLink/filterLink.html",{ nom: "travel" }); %>
+          <%- include("../filterLink/filterLink.html",{ nom: "animals" }); %>
+  </nav>
+  <%- include("../btContact/btContact.html", { className:"btContact btContact-desktop"}) %>
+</article>

@@ -5,11 +5,8 @@
   "main": "index.js",
   "scripts": {
     "makeHtml": "npx gulp makeHtml",
-    "makePhotographerHtml": "npx gulp makePhotographerHtml",
     "makeCss": "npx gulp makeCss",
-    "makePhotographerCss": "npx gulp makePhotographerCss",
     "minifyScripts": "npx gulp minifyScripts",
-    "minifyPhotographerScripts": "npx gulp minifyPhotographerScripts",
     "optimizeImg": "npx gulp optimizeImg",
     "watcher": "npx gulp watcher"
   },

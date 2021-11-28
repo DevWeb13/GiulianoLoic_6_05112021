@@ -1,0 +1,28 @@
+aside {
+	display: none;
+	@include desktop {
+		background-color: #db8876;
+		width: 23.5rem;
+		height: 4.375rem;
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		border-radius: 5px;
+		position: fixed;
+		bottom: 0;
+		right: 2.5%;
+		p {
+			font-size: 1.5rem;
+		}
+		.like {
+			&::after {
+				content: "\f004";
+				font-family: "Font Awesome 5 Free";
+				font-weight: bold;
+				margin-left: 6px;
+				margin-bottom: 1px;
+				font-size: 1.3rem;
+			}
+		}
+	}
+}

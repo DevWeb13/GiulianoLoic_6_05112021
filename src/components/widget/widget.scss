@@ -1,27 +1,18 @@
-body {
-	margin: 0 100px;
-}
-
-header {
-	margin: 0 20px;
-	padding-top: 3px;
-	@include desktop {
-		margin: 0;
-	}
-}
-
-label {
-	font-size: 18px;
-	font-weight: bold;
-	cursor: pointer;
-}
-
 #widget {
 	display: none;
 	@include desktop {
 		display: flex;
 		align-items: center;
-		margin-bottom: 25px;
+		margin-bottom: 1.5625rem;
+		position: absolute;
+		top: 28.625rem;
+		z-index: 5;
+		left: 6.0625rem;
+	}
+	label {
+		font-size: 1.125rem;
+		font-weight: bold;
+		cursor: pointer;
 	}
 }
 .widget select,
@@ -52,10 +43,10 @@ label {
      em, essayez http://riddle.pl/emcalc/ */
 	background-color: $primary1;
 	color: white;
-	width: 170px;
-	height: 60px;
+	width: 10.625rem;
+	height: 3.75rem;
 	border-radius: 5px;
-	margin-left: 25px;
+	margin-left: 1.5625rem;
 	&.active {
 		outline: none;
 		/* Cette propriété box-shadow n'est pas requise à proprement parler, mais il est
@@ -71,8 +62,8 @@ label {
 		content: "\f078";
 		font-weight: bold;
 		z-index: 5; /* Il est important d'empêcher la flèche de chevaucher la liste des options */
-		margin-right: 18px;
-		font-size: 19px;
+		margin-right: 1.125rem;
+		font-size: 1.1875rem;
 		transform: rotate(0);
 	}
 	.highlight {
@@ -89,9 +80,9 @@ label {
 		/* Et si le contenu déborde, c'est mieux d'avoir une jolie abreviation. */
 		white-space: nowrap;
 		text-overflow: ellipsis;
-		font-size: 18px;
+		font-size: 1.125rem;
 		font-weight: bold;
-		margin-left: 20px;
+		margin-left: 1.25rem;
 	}
 	/* Le sélecteur .select ici est du sucre syntaxique (le fait de donner au
    programmeur des possibilités d'écriture plus succinctes ou plus proches
@@ -125,8 +116,8 @@ label {
 		border-radius: 0.4em 0.4em 0.4em 0.4em; /* 0 0 4px 4px */
 		box-shadow: 0 0.2em 0.4em rgba(0, 0, 0, 0.4); /* 0 2px 4px */
 		background: $primary1;
-		height: 170px;
-		font-size: 18px;
+		height: 10.625rem;
+		font-size: 1.125rem;
 		&.hidden {
 			/* Ceci est un moyen simple pour cacher la liste tout en conservant l'accessibilité,
      nous reparlerons plus loin d'accessibilité */
@@ -145,15 +136,5 @@ label {
 		.borderOff {
 			border: none;
 		}
-	}
-}
-
-.photoArticle {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-wrap: wrap;
-	@include desktop {
-		width: 106.59%;
 	}
 }

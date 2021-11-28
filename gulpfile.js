@@ -16,11 +16,7 @@ const watch = require("gulp-watch");
 
 const paths = {
 	html: {
-		src: ["./src/pages/index/index.html"],
-		dest: "./www/",
-	},
-	photographerHtml: {
-		src: ["./src/pages/photographer/photographer.html"],
+		src: ["./src/pages/**/*.html"],
 		dest: "./www/",
 	},
 	images: {
@@ -28,31 +24,14 @@ const paths = {
 		dest: "./www/img/",
 	},
 	styles: {
-		src: [
-			"./src/base.scss",
-			"./src/components/**/*.scss",
-			"./src/pages/index/layouts/**/*scss",
-			"./src/pages/index/index.scss",
-		],
-		dest: "./www/css/",
-	},
-	photographerStyles: {
-		src: [
-			"./src/base.scss",
-			"./src/components/**/*.scss",
-			"./src/pages/photographer/layouts/**/*.scss",
-			"./src/pages/photographer/photographer.scss",
-		],
+		src: ["./src/base.scss", "./src/**/*.scss"],
 		dest: "./www/css/",
 	},
 	scripts: {
-		src: ["./src/pages/index/*.js"],
+		src: ["./src/**/*.js"],
 		dest: "./www/js/",
 	},
-	photographerScripts: {
-		src: ["./src/pages/photographer/*.js"],
-		dest: "./www/js/",
-	},
+
 	//  Mentor: A quoi sert et dois je installer cachebust? ******************************************************
 	// cachebust: {
 	//   src: ["./dist/**/*.html"],
@@ -79,20 +58,20 @@ function optimizeImg() {
 function minifyScripts() {
 	return src(paths.scripts.src)
 		.pipe(sourcemaps.init())
-		.pipe(concat("index.js"))
+		.pipe(concat("app.js"))
 		.pipe(uglify())
 		.pipe(sourcemaps.write())
 		.pipe(dest(paths.scripts.dest));
 }
 
-function minifyPhotographerScripts() {
-	return src(paths.photographerScripts.src)
-		.pipe(sourcemaps.init())
-		.pipe(concat("photographer.js"))
-		.pipe(uglify())
-		.pipe(sourcemaps.write())
-		.pipe(dest(paths.photographerScripts.dest));
-}
+// function minifyPhotographerScripts() {
+// 	return src(paths.photographerScripts.src)
+// 		.pipe(sourcemaps.init())
+// 		.pipe(concat("photographer.js"))
+// 		.pipe(uglify())
+// 		.pipe(sourcemaps.write())
+// 		.pipe(dest(paths.photographerScripts.dest));
+// }
 
 function makeCss() {
 	let plugins = [autoprefixer(), cssnano()];
@@ -107,26 +86,8 @@ function makeCss() {
 		.pipe(dest(paths.styles.dest));
 }
 
-function makePhotographerCss() {
-	let plugins = [autoprefixer(), cssnano()];
-	return src(paths.photographerStyles.src)
-		.pipe(sourcemaps.init())
-		.pipe(concat("photographer.css"))
-		.pipe(sass().on("error", sass.logError))
-		.pipe(postcss(plugins))
-		.pipe(uglifycss())
-		.pipe(sourcemaps.write())
-		.pipe(dest(paths.photographerStyles.dest));
-}
-
 function makeHtml() {
 	return src(paths.html.src).pipe(ejs()).pipe(dest(paths.html.dest));
-}
-
-function makePhotographerHtml() {
-	return src(paths.photographerHtml.src)
-		.pipe(ejs())
-		.pipe(dest(paths.photographerHtml.dest));
 }
 
 function watcher() {
@@ -138,39 +99,18 @@ function watcher() {
 	watch(paths.html.src, series(makeHtml, browserSync.reload));
 	watch("./src/pages/index/**/**/*.html", series(makeHtml, browserSync.reload));
 	watch("./src/components/**/*.html", series(makeHtml, browserSync.reload));
-	watch(
-		paths.photographerHtml.src,
-		series(makePhotographerHtml, browserSync.reload)
-	);
-	watch(
-		"./src/pages/photographer/**/**/*.html",
-		series(makePhotographerHtml, browserSync.reload)
-	);
-	watch(
-		"./src/components/**/*.html",
-		series(makePhotographerHtml, browserSync.reload)
-	);
 
 	watch(paths.styles.src, series(makeCss, browserSync.reload));
-	watch(
-		paths.photographerStyles.src,
-		series(makePhotographerCss, browserSync.reload)
-	);
+
 	watch(paths.scripts.src, series(minifyScripts, browserSync.reload));
-	watch(
-		paths.photographerScripts.src,
-		series(minifyPhotographerScripts, browserSync.reload)
-	);
+
 	// watch(paths.images.src, series(optimizeImg, browserSync.reload));
 }
 
 module.exports = {
 	makeHtml,
-	makePhotographerHtml,
 	makeCss,
-	makePhotographerCss,
 	minifyScripts,
-	minifyPhotographerScripts,
 	optimizeImg,
 	watcher,
 };

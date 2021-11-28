@@ -1,0 +1,63 @@
+.header {
+	display: grid;
+	grid-template-areas: "logo p" "nav nav";
+	grid-template-columns: 50% 50%;
+	grid-template-rows: 6.8125rem 3.125rem;
+	margin-bottom: 2.8125rem;
+	@include desktop {
+		grid-template-areas: "logo nav p";
+		grid-template-columns:
+			25.2% 40%
+			35.5%;
+		grid-template-rows: 8.25rem;
+		margin-left: 1px;
+		margin-bottom: 4.5rem;
+		margin-left: 2.8125rem;
+		margin-right: 2.8125rem;
+	}
+	.logo {
+		@include desktop {
+			height: 100%;
+			max-width: 19rem;
+		}
+		img {
+			margin-top: 0.5625rem;
+			@include desktop {
+				height: 3.125rem;
+			}
+		}
+	}
+	.photographersLink {
+		align-items: center;
+		display: flex;
+		font-size: 0.875rem;
+		grid-area: p;
+		justify-content: center;
+		margin-left: 14%;
+		@include desktop {
+			font-size: 2.25rem;
+		}
+	}
+	nav {
+		align-content: space-between;
+		display: flex;
+		flex-wrap: wrap;
+		font-size: 0.75rem;
+		grid-area: nav;
+		justify-content: center;
+		margin: 0 3rem 0 2.25rem;
+		@include desktop {
+			align-content: center;
+			margin: 0;
+		}
+	}
+}
+
+.header-photographer {
+	grid-template-rows: 6.8125rem 0;
+	margin-bottom: 0;
+	.photographersLink,
+	nav {
+		display: none;
+	}
+}

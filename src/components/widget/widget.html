@@ -1,0 +1,23 @@
+<div class="no-widget" id="widget">
+  <label for="select" onclick=toggleOptList(select)>Trier par</label>
+  <form>
+    <select name="Popularité">
+      <option>Popularité</option>
+      <option>Date</option>
+      <option>Titre</option>
+    </select>
+    <div class="select" tabindex="0" id="select" role="listbox">
+      <!-- Ce containeur sera utilisé pour afficher la valeur courante du widget -->
+      <span class="value">Popularité</span>
+      <!-- Ce conteneur contiendra toutes les options disponibles pour le widget.
+Comme c'est une liste, il y sens à utiliser l'élément ul. -->
+      <ul class="optList hidden" role="presentation">
+        <!-- Chaque option ne contient que la valeur à afficher, Nous verrons plus loin
+comment gérer la valeur réelle qui sera envoyée avec les données du formulaire -->
+        <li class="option" role="option">Popularité</li>
+        <li class="option" role="option">Date</li>
+        <li class="option" role="option">Titre</li>
+      </ul>
+    </div>
+  </form>
+</div>

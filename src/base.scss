@@ -1,20 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans&display=swap");
 
 html {
-  display: flex;
-  justify-content: center;
+	display: flex;
+	justify-content: center;
 }
 body {
-  font-family: DM Sans, sans-serif;
-  max-width: 1440px;
-  width: 100%;
-  button {
-    background-color: transparent;
-    border: 0;
-    color: #901c1c;
-    cursor: pointer;
-    padding: 0;
-  }
+	font-family: DM Sans, sans-serif;
+	max-width: 90rem;
+	width: 100%;
+	button {
+		background-color: transparent;
+		border: 0;
+		color: #901c1c;
+		cursor: pointer;
+		padding: 0;
+	}
 }
 
 // Variables
@@ -23,10 +23,11 @@ $primary2: #d3573c;
 $secondary1: #d3573c;
 $secondary2: #525252;
 $secondary3: #fafafa;
+$tersiary1: #757575;
 $desktopMinWidth: 992px;
 //mixin
 @mixin desktop {
-  @media screen and (min-width: $desktopMinWidth) {
-    @content;
-  }
+	@media screen and (min-width: $desktopMinWidth) {
+		@content;
+	}
 }

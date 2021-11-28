@@ -1,5 +1,4 @@
 const widget = document.getElementById("widget");
-console.log(widget);
 
 window.addEventListener("load", function () {
 	widget.classList.remove("no-widget");

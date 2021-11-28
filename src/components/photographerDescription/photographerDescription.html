@@ -1,0 +1,27 @@
+<article class="photographerDescription">
+
+  <button class="photographerLink" onclick="document.location.href='photographer.html'">
+    <div class="photographerDescriptionImgContainer">
+      <img src="<%- imgLink %>" class="<%- photoClassName %>" alt="" cover />
+    </div>
+    <h2>
+      <%- nom %>
+    </h2>
+  </button>
+
+  <p class="location">
+    <%- location %>
+  </p>
+  <p class="tagline tagline_photographerPages">
+    <%- tagline %>
+  </p>
+  <p class="price">
+    <%- price %>
+  </p>
+  <nav>
+    <%- include("../filterLink/filterLink.html",{ nom: "portrait" }); %>
+      <%- include("../filterLink/filterLink.html",{ nom: "events" }); %>
+        <%- include("../filterLink/filterLink.html",{ nom: "travel" }); %>
+          <%- include("../filterLink/filterLink.html",{ nom: "animals" }); %>
+  </nav>
+</article>
