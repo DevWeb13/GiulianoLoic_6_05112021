@@ -17,6 +17,12 @@ body {
 	}
 }
 
+main {
+	display: flex;
+	flex-wrap: wrap;
+	position: relative;
+}
+
 // Variables
 $primary1: #901c1c;
 $primary2: #d3573c;
