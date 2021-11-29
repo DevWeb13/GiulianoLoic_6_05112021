@@ -25,16 +25,20 @@
 
                     <section class="mediaCardsSection">
                         <%- include("../components/mediaCard/mediaCard.html", { className: "animalRainbow" ,
-                            imgLink:"./img/Mimi/Animals_Rainbow.jpg" , imgTitle:"Arc-en-ciel", like: 12 }) %>
+                            imgLink:"./img/Mimi/Animals_Rainbow.jpg" , imgTitle:"Arc-en-ciel", like: 12 }); %>
                             <%- include("../components/mediaCard/mediaCard.html", { className: "travelLonesome"
-                                ,imgLink:"./img/Mimi/Travel_Lonesome.jpg" ,imgTitle:"Solitude", like: 12 }) %>
+                                ,imgLink:"./img/Mimi/Travel_Lonesome.jpg" ,imgTitle:"Solitude", like: 12 }); %>
                                 <%- include("../components/mediaCard/mediaCard.html", { className: "travelLonesome"
-                                    ,imgLink:"./img/Mimi/Travel_Lonesome.jpg" ,imgTitle:"Solitude", like: 12 }) %>
+                                    ,imgLink:"./img/Mimi/Travel_Lonesome.jpg" ,imgTitle:"Solitude", like: 12 }); %>
                     </section>
         </main>
 
-        <%- include("../components/btContact/btContact.html", { className:"btContact btContact-mobile"}) %>
-            <%- include("../components/aside/aside.html", { like: 297091, price: "300€ / jour" }) %>
+        <%- include("../components/btContact/btContact.html", { className:"btContact btContact-mobile",
+            text: "Contactez moi" }); %>
+            <%- include("../components/aside/aside.html", { like: 297091, price: "300€ / jour" }); %>
+
+
+                <%- include("../components/form-modal/form-modal.html"); %>
 </body>
 
 </html>
