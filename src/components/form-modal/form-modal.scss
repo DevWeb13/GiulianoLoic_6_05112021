@@ -1,6 +1,6 @@
 .bground {
-	// display: none;
-	display: block;
+	display: none;
+	justify-content: center;
 	position: fixed;
 	left: 0;
 	top: 0;
@@ -9,21 +9,27 @@
 	overflow: auto;
 	background-color: rgba(26, 39, 156, 0.4);
 	z-index: 7;
+	@include desktop {
+		align-items: center;
+	}
 	/* Apparition de la modal */
 	&[visible="true"] {
-		display: block;
+		display: flex;
 	}
 	.content {
 		width: 100%;
-		max-width: 536px;
-		animation-name: modalopen;
-		animation-duration: var(--modal-duration);
+
 		background: #db8876;
-		border-radius: 10px;
+		border-radius: 5px;
 		overflow: hidden;
 		position: relative;
 		color: #fff;
-		padding-top: 10px;
+		padding-top: 4px;
+		height: 100vh;
+		@include desktop {
+			height: 900px;
+			max-width: 669px;
+		}
 		.close {
 			position: absolute;
 			right: 15px;
@@ -34,6 +40,12 @@
 			cursor: pointer;
 			transform: scale(0.7);
 			z-index: 5;
+			@include desktop {
+				height: 61px;
+				width: 61px;
+				right: 23px;
+				top: 23px;
+			}
 			&::before,
 			&::after {
 				position: absolute;
@@ -42,6 +54,13 @@
 				height: 33px;
 				width: 3px;
 				background-color: #fff;
+				@include desktop {
+					height: 68px;
+					width: 8px;
+					right: 30px;
+					top: 0;
+					left: auto;
+				}
 			}
 			&::before {
 				transform: rotate(45deg);
@@ -50,14 +69,31 @@
 				transform: rotate(-45deg);
 			}
 		}
-		.modal-body {
-			padding: 15px 8%;
-			margin: 15px auto;
+		.form-modal {
+			padding: 15px 5%;
+			@include desktop {
+				padding: 7px 5%;
+			}
+
+			h1 {
+				font-size: 36px;
+				color: black;
+				margin-bottom: 26px;
+				@include desktop {
+					font-size: 64px;
+					margin-bottom: 9px;
+				}
+			}
 			label {
-				font-size: 17px;
+				font-size: 24px;
 				font-weight: normal;
 				display: inline-block;
-				margin-bottom: 11px;
+				margin-bottom: 5px;
+				color: #312e2e;
+				@include desktop {
+					font-size: 36px;
+					margin-bottom: 2px;
+				}
 			}
 			input {
 				padding: 8px;
@@ -65,43 +101,78 @@
 				outline: none;
 			}
 			.text-control {
-				margin: 0;
+				margin-bottom: 14px;
 				padding: 8px;
 				width: 100%;
-				border-radius: 8px;
+				border-radius: 5px;
 				font-size: 20px;
-				height: 48px;
+				height: 53px;
+				&:focus {
+					border: 2px solid black;
+				}
+				@include desktop {
+					height: 67px;
+					margin-bottom: 0;
+				}
 			}
 			.formData[data-error]::after {
 				content: attr(data-error);
-				font-size: 0.4em;
-				color: #e54858;
+				font-size: 1rem;
+				color: red;
 				display: block;
-				margin-top: 7px;
+				// margin-top: 7px;
 				margin-bottom: 7px;
 				text-align: right;
 				line-height: 0.3;
 				opacity: 0;
-				transition: 0.3s;
+				// transition: 0.3s;
+				position: absolute;
+				right: 5%;
 			}
 			.formData[data-error-visible="true"]::after {
 				opacity: 1;
 			}
-
 			.formData[data-error-visible="true"] .text-control {
-				border: 2px solid #e54858;
+				border: 2px solid red;
 			}
-			.btn-submit {
-				background: #fe142f;
-				display: block;
-				margin: 0 auto;
-				border-radius: 7px;
-				font-size: 1rem;
-				padding: 12px 82px;
-				color: #fff;
-				cursor: pointer;
-				border: 0;
+			.formData[data-valid="true"] .text-control {
+				border: 2px solid rgb(0, 255, 0);
 			}
+			.message {
+				@include desktop {
+					margin-top: 11px;
+				}
+			}
+			.text-area {
+				margin-top: 6px;
+				padding: 18px 10px;
+				border-radius: 5px;
+				width: 100%;
+				outline: none;
+				@include desktop {
+					height: 168px;
+				}
+			}
+		}
+	}
+}
+#validDiv {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #db8876;
+	color: white;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	padding: 1rem;
+	text-align: center;
+	p {
+		font-size: 1.5rem;
+		@include desktop {
+			font-size: 2rem;
 		}
 	}
 }

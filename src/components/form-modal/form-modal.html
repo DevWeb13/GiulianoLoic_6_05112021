@@ -1,10 +1,11 @@
 <div class="bground">
   <div class="content">
 
-    <span class="close"></span>
-    <div class="modal-body">
+    <button class="close" type="button"></button>
+    <div class="form-modal">
       <h1>Contactez-moi <br>
-        Mimi Keel</h1>
+        <%- nom %>
+      </h1>
       <form name="reserve" action="index.html" method="get">
         <div class="formData">
           <label for="first">Prénom</label><br />
@@ -15,12 +16,17 @@
           <input class="text-control" type="text" id="last" name="last" /><br />
         </div>
         <div class="formData">
-          <label for="email">E-mail</label><br />
+          <label for="email">Email</label><br />
           <input class="text-control" type="email" id="email" name="email" /><br />
         </div>
+        <div class="formData">
+          <label for="message" class="message">Votre message</label>
+          <textarea class="text-area text-control" id="message" name="message" rows="10" cols="38"></textarea>
+        </div>
         <%- include("../btContact/btContact.html", { className: "btContact btContact-mobile btContact-mobile-modal" ,
-          text: "Envoyer" }); %>
-          <!-- <input class="btn-submit" type="submit" class="button" value="C'est parti" /> -->
+          type: "submit" , text: "Envoyer" }); %>
+          <%- include("../btContact/btContact.html", { className: "btContact btContact-desktop btContact-desktop-modal"
+            ,type: "submit" , text: "Envoyer" }); %>
       </form>
     </div>
   </div>

@@ -56,7 +56,7 @@
         <button href="#" class="filterLink">#travel</button>
           <button href="#" class="filterLink">#animals</button>
   </nav>
-  <button class="btContact btContact-desktop">
+  <button class="btContact btContact-desktop" type="button">
     Contactez moi
 </button>
 </article>
@@ -131,7 +131,7 @@ comment gérer la valeur réelle qui sera envoyée avec les données du formulai
                     </section>
         </main>
 
-        <button class="btContact btContact-mobile">
+        <button class="btContact btContact-mobile" type="button">
     Contactez moi
 </button>
             <aside>
@@ -147,10 +147,11 @@ comment gérer la valeur réelle qui sera envoyée avec les données du formulai
                 <div class="bground">
   <div class="content">
 
-    <span class="close"></span>
-    <div class="modal-body">
+    <button class="close" type="button"></button>
+    <div class="form-modal">
       <h1>Contactez-moi <br>
-        Mimi Keel</h1>
+        Mimi Keel
+      </h1>
       <form name="reserve" action="index.html" method="get">
         <div class="formData">
           <label for="first">Prénom</label><br />
@@ -161,13 +162,19 @@ comment gérer la valeur réelle qui sera envoyée avec les données du formulai
           <input class="text-control" type="text" id="last" name="last" /><br />
         </div>
         <div class="formData">
-          <label for="email">E-mail</label><br />
+          <label for="email">Email</label><br />
           <input class="text-control" type="email" id="email" name="email" /><br />
         </div>
-        <button class="btContact btContact-mobile btContact-mobile-modal">
+        <div class="formData">
+          <label for="message" class="message">Votre message</label>
+          <textarea class="text-area text-control" id="message" name="message" rows="10" cols="38"></textarea>
+        </div>
+        <button class="btContact btContact-mobile btContact-mobile-modal" type="submit">
     Envoyer
 </button>
-          <!-- <input class="btn-submit" type="submit" class="button" value="C'est parti" /> -->
+          <button class="btContact btContact-desktop btContact-desktop-modal" type="submit">
+    Envoyer
+</button>
       </form>
     </div>
   </div>

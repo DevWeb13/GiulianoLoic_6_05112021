@@ -15,9 +15,11 @@
 			display: none;
 		}
 		&-modal {
-			position: sticky;
+			position: initial;
+			margin: 1.25rem 50%;
 		}
 	}
+
 	&-desktop {
 		display: none;
 		@include desktop {
@@ -28,6 +30,10 @@
 			height: 4.3125rem;
 			font-size: 1.25rem;
 			display: block;
+		}
+		&-modal {
+			left: 35px;
+			top: 793px;
 		}
 	}
 }

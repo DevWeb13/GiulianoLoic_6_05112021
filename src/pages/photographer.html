@@ -33,12 +33,12 @@
                     </section>
         </main>
 
-        <%- include("../components/btContact/btContact.html", { className:"btContact btContact-mobile",
+        <%- include("../components/btContact/btContact.html", { className:"btContact btContact-mobile", type: "button" ,
             text: "Contactez moi" }); %>
             <%- include("../components/aside/aside.html", { like: 297091, price: "300€ / jour" }); %>
 
 
-                <%- include("../components/form-modal/form-modal.html"); %>
+                <%- include("../components/form-modal/form-modal.html", { nom: "Mimi Keel" }); %>
 </body>
 
 </html>
