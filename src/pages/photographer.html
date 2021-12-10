@@ -17,13 +17,14 @@
     <%- include("../components/header/header.html", {className : "header header-photographer" }); %>
 
         <main>
-            <%- include("../components/photographerDescription-photographer/photographerDescription-photographer.html",
-                { imgLink:"./img/Mimi/Portrait_Nora.jpg", photoClassName : "mimi" , nom : "Mimi Keel" ,
+            <%- include("../components/photographer-card-big/photographer-card-big.html",
+                {articleClassName:"photographer-card photographer-card-big",
+                imgLink:"./img/PhotographersIDPhotos/MimiKeel.jpg", photoClassName : "mimi" , nom : "Mimi Keel" ,
                 location: "London,UK" , tagline: "Voir le beau dans le quotidien" , price: "400€/jour" }); %>
 
                 <%- include("../components/widget/widget.html"); %>
 
-                    <section class="mediaCardsSection">
+                    <section id="mediaCardsSection">
                         <%- include("../components/mediaCard/mediaCard.html", { className: "animalRainbow" ,
                             imgLink:"./img/Mimi/Animals_Rainbow.jpg" , imgTitle:"Arc-en-ciel", like: 12 }); %>
                             <%- include("../components/mediaCard/mediaCard.html", { className: "travelLonesome"

@@ -1,1 +1,17 @@
-<svg width="42" height="42" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M42 4.23L37.77 0 21 16.77 4.23 0 0 4.23 16.77 21 0 37.77 4.23 42 21 25.23 37.77 42 42 37.77 25.23 21 42 4.23z" fill="#fff"/></svg>
+push graphic-context
+compliance "SVG"
+fill "black"
+fill-opacity 1
+stroke "none"
+stroke-width 1
+stroke-opacity 1
+fill-rule nonzero
+fill "none"
+viewbox 0 0 42 42
+affine 1 0 0 1 0 0
+push graphic-context
+fill "#fff"
+class "path"
+path "M42 4.23L37.77 0 21 16.77 4.23 0 0 4.23 16.77 21 0 37.77 4.23 42 21 25.23 37.77 42 42 37.77 25.23 21 42 4.23z"
+pop graphic-context
+pop graphic-context

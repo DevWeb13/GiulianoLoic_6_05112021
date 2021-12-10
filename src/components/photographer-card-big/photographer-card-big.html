@@ -1,0 +1,27 @@
+<article class="<%- articleClassName %>">
+
+  <div class="photographer-card-link-imgContainer photographer-card-big-imgContainer">
+    <img src="<%- imgLink %>" class="<%- photoClassName %>" alt="" cover />
+  </div>
+
+  <h2>
+    <%- nom %>
+  </h2>
+
+
+  <p class="location">
+    <%- location %>
+  </p>
+  <p class="tagline">
+    <%- tagline %>
+  </p>
+
+  <nav>
+    <button href="#" class="filterLink">#Art</button>
+    <button href="#" class="filterLink">#Fashion</button>
+    <button href="#" class="filterLink">#Architecture</button>
+    <button href="#" class="filterLink">#Travel</button>
+  </nav>
+  <%- include("../btContact/btContact.html", { className:"btContact btContact-desktop", type: "button"
+    ,text: "Contactez moi" }) %>
+</article>

@@ -8,11 +8,14 @@ const postcss = require("gulp-postcss");
 const autoprefixer = require("autoprefixer");
 const cssnano = require("cssnano");
 const uglifycss = require("gulp-uglifycss");
-const uglify = require("gulp-uglify");
+
 const image = require("gulp-image");
-// const resizer = require("gulp-image-resize");
+const resizer = require("gulp-image-resize");
 const browserSync = require("browser-sync").create();
 const watch = require("gulp-watch");
+const webpack = require("webpack");
+const newLocal = "./webpack.config";
+const webpackCfg = require(newLocal);
 
 const paths = {
 	html: {
@@ -29,7 +32,7 @@ const paths = {
 	},
 	scripts: {
 		src: ["./src/**/*.js"],
-		dest: "./www/js/",
+		// dest: "./www/js/",
 	},
 
 	//  Mentor: A quoi sert et dois je installer cachebust? ******************************************************
@@ -40,28 +43,31 @@ const paths = {
 };
 
 function optimizeImg() {
-	return (
-		src(paths.images.src, { since: lastRun(optimizeImg) })
-			.pipe(image())
-			// .pipe(
-			//   resizer({
-			//     width: 100,
-			//     height: 100,
-			//     crop: true,
-			//     imageMagick: true,
-			//   })
-			// )
-			.pipe(dest(paths.images.dest))
-	);
+	return src(paths.images.src, { since: lastRun(optimizeImg) })
+		.pipe(image())
+		.pipe(
+			resizer({
+				width: 416,
+				height: 416,
+				crop: true,
+				imageMagick: true,
+			})
+		)
+		.pipe(dest(paths.images.dest));
 }
 
-function minifyScripts() {
-	return src(paths.scripts.src)
-		.pipe(sourcemaps.init())
-		.pipe(concat("app.js"))
-		.pipe(uglify())
-		.pipe(sourcemaps.write())
-		.pipe(dest(paths.scripts.dest));
+function buildJs(cb) {
+	return new Promise((resolve, reject) => {
+		webpack(webpackCfg, (err, stats) => {
+			if (err) {
+				return reject(err);
+			}
+			if (stats.hasErrors()) {
+				return reject(new Error(stats.compilation.errors.join("\n")));
+			}
+			resolve();
+		});
+	});
 }
 
 // function minifyPhotographerScripts() {
@@ -102,15 +108,13 @@ function watcher() {
 
 	watch(paths.styles.src, series(makeCss, browserSync.reload));
 
-	watch(paths.scripts.src, series(minifyScripts, browserSync.reload));
-
-	// watch(paths.images.src, series(optimizeImg, browserSync.reload));
+	watch(paths.scripts.src, series(buildJs, browserSync.reload));
 }
 
 module.exports = {
 	makeHtml,
 	makeCss,
-	minifyScripts,
+	buildJs,
 	optimizeImg,
 	watcher,
 };

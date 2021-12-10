@@ -1,4 +1,4 @@
-.header {
+header {
 	display: grid;
 	grid-template-areas: "logo p" "nav nav";
 	grid-template-columns: 50% 50%;
@@ -49,6 +49,20 @@
 		@include desktop {
 			align-content: center;
 			margin: 0;
+		}
+		.filterLink {
+			border: 0.5px solid #c4c4c4;
+			border-radius: 0.6875rem;
+			margin: 0 0.125rem;
+			padding: 0.125rem 0.375rem;
+			&:focus,
+			&:hover {
+				background-color: $primary1;
+				color: #fff;
+			}
+			@include desktop {
+				margin: 0.125rem;
+			}
 		}
 	}
 }
