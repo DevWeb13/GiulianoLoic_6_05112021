@@ -1,30 +1,30 @@
 export default class Header {
-	constructor(domTarget, props) {
-		this.DOM = document.getElementById("index-header");
-
-		domTarget.appendChild(this.DOM);
-		this.className = props.className;
-		this.DOM.classList.add(this.className);
-		domTarget.appendChild(this.DOM);
-
+	constructor(domTarget, className) {
+		this.DOM = domTarget;
+		this.className = className;
 		this.render();
 	}
 	render() {
+		// const header = document.createElement("header");
+		// this.DOM.appendChild(header);
+		// header.classList.add(this.className);
 		this.DOM.innerHTML = /* html */ `
-    <button class="logo" title="logo" onclick="document.location.href='index.html'">
-      <img src=" ./img/logo/logo.svg" alt="logo">
-    </button>
-    <button href="#" class="photographersLink">Nos photographes</button>
-		<nav class="indexNav">
-		<button href="#" class="filterLink">#Art</button>
-		<button href="#" class="filterLink">#Fashion</button>
-		<button href="#" class="filterLink">#Architecture</button>
-		<button href="#" class="filterLink">#Travel</button>
-		<button href="#" class="filterLink">#Sport</button>
-		<button href="#" class="filterLink">#Animals</button>
-		<button href="#" class="filterLink">#Events</button>
-		<button href="#" class="filterLink">#Portrait</button>
-		</nav>
+		<header class="${this.className}">
+			<button class="logo" title="logo" >
+				<img src=" ./img/logo/logo.svg" alt="logo">
+			</button>
+			<button href="#" class="photographersLink">Nos photographes</button>
+			<nav class="indexNav">
+				<button href="#" class="tags tags-link">#Art</button>
+				<button href="#" class="tags tags-link">#Fashion</button>
+				<button href="#" class="tags tags-link">#Architecture</button>
+				<button href="#" class="tags tags-link">#Travel</button>
+				<button href="#" class="tags tags-link">#Sport</button>
+				<button href="#" class="tags tags-link">#Animals</button>
+				<button href="#" class="tags tags-link">#Events</button>
+				<button href="#" class="tags tags-link">#Portrait</button>
+			</nav>
+		</header>
   `;
 	}
 }
