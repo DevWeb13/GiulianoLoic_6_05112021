@@ -6,7 +6,7 @@
 	cursor: default;
 	&-link {
 		cursor: pointer;
-		&:focus,
+		&[isChecked="true"],
 		&:hover {
 			background-color: $primary1;
 			color: #fff;

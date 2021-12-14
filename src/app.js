@@ -38,6 +38,8 @@ import PhotographerCardBig from "./components/photographer-card-big/photographer
 // Widget();
 
 const body = document.body;
+
+let tagsChecked = [];
 let id;
 
 /**
@@ -46,6 +48,25 @@ let id;
  * @var {object}
  */
 const utils = {
+	addTagsAttrIsChecked: function () {
+		const tags = document.querySelectorAll(".tags-link");
+		tags.forEach((tag) => {
+			tag.addEventListener("click", () => {
+				if (!tag.hasAttribute("isChecked")) {
+					tag.setAttribute("isChecked", "true");
+					tagsChecked.push(tag.innerHTML);
+					// console.log(tagsChecked);
+				} else {
+					tag.removeAttribute("isChecked");
+					tagsChecked.splice(tagsChecked.indexOf(tag.innerHTML), 1);
+					// console.log(tagsChecked);
+				}
+				const main = document.querySelector("main");
+				body.removeChild(main);
+				this.displayPhotographersCards(tagsChecked);
+			});
+		});
+	},
 	/**
 	 * Au clic sur button active la view
 	 *
@@ -102,7 +123,6 @@ const utils = {
 	 * @return  {any}         Retourne l' id du photographe dont la carte a été cliqué
 	 */
 	recupLinkId: function (buttons) {
-		// const buttons = document.querySelectorAll(".photographer-card-link");
 		buttons.forEach((button) => {
 			button.addEventListener("click", () => {
 				id = button.id;
@@ -116,17 +136,35 @@ const utils = {
 	 *
 	 * @return  {promise}      Affichage de chaque carte de photographe
 	 */
-	displayPhotographersCards: async function () {
+	displayPhotographersCards: async function (
+		/** @type {string | string[]} */ tagsChecked
+	) {
 		const photographers = await fetchPhotographers();
 		const main = document.createElement("main");
 		document.body.appendChild(main);
-		photographers.forEach((photographer) => {
-			new PhotographerCard(main, {
-				...photographer,
-				articleClassName: "photographer-card",
-				btClassName: "photographer-card-link",
-			});
+		photographers.forEach((/** @type {{ tags: any[]; }} */ photographer) => {
+			if (tagsChecked === undefined || tagsChecked.length === 0) {
+				new PhotographerCard(main, {
+					...photographer,
+					articleClassName: "photographer-card",
+					btClassName: "photographer-card-link",
+				});
+			} else {
+				const test = photographer.tags.some((tag) =>
+					tagsChecked.includes("#" + tag)
+				);
+				if (test) {
+					new PhotographerCard(main, {
+						...photographer,
+						articleClassName: "photographer-card",
+						btClassName: "photographer-card-link",
+					});
+				}
+			}
 		});
+		const buttons = document.querySelectorAll(".photographer-card-link");
+		utils.recupLinkId(buttons);
+		utils.activeManyLinks(buttons, views.photographer);
 	},
 };
 
@@ -142,11 +180,9 @@ const views = {
 	 * @return  {promise}  Fonctionnalités et affichage de la vue lobby
 	 */
 	lobby: async function () {
-		new Header(body, "header");
+		new Header(body, null);
 		await utils.displayPhotographersCards();
-		const buttons = document.querySelectorAll(".photographer-card-link");
-		utils.recupLinkId(buttons);
-		utils.activeManyLinks(buttons, views.photographer);
+		utils.addTagsAttrIsChecked();
 	},
 
 	/**
@@ -155,7 +191,8 @@ const views = {
 	 * @return  {promise}  Fonctionnalités et affichage de la vue photographer
 	 */
 	photographer: async function () {
-		new Header(body, "header header-photographer");
+		tagsChecked = [];
+		new Header(body, "photographer");
 		utils.displayPhotographersCardsBig(id);
 		let logo = document.querySelector(".logo");
 		utils.activeLink(logo, views.lobby);

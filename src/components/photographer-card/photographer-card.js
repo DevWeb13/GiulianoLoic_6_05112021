@@ -6,7 +6,7 @@ export default class PhotographerCard {
 		this.articleClassName = props.articleClassName;
 		this.btClassName = props.btClassName;
 		this.imgLink = "./img/PhotographersIDPhotos/" + props.portrait;
-		this.nom = props.name;
+		this.name = props.name;
 		this.location = props.city + ", " + props.country;
 		this.tagline = props.tagline;
 		this.price = props.price + "€/jour";
@@ -14,18 +14,18 @@ export default class PhotographerCard {
 		this.id = props.id;
 		this.render();
 	}
-
 	render() {
 		const article = document.createElement("article");
 		article.className = this.articleClassName;
+		article.id = this.id;
 		this.DOM.appendChild(article);
 		article.innerHTML += /* html */ `
-      <button class=${this.btClassName} id=${this.id}> 
+      <button class=${this.btClassName} id=${this.id} name="${this.name}"> 
         <div class="photographer-card-link-imgContainer">
           <img src=${this.imgLink}  alt="" cover width="208px" height="208px"/>
         </div>
         <h2>
-          ${this.nom}
+          ${this.name}
         </h2>
       </button>
 
@@ -40,9 +40,8 @@ export default class PhotographerCard {
       </p>
     `;
 		const nav = document.createElement("nav");
-		nav.className = "nav-card";
-		this.tags.forEach((tag) => {
-			new Tags(nav, tag);
+		this.tags.forEach((/** @type {any} */ tag) => {
+			new Tags(nav, tag, null);
 		});
 		article.appendChild(nav);
 	}

@@ -38,9 +38,8 @@ export default class PhotographerCardBig {
 						</p>
    `;
 		const nav = document.createElement("nav");
-		nav.className = "nav-card";
 		this.tags.forEach((tag) => {
-			new Tags(nav, tag);
+			new Tags(nav, tag, null);
 		});
 		article.appendChild(nav);
 		this.insertBtContactDesktop(article);

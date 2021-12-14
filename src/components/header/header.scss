@@ -1,4 +1,4 @@
-.header {
+header {
 	display: grid;
 	grid-template-areas: "logo p" "nav nav";
 	grid-template-columns: 50% 50%;
@@ -52,10 +52,10 @@
 			margin: 0;
 		}
 	}
-	&-photographer {
-		.photographersLink,
-		nav {
-			display: none;
-		}
+}
+.photographer {
+	.photographersLink,
+	nav {
+		display: none;
 	}
 }
