@@ -1,4 +1,4 @@
-header {
+.header {
 	display: grid;
 	grid-template-areas: "logo p" "nav nav";
 	grid-template-columns: 50% 50%;
@@ -28,13 +28,14 @@ header {
 			}
 		}
 	}
-	.photographersLink {
+	.lobbyH1 {
 		align-items: center;
 		display: flex;
 		font-size: 0.875rem;
 		grid-area: p;
 		justify-content: center;
 		margin-left: 14%;
+		color: $primary1;
 		@include desktop {
 			font-size: 2.25rem;
 		}
@@ -53,8 +54,13 @@ header {
 		}
 	}
 }
-.photographer {
-	.photographersLink,
+.header-photographer {
+	grid-template-rows: 6.8125rem 0;
+	margin-bottom: 0;
+	@include desktop {
+		grid-template-rows: 8.25rem;
+	}
+	.lobbyH1,
 	nav {
 		display: none;
 	}

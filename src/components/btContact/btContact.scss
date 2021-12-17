@@ -37,3 +37,20 @@
 		}
 	}
 }
+.goToContent {
+	background-color: #db8876;
+	color: black;
+	font-weight: bold;
+	border-radius: 5px;
+	width: 11.375rem;
+	height: 1.875rem;
+	position: fixed;
+	top: 0.375rem;
+	left: 50vw;
+	transform: translateX(-50%);
+	z-index: 5;
+	display: none;
+	&[visible="true"] {
+		display: block;
+	}
+}

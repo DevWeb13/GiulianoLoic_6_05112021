@@ -1,24 +1,23 @@
 import Tags from "../tags/tags";
 
 export default class Header {
-	constructor(domTarget, className) {
+	constructor(domTarget, className, className2) {
 		this.DOM = domTarget;
 		this.className = className;
-
+		this.className2 = className2;
 		this.render();
 	}
 	render() {
 		this.DOM.innerHTML = "";
 		const header = document.createElement("header");
 		this.DOM.appendChild(header);
-		if (this.className !== null) {
-			header.classList.add(this.className);
-		}
+		header.classList.add(this.className);
+		header.classList.add(this.className2);
 		header.innerHTML = /* html */ `
 			<button class="logo" title="logo" alt="Fisheye Home Page">
 				<img src=" ./img/logo/logo.svg" alt="logo">
 			</button>
-			<button href="#" class="photographersLink">Nos photographes</button>
+			<h1 class="lobbyH1">Nos photographes</h1>
 			 `;
 		const nav = document.createElement("nav");
 		new Tags(nav, "portrait", "tags-link");

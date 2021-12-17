@@ -31,6 +31,7 @@
 
 /* ******************************************************************************************************************************************************** */
 import { fetchPhotographers } from "./services/dataManager";
+import BtContact from "./components/btContact/btContact";
 import Header from "./components/header/header";
 import PhotographerCard from "./components/photographer-card/photographer-card";
 import PhotographerCardBig from "./components/photographer-card-big/photographer.card.big";
@@ -38,17 +39,41 @@ import PhotographerCardBig from "./components/photographer-card-big/photographer
 // Widget();
 
 const body = document.body;
-
+/**
+ * Tableau contenant les tags Checked
+ *
+ * @var {array}
+ */
 let tagsChecked = [];
+/**
+ * [id description]
+ *
+ * @var {[type]}
+ */
 let id;
 
+/* *************************************************************************************************************************************************************************************************************************************************************** */
 /**
  * Object contains functions utils
  *
  * @var {object}
  */
 const utils = {
-	addTagsAttrIsChecked: function () {
+	goToContentManage: function () {
+		const goToContent = document.querySelector(".goToContent");
+		if (window.scrollY > 20) {
+			goToContent.setAttribute("visible", "true");
+		} else {
+			goToContent.removeAttribute("visible");
+		}
+	},
+
+	razLobby: function () {
+		tagsChecked = [];
+		views.lobby();
+	},
+
+	tagsManage: function () {
 		const tags = document.querySelectorAll(".tags-link");
 		tags.forEach((tag) => {
 			tag.addEventListener("click", () => {
@@ -134,11 +159,11 @@ const utils = {
 	/**
 	 * Affichage de chaque carte de photographe
 	 *
+	 * @param  {string | string[]}  tagsChecked   Tags checked
+	 *
 	 * @return  {promise}      Affichage de chaque carte de photographe
 	 */
-	displayPhotographersCards: async function (
-		/** @type {string | string[]} */ tagsChecked
-	) {
+	displayPhotographersCards: async function (tagsChecked) {
 		const photographers = await fetchPhotographers();
 		const main = document.createElement("main");
 		document.body.appendChild(main);
@@ -167,7 +192,7 @@ const utils = {
 		utils.activeManyLinks(buttons, views.photographer);
 	},
 };
-
+/* *************************************************************************************************************************************************************************************************************************************************************** */
 /**
  * Object contains functions for views
  *
@@ -180,9 +205,27 @@ const views = {
 	 * @return  {promise}  Fonctionnalités et affichage de la vue lobby
 	 */
 	lobby: async function () {
-		new Header(body, null);
-		await utils.displayPhotographersCards();
-		utils.addTagsAttrIsChecked();
+		// 		const btnScroll = document.querySelector('.mainRedirection')
+		// window.addEventListener('scroll', (e) => {
+		//   if (window.scrollY >= 220) {
+		//     btnScroll.classList.add('mainRedirectionVisible')
+		//   } else {
+		//     btnScroll.classList.remove('mainRedirectionVisible')
+		//   }
+		// })
+
+		new Header(body, "header", null);
+		new BtContact(body, {
+			className: "goToContent",
+			type: "button",
+			text: "Passer au contenu",
+		});
+		await utils.displayPhotographersCards(tagsChecked);
+		utils.tagsManage();
+		const logo = document.querySelector(".logo");
+		logo.addEventListener("click", utils.razLobby);
+
+		window.addEventListener("scroll", utils.goToContentManage);
 	},
 
 	/**
@@ -192,10 +235,10 @@ const views = {
 	 */
 	photographer: async function () {
 		tagsChecked = [];
-		new Header(body, "photographer");
+		new Header(body, "header", "header-photographer");
 		utils.displayPhotographersCardsBig(id);
-		let logo = document.querySelector(".logo");
-		utils.activeLink(logo, views.lobby);
+		const logo = document.querySelector(".logo");
+		logo.addEventListener("click", utils.razLobby);
 	},
 
 	/**

@@ -28,8 +28,7 @@ export default class PhotographerCard {
           ${this.name}
         </h2>
       </button>
-
-      <p class="location">
+			<p class="location">
         ${this.location}
       </p>
       <p class="tagline tagline_photographerPages">
