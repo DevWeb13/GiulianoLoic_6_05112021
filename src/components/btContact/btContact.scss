@@ -23,9 +23,7 @@
 	&-desktop {
 		display: none;
 		@include desktop {
-			position: absolute;
-			left: 36.5%;
-			top: 3.9rem;
+			margin: auto;
 			width: 10.625rem;
 			height: 4.3125rem;
 			font-size: 1.25rem;

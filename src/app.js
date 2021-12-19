@@ -35,8 +35,6 @@ import BtContact from "./components/btContact/btContact";
 import Header from "./components/header/header";
 import PhotographerCard from "./components/photographer-card/photographer-card";
 import PhotographerCardBig from "./components/photographer-card-big/photographer.card.big";
-// import Widget from "./components/widget/widget";
-// Widget();
 
 const body = document.body;
 /**
@@ -61,10 +59,15 @@ let id;
 const utils = {
 	goToContentManage: function () {
 		const goToContent = document.querySelector(".goToContent");
-		if (window.scrollY > 20) {
-			goToContent.setAttribute("visible", "true");
-		} else {
-			goToContent.removeAttribute("visible");
+		if (goToContent !== null) {
+			if (window.scrollY > 20) {
+				goToContent.setAttribute("visible", "true");
+				goToContent.addEventListener("click", () => {
+					window.location.href = "#main";
+				});
+			} else {
+				goToContent.removeAttribute("visible");
+			}
 		}
 	},
 
@@ -80,15 +83,12 @@ const utils = {
 				if (!tag.hasAttribute("isChecked")) {
 					tag.setAttribute("isChecked", "true");
 					tagsChecked.push(tag.innerHTML);
-					// console.log(tagsChecked);
 				} else {
 					tag.removeAttribute("isChecked");
 					tagsChecked.splice(tagsChecked.indexOf(tag.innerHTML), 1);
-					// console.log(tagsChecked);
 				}
-				const main = document.querySelector("main");
-				body.removeChild(main);
-				this.displayPhotographersCards(tagsChecked);
+				views.lobby();
+				return tagsChecked;
 			});
 		});
 	},
@@ -166,6 +166,7 @@ const utils = {
 	displayPhotographersCards: async function (tagsChecked) {
 		const photographers = await fetchPhotographers();
 		const main = document.createElement("main");
+		main.id = "main";
 		document.body.appendChild(main);
 		photographers.forEach((/** @type {{ tags: any[]; }} */ photographer) => {
 			if (tagsChecked === undefined || tagsChecked.length === 0) {
@@ -205,16 +206,7 @@ const views = {
 	 * @return  {promise}  Fonctionnalités et affichage de la vue lobby
 	 */
 	lobby: async function () {
-		// 		const btnScroll = document.querySelector('.mainRedirection')
-		// window.addEventListener('scroll', (e) => {
-		//   if (window.scrollY >= 220) {
-		//     btnScroll.classList.add('mainRedirectionVisible')
-		//   } else {
-		//     btnScroll.classList.remove('mainRedirectionVisible')
-		//   }
-		// })
-
-		new Header(body, "header", null);
+		new Header(body, tagsChecked, "header");
 		new BtContact(body, {
 			className: "goToContent",
 			type: "button",
@@ -222,10 +214,7 @@ const views = {
 		});
 		await utils.displayPhotographersCards(tagsChecked);
 		utils.tagsManage();
-		const logo = document.querySelector(".logo");
-		logo.addEventListener("click", utils.razLobby);
-
-		window.addEventListener("scroll", utils.goToContentManage);
+		document.addEventListener("scroll", utils.goToContentManage);
 	},
 
 	/**
@@ -235,10 +224,9 @@ const views = {
 	 */
 	photographer: async function () {
 		tagsChecked = [];
-		new Header(body, "header", "header-photographer");
-		utils.displayPhotographersCardsBig(id);
-		const logo = document.querySelector(".logo");
-		logo.addEventListener("click", utils.razLobby);
+		new Header(body, tagsChecked, "header", "header-photographer");
+		await utils.displayPhotographersCardsBig(id);
+		utils.tagsManage();
 	},
 
 	/**
@@ -256,4 +244,6 @@ const views = {
 	formModal: function () {},
 };
 
+// @ts-ignore
+window.goHome = utils.razLobby;
 views.lobby();

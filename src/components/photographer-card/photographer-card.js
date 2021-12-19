@@ -40,7 +40,7 @@ export default class PhotographerCard {
     `;
 		const nav = document.createElement("nav");
 		this.tags.forEach((/** @type {any} */ tag) => {
-			new Tags(nav, tag, null);
+			new Tags(nav, tag, "tags");
 		});
 		article.appendChild(nav);
 	}

@@ -17,11 +17,13 @@
 	}
 
 	.logo {
+		cursor: default;
 		@include desktop {
 			height: 100%;
 			max-width: 19rem;
 		}
 		img {
+			cursor: pointer;
 			margin-top: 0.5625rem;
 			@include desktop {
 				height: 3.125rem;

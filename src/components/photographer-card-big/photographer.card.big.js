@@ -39,7 +39,7 @@ export default class PhotographerCardBig {
    `;
 		const nav = document.createElement("nav");
 		this.tags.forEach((tag) => {
-			new Tags(nav, tag, null);
+			new Tags(nav, tag, "tags", "tags-link");
 		});
 		article.appendChild(nav);
 		this.insertBtContactDesktop(article);
