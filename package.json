@@ -2,8 +2,9 @@
   "name": "p6",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "webpack.config.js",
   "scripts": {
+    "build": "webpack",
     "makeHtml": "npx gulp makeHtml",
     "makeCss": "npx gulp makeCss",
     "buildJs": "npx gulp buildJs",
@@ -29,6 +30,7 @@
     "gulp-uglifycss": "^1.1.0",
     "gulp-watch": "^5.0.1",
     "sass": "^1.43.4",
-    "webpack": "^5.64.4"
+    "webpack": "^5.64.4",
+    "webpack-cli": "^4.9.1"
   }
 }
