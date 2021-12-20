@@ -8,7 +8,6 @@ const postcss = require("gulp-postcss");
 const autoprefixer = require("autoprefixer");
 const cssnano = require("cssnano");
 const uglifycss = require("gulp-uglifycss");
-
 const image = require("gulp-image");
 const resizer = require("gulp-image-resize");
 const browserSync = require("browser-sync").create();
@@ -70,13 +69,15 @@ function buildJs(cb) {
 	});
 }
 
-// function minifyPhotographerScripts() {
-// 	return src(paths.photographerScripts.src)
+
+
+// function buildJs() {
+// 	return src("./src/app.js")
 // 		.pipe(sourcemaps.init())
-// 		.pipe(concat("photographer.js"))
+// 		.pipe(concat("app.js"))
 // 		.pipe(uglify())
 // 		.pipe(sourcemaps.write())
-// 		.pipe(dest(paths.photographerScripts.dest));
+// 		.pipe(dest(paths.scripts.dest));
 // }
 
 function makeCss() {

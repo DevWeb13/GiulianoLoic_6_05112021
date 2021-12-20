@@ -31,10 +31,12 @@
 
 /* ******************************************************************************************************************************************************** */
 import { fetchPhotographers } from "./services/dataManager";
+import { fetchMedia } from "./services/dataManager";
 import BtContact from "./components/btContact/btContact";
 import Header from "./components/header/header";
 import PhotographerCard from "./components/photographer-card/photographer-card";
 import PhotographerCardBig from "./components/photographer-card-big/photographer.card.big";
+import Widget from "./components/widget/widget";
 
 const body = document.body;
 /**
@@ -111,8 +113,7 @@ const utils = {
 	 *
 	 * @return  {promise}      Affiche la description du photographe dans views.photographer en fonction de son id
 	 */
-	displayPhotographersCardsBig: async function (id) {
-		const photographers = await fetchPhotographers();
+	displayPhotographersCardsBig: async function (photographers, id) {
 		const main = document.createElement("main");
 		main.id = "photographer-main";
 		document.body.appendChild(main);
@@ -163,8 +164,7 @@ const utils = {
 	 *
 	 * @return  {promise}      Affichage de chaque carte de photographe
 	 */
-	displayPhotographersCards: async function (tagsChecked) {
-		const photographers = await fetchPhotographers();
+	displayPhotographersCards: async function (photographers, tagsChecked) {
 		const main = document.createElement("main");
 		main.id = "main";
 		document.body.appendChild(main);
@@ -206,13 +206,14 @@ const views = {
 	 * @return  {promise}  Fonctionnalités et affichage de la vue lobby
 	 */
 	lobby: async function () {
+		const photographers = await fetchPhotographers();
 		new Header(body, tagsChecked, "header");
 		new BtContact(body, {
 			className: "goToContent",
 			type: "button",
 			text: "Passer au contenu",
 		});
-		await utils.displayPhotographersCards(tagsChecked);
+		await utils.displayPhotographersCards(photographers, tagsChecked);
 		utils.tagsManage();
 		document.addEventListener("scroll", utils.goToContentManage);
 	},
@@ -224,8 +225,14 @@ const views = {
 	 */
 	photographer: async function () {
 		tagsChecked = [];
+		const photographers = await fetchPhotographers();
+		const media = await fetchMedia();
+		console.log(media);
 		new Header(body, tagsChecked, "header", "header-photographer");
-		await utils.displayPhotographersCardsBig(id);
+		await utils.displayPhotographersCardsBig(photographers, id);
+		const main = document.querySelector("main");
+		new Widget(main);
+
 		utils.tagsManage();
 	},
 
@@ -243,7 +250,7 @@ const views = {
 	 */
 	formModal: function () {},
 };
-
+console.log("test");
 // @ts-ignore
 window.goHome = utils.razLobby;
 views.lobby();
