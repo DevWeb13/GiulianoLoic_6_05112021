@@ -35,7 +35,7 @@ export default class Header {
 		});
 		header.innerHTML = /* html */ `
 			<button class="logo" title="logo" alt="Fisheye Home Page" >
-				<img src=" ./img/logo/logo.svg" alt="logo" onclick="goHome()">
+				<img src="./img/logo/logo.svg" alt="" onclick="goHome()">
 			</button>
 			<h1 class="lobbyH1">Nos photographes</h1>
 			 `;

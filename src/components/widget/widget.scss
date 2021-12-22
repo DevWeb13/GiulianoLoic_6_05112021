@@ -47,6 +47,7 @@
 	height: 3.75rem;
 	border-radius: 5px;
 	margin-left: 1.5625rem;
+	cursor: pointer;
 	&.active {
 		outline: none;
 		/* Cette propriété box-shadow n'est pas requise à proprement parler, mais il est
@@ -83,6 +84,7 @@
 		font-size: 1.125rem;
 		font-weight: bold;
 		margin-left: 1.25rem;
+		color: white;
 	}
 	/* Le sélecteur .select ici est du sucre syntaxique (le fait de donner au
    programmeur des possibilités d'écriture plus succinctes ou plus proches

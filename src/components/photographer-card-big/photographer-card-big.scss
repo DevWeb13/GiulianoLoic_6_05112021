@@ -32,19 +32,22 @@
 			position: relative;
 			@include desktop {
 				left: 4.26%;
+				width: 36%;
 			}
 		}
 		h2 {
 			color: $primary2;
 			font-size: 2.25rem;
-			white-space: nowrap;
+			// white-space: nowrap;
 			bottom: 4px;
+			width: 69%;
 			@include desktop {
 				font-size: 4rem;
 				top: 3.1875rem;
 			}
 		}
 		.location {
+			color: $primary1;
 			bottom: 0.5rem;
 			@include desktop {
 				font-size: 1.5rem;

@@ -15,6 +15,7 @@ const watch = require("gulp-watch");
 const webpack = require("webpack");
 const newLocal = "./webpack.config";
 const webpackCfg = require(newLocal);
+const way2enjoy = require("way2enjoy-gulp");
 
 const paths = {
 	html: {
@@ -23,7 +24,11 @@ const paths = {
 	},
 	images: {
 		src: ["./src/img/**/*.jpg", "./src/img/**/*.svg"],
-		dest: "./www/img/",
+		dest: "./www/img/photos/",
+	},
+	videos: {
+		src: ["./src/img/**/*.mp4"],
+		dest: "./www/img/videos",
 	},
 	styles: {
 		src: ["./src/base.scss", "./src/**/*.scss"],
@@ -40,6 +45,18 @@ const paths = {
 	//   dest: "./dist/",
 	// },
 };
+
+function optimizeVideo() {
+	return src(paths.videos.src, { since: lastRun(optimizeVideo) })
+		.pipe(
+			way2enjoy({
+				key: "API_KEY",
+				sigFile: "images/.way2enjoy-sigs",
+				log: true,
+			})
+		)
+		.pipe(dest(paths.videos.dest));
+}
 
 function optimizeImg() {
 	return src(paths.images.src, { since: lastRun(optimizeImg) })
@@ -68,8 +85,6 @@ function buildJs(cb) {
 		});
 	});
 }
-
-
 
 // function buildJs() {
 // 	return src("./src/app.js")
@@ -117,5 +132,6 @@ module.exports = {
 	makeCss,
 	buildJs,
 	optimizeImg,
+	optimizeVideo,
 	watcher,
 };

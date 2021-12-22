@@ -25,7 +25,12 @@
 		}
 
 		img {
+			object-fit: cover;
 			position: relative;
+		}
+		video {
+			height: 100%;
+			max-width: none;
 		}
 		.animalRainbow {
 			bottom: 2.9375rem;
@@ -50,11 +55,17 @@
 			font-size: 0.875rem;
 		}
 		.imgTitle {
+			white-space: nowrap;
+			width: 85%;
+			text-overflow: ellipsis;
+			overflow: hidden;
 			@include desktop {
 				font-size: 1.5rem;
 			}
 		}
 		.like {
+			cursor: pointer;
+
 			@include desktop {
 				font-size: 1rem;
 			}

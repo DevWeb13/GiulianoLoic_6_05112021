@@ -1,3 +1,4 @@
+,
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -24,14 +25,8 @@
 
                 <%- include("../components/widget/widget.html"); %>
 
-                    <section id="mediaCardsSection">
-                        <%- include("../components/mediaCard/mediaCard.html", { className: "animalRainbow" ,
-                            imgLink:"./img/Mimi/Animals_Rainbow.jpg" , imgTitle:"Arc-en-ciel", like: 12 }); %>
-                            <%- include("../components/mediaCard/mediaCard.html", { className: "travelLonesome"
-                                ,imgLink:"./img/Mimi/Travel_Lonesome.jpg" ,imgTitle:"Solitude", like: 12 }); %>
-                                <%- include("../components/mediaCard/mediaCard.html", { className: "travelLonesome"
-                                    ,imgLink:"./img/Mimi/Travel_Lonesome.jpg" ,imgTitle:"Solitude", like: 12 }); %>
-                    </section>
+                    <%- include("../components/mediaCardsSection/mediaCardsSection.html"); %>
+                    
         </main>
 
         <%- include("../components/btContact/btContact.html", { className:"btContact btContact-mobile", type: "button" ,

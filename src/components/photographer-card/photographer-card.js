@@ -1,5 +1,7 @@
 import Tags from "../tags/tags";
-
+/**
+ * Carte du photographe dans le lobby
+ */
 export default class PhotographerCard {
 	constructor(domTarget, props) {
 		this.DOM = domTarget;
@@ -17,10 +19,10 @@ export default class PhotographerCard {
 	render() {
 		const article = document.createElement("article");
 		article.className = this.articleClassName;
-		article.id = this.id;
+		// article.id = this.id;
 		this.DOM.appendChild(article);
 		article.innerHTML += /* html */ `
-      <button class=${this.btClassName} id=${this.id} name="${this.name}"> 
+      <button class=${this.btClassName} id=${this.id} > 
         <div class="photographer-card-link-imgContainer">
           <img src=${this.imgLink}  alt="" cover width="208px" height="208px"/>
         </div>
@@ -39,6 +41,7 @@ export default class PhotographerCard {
       </p>
     `;
 		const nav = document.createElement("nav");
+		nav.title = this.name + "Tags";
 		this.tags.forEach((/** @type {any} */ tag) => {
 			new Tags(nav, tag, "tags");
 		});

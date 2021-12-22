@@ -1,24 +1,26 @@
 import Tags from "../tags/tags";
 import BtContact from "../btContact/btContact";
+import PhotographerCard from "../photographer-card/photographer-card";
 
 /**
  * Carte du photographe dans sa page perso
  */
-export default class PhotographerCardBig {
+export default class PhotographerCardBig extends PhotographerCard {
 	constructor(domTarget, props) {
-		this.DOM = domTarget;
-		this.articleClassName = props.articleClassName;
-		this.btClassName = props.btClassName;
-		this.imgLink = "./img/PhotographersIDPhotos/" + props.portrait;
-		this.nom = props.name;
-		this.location = props.city + ", " + props.country;
-		this.tagline = props.tagline;
-		this.price = props.price + "€/jour";
-		this.tags = props.tags;
-		this.id = props.id;
-		this.render();
-	}
+		super(domTarget, props);
+		// this.DOM = domTarget;
+		// this.articleClassName = props.articleClassName;
+		// this.btClassName = props.btClassName;
+		// this.imgLink = "./img/PhotographersIDPhotos/" + props.portrait;
+		// this.nom = props.name;
+		// this.location = props.city + ", " + props.country;
+		// this.tagline = props.tagline;
+		// this.price = props.price + "€/jour";
+		// this.tags = props.tags;
+		// this.id = props.id;
 
+		// this.render();
+	}
 	render() {
 		const article = document.createElement("article");
 		article.className = this.articleClassName;
@@ -28,7 +30,7 @@ export default class PhotographerCardBig {
 							<img src="${this.imgLink}"  alt="" cover />
 						</div>
 						<h2>
-							${this.nom}
+							${this.name}
 						</h2>
 						<p class="location">
 							${this.location}
