@@ -1,27 +1,22 @@
-<article class="<%- articleClassName %>" />
-
-<button class="<%- btClassName %>" onclick="document.location.href='photographer.html'">
-  <div class="photographer-card-link-imgContainer">
-    <img src="<%- imgLink %>" alt="" cover />
-  </div>
-  <h2>
-    <%- nom %>
-  </h2>
-</button>
-
-<p class="location">
-  <%- location %>
-</p>
-<p class="tagline tagline_photographerPages">
-  <%- tagline %>
-</p>
-<p class="price">
-  <%- price %>
-</p>
-<nav>
-  <button href="#" class="filterLink">#Art</button>
-  <button href="#" class="filterLink">#Fashion</button>
-  <button href="#" class="filterLink">#Architecture</button>
-  <button href="#" class="filterLink">#Travel</button>
-</nav>
+<article class="photographer-card">
+  <button class="photographer-card-link">
+    <div class="photographer-card-link-imgContainer">
+      <img src="<%- imgLink %>" alt="" cover />
+    </div>
+    <h2>
+      <%- name %>
+    </h2>
+  </button>
+  <p class="location">
+    <%- location %>
+  </p>
+  <p class="tagline tagline_photographerPages">
+    <%- tagline %>
+  </p>
+  <p class="price">
+    <%- price %>
+  </p>
+  <nav>
+    <%- include("../tags/tags.html", { tags: "#portrait" }) %>
+  </nav>
 </article>

@@ -1,43 +1,9 @@
-// import Header from "./components/header/header";
-// import PhotographerCard from "./components/photographer-card/photographer-card";
-// // import FilterLink from "./components/filterLink/filterLink";
-// // const { util } = require("webpack");
-
-// // import Widget from "./components/widget/widget";
-// // import FormModal from "./components/form-modal/form-modal";
-// // import BtContact from "./components/btContact/btContact";
-
-// import { fetchPhotographers } from "./services/dataManager";
-
-// // fetchPhotographers();
-// /**
-//  * Affichage de chaque description de photographe
-//  *
-//  * @return  {promise}      Affichage de chaque description de photographe
-//  */
-// async function displayPhotographersDescriptions() {
-// 	const photographers = await fetchPhotographers();
-// 	photographers.forEach((photographer) => {
-// 		new PhotographerCard(document.querySelector("main"), {
-// 			...photographer,
-// 			articleClassName: "photographer-card",
-// 			btClassName: "photographer-card-link",
-// 		});
-// 	});
-// }
-
-// new Header(document.querySelector("header"));
-// displayPhotographersDescriptions();
-
-/* ******************************************************************************************************************************************************** */
 import { fetchPhotographers } from "./services/dataManager";
 import { fetchMedia } from "./services/dataManager";
 import BtContact from "./components/btContact/btContact";
 import Header from "./components/header/header";
 import PhotographerCard from "./components/photographer-card/photographer-card";
-import PhotographerCardBig from "./components/photographer-card-big/photographer.card.big";
-import Widget from "./components/widget/widget";
-import MediaCardsSection from "./components/mediaCardsSection/mediaCardsSection";
+import PhotographerMain from "./components/photographer-main/photographer-main";
 
 const body = document.body;
 /**
@@ -60,19 +26,19 @@ let id;
  * @var {object}
  */
 const utils = {
-	goToContentManage: function () {
-		const goToContent = document.querySelector(".goToContent");
-		if (goToContent !== null) {
-			if (window.scrollY > 20) {
-				goToContent.setAttribute("visible", "true");
-				goToContent.addEventListener("click", () => {
-					window.location.href = "#main";
-				});
-			} else {
-				goToContent.removeAttribute("visible");
-			}
-		}
-	},
+	// goToContentManage: function () {
+	// 	const goToContent = document.querySelector(".goToContent");
+	// 	if (goToContent !== null) {
+	// 		if (window.scrollY > 20) {
+	// 			goToContent.setAttribute("visible", "true");
+	// 			goToContent.addEventListener("click", () => {
+	// 				window.location.href = "#main";
+	// 			});
+	// 		} else {
+	// 			goToContent.removeAttribute("visible");
+	// 		}
+	// 	}
+	// },
 
 	razLobby: function () {
 		tagsChecked = [];
@@ -105,27 +71,6 @@ const utils = {
 	 */
 	activeLink: function (button, view) {
 		button.addEventListener("click", view);
-	},
-
-	/**
-	 * Affichage de la description du photographe dans views.photographer
-	 *
-	 * @param   {number}  id  id du photographe
-	 *
-	 * @return  {promise}      Affiche la description du photographe dans views.photographer en fonction de son id
-	 */
-	displayPhotographersCardsBig: async function (photographers, id) {
-		const main = document.createElement("main");
-		main.id = "photographer-main";
-		document.body.appendChild(main);
-		photographers.forEach((photographer) => {
-			if (photographer.id == id) {
-				new PhotographerCardBig(main, {
-					...photographer,
-					articleClassName: "photographer-card-big",
-				});
-			}
-		});
 	},
 
 	/**
@@ -167,14 +112,12 @@ const utils = {
 	 */
 	displayPhotographersCards: async function (photographers, tagsChecked) {
 		const main = document.createElement("main");
-		main.id = "main";
+		// main.id = "main";
 		document.body.appendChild(main);
 		photographers.forEach((/** @type {{ tags: any[]; }} */ photographer) => {
 			if (tagsChecked === undefined || tagsChecked.length === 0) {
 				new PhotographerCard(main, {
 					...photographer,
-					articleClassName: "photographer-card",
-					btClassName: "photographer-card-link",
 				});
 			} else {
 				const test = photographer.tags.some((tag) =>
@@ -183,8 +126,6 @@ const utils = {
 				if (test) {
 					new PhotographerCard(main, {
 						...photographer,
-						articleClassName: "photographer-card",
-						btClassName: "photographer-card-link",
 					});
 				}
 			}
@@ -216,7 +157,7 @@ const views = {
 		});
 		await utils.displayPhotographersCards(photographers, tagsChecked);
 		utils.tagsManage();
-		document.addEventListener("scroll", utils.goToContentManage);
+		// document.addEventListener("scroll", utils.goToContentManage);
 	},
 
 	/**
@@ -228,12 +169,12 @@ const views = {
 		tagsChecked = [];
 		const photographers = await fetchPhotographers();
 		const medias = await fetchMedia();
-		// console.log(medias);
 		new Header(body, tagsChecked, "header", "header-photographer");
-		await utils.displayPhotographersCardsBig(photographers, id);
-		const main = document.querySelector("main");
-		new Widget(main);
-		new MediaCardsSection(main, { medias: medias, id: id });
+		new PhotographerMain(body, {
+			photographers: photographers,
+			medias: medias,
+			id: id,
+		});
 		utils.tagsManage();
 	},
 

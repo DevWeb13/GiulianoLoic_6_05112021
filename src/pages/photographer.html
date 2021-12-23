@@ -1,4 +1,3 @@
-,
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -16,21 +15,10 @@
 
 <body>
     <%- include("../components/header/header.html", {className : "header header-photographer" }); %>
+        <%- include("../components/photographer-main/photographer-main.html"); %>
 
-        <main>
-            <%- include("../components/photographer-card-big/photographer-card-big.html",
-                {articleClassName:"photographer-card photographer-card-big",
-                imgLink:"./img/PhotographersIDPhotos/MimiKeel.jpg", photoClassName : "mimi" , nom : "Mimi Keel" ,
-                location: "London,UK" , tagline: "Voir le beau dans le quotidien" , price: "400€/jour" }); %>
 
-                <%- include("../components/widget/widget.html"); %>
 
-                    <%- include("../components/mediaCardsSection/mediaCardsSection.html"); %>
-                    
-        </main>
-
-        <%- include("../components/btContact/btContact.html", { className:"btContact btContact-mobile", type: "button" ,
-            text: "Contactez moi" }); %>
             <%- include("../components/aside/aside.html", { like: 297091, price: "300€ / jour" }); %>
 
 

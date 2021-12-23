@@ -1,167 +1,112 @@
-,
 <!DOCTYPE html>
 <html lang="fr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fisheye - photographe</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css" />
-    <link rel="stylesheet" href="css/index.css" type="text/css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
-    <script src="js/app.js" defer></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fisheye - photographe</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css" />
+  <link rel="stylesheet" href="css/index.css" type="text/css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+  <script src="js/app.js" defer></script>
 </head>
 
 <body>
-    <header class="header header-photographer">
-  <button class="logo" title="logo" alt="Fisheye Home Page">
-    <img src=" ./img/logo/logo.svg" alt="logo">
-  </button>
-  <h1 class="lobbyH1">Nos photographes</h1>
-  <nav>
-    <button href="#" class="tags tags-link">#Art</button>
-    <button href="#" class="tags tags-link">#Fashion</button>
-    <button href="#" class="tags tags-link">#Architecture</button>
-    <button href="#" class="tags tags-link">#Travel</button>
-    <button href="#" class="tags tags-link">#Sport</button>
-    <button href="#" class="tags tags-link">#Animals</button>
-    <button href="#" class="tags tags-link">#Events</button>
-    <button href="#" class="tags tags-link">#Portrait</button>
-  </nav>
-</header>
-
-        <main>
-            <article class="photographer-card photographer-card-big">
-  <div class="photographer-card-link-imgContainer photographer-card-big-imgContainer">
-    <img src="./img/PhotographersIDPhotos/MimiKeel.jpg" alt="" cover />
-  </div>
-  <h2>
-    Mimi Keel
-  </h2>
-  <p class="location">
-    London,UK
-  </p>
-  <p class="tagline">
-    Voir le beau dans le quotidien
-  </p>
-
-  <nav>
-    <button href="#" class="filterLink">#Art</button>
-    <button href="#" class="filterLink">#Fashion</button>
-    <button href="#" class="filterLink">#Architecture</button>
-    <button href="#" class="filterLink">#Travel</button>
-  </nav>
-  <button class=btContact btContact-desktop type=button>
-        Contactez moi
-</button>
-</article>
-
-                <div class="no-widget" id="widget">
-  <label for="select" onclick=toggleOptList(select)>Trier par</label>
-  <form>
-    <select name="Popularité">
-      <option>Popularité</option>
-      <option>Date</option>
-      <option>Titre</option>
-    </select>
-    <div class="select" tabindex="0" id="select" role="listbox">
-      <!-- Ce containeur sera utilisé pour afficher la valeur courante du widget -->
-      <span class="value">Popularité</span>
-      <!-- Ce conteneur contiendra toutes les options disponibles pour le widget.
-Comme c'est une liste, il y sens à utiliser l'élément ul. -->
-      <ul class="optList hidden" role="presentation">
-        <!-- Chaque option ne contient que la valeur à afficher, Nous verrons plus loin
-comment gérer la valeur réelle qui sera envoyée avec les données du formulaire -->
-        <li class="option" role="option">Popularité</li>
-        <li class="option" role="option">Date</li>
-        <li class="option" role="option">Titre</li>
-      </ul>
-    </div>
-  </form>
-</div>
-
-                    <section id="mediaCardsSection">
-  <article class="mediaCard">
-    <button class="imgContainer" onclick="openLightbox()">
-        <img class="animalRainbow" src="./img/Mimi/Animals_Rainbow.jpg" alt="" cover>
+  <header class="header header-photographer">
+    <button class="logo" title="logo" alt="Fisheye Home Page">
+      <img src=" ./img/logo/logo.svg" alt="logo">
     </button>
-    <div class="infoContainer">
-        <p class="imgTitle">
-            Arc-en-ciel
-        </p>
-        <button class="like">
-            12
-        </button>
-    </div>
-</article>
-    <article class="mediaCard">
-    <button class="imgContainer" onclick="openLightbox()">
-        <img class="travelLonesome" src="./img/Mimi/Travel_Lonesome.jpg" alt="" cover>
-    </button>
-    <div class="infoContainer">
-        <p class="imgTitle">
-            Solitude
-        </p>
-        <button class="like">
-            12
-        </button>
-    </div>
-</article>
-      // etc...
-</section>
-                    
-        </main>
+    <h1 class="lobbyH1">Nos photographes</h1>
+    <nav>
+      <button href="#" class="tags tags-link">#Art</button>
+      <button href="#" class="tags tags-link">#Fashion</button>
+      <button href="#" class="tags tags-link">#Architecture</button>
+      <button href="#" class="tags tags-link">#Travel</button>
+      <button href="#" class="tags tags-link">#Sport</button>
+      <button href="#" class="tags tags-link">#Animals</button>
+      <button href="#" class="tags tags-link">#Events</button>
+      <button href="#" class="tags tags-link">#Portrait</button>
+    </nav>
+  </header>
+  <main id="photographer-main">
+    <article class="photographer-card-big">
+      <div class="photographer-card-link-imgContainer photographer-card-big-imgContainer">
+        <img src="./img/PhotographersIDPhotos/MimiKeel.jpg" alt="" cover />
+      </div>
+      <h2>
+        MimiKeel
+      </h2>
+      <p class="location">
+        London, UK
+      </p>
+      <p class="tagline">
+        Voir le beau dans le quotidien
+      </p>
 
-        <button class=btContact btContact-mobile type=button>
+      <nav>
+        <button href="#" class="filterLink">#Art</button>
+        <button href="#" class="filterLink">#Fashion</button>
+        <button href="#" class="filterLink">#Architecture</button>
+        <button href="#" class="filterLink">#Travel</button>
+      </nav>
+      <button class=btContact btContact-desktop type=button>
         Contactez moi
-</button>
-            <aside>
-  <p class="like">
-    297091
-  </p>
-  <p class="price">
-    300€ / jour
-  </p>
-</aside>
+      </button>
+      <button class=btContact btContact-mobile type=button>
+        Contactez moi
+      </button>
+    </article>
+  </main>
 
 
-                <div class="bground">
-  <div class="content">
 
-    <button class="close" type="button"></button>
-    <div class="form-modal">
-      <h1>Contactez-moi <br>
-        Mimi Keel
-      </h1>
-      <form name="reserve" action="index.html" method="get">
-        <div class="formData">
-          <label for="first">Prénom</label><br />
-          <input class="text-control" type="text" id="first" name="first" /><br />
-        </div>
-        <div class="formData">
-          <label for="last">Nom</label><br />
-          <input class="text-control" type="text" id="last" name="last" /><br />
-        </div>
-        <div class="formData">
-          <label for="email">Email</label><br />
-          <input class="text-control" type="email" id="email" name="email" /><br />
-        </div>
-        <div class="formData">
-          <label for="message" class="message">Votre message</label>
-          <textarea class="text-area text-control" id="message" name="message" rows="10" cols="38"></textarea>
-        </div>
-        <button class=btContact btContact-mobile btContact-mobile-modal type=submit>
-        Envoyer
-</button>
+  <aside>
+    <p class="like">
+      297091
+    </p>
+    <p class="price">
+      300€ / jour
+    </p>
+  </aside>
+
+
+  <div class="bground">
+    <div class="content">
+
+      <button class="close" type="button"></button>
+      <div class="form-modal">
+        <h1>Contactez-moi <br>
+          Mimi Keel
+        </h1>
+        <form name="reserve" action="index.html" method="get">
+          <div class="formData">
+            <label for="first">Prénom</label><br />
+            <input class="text-control" type="text" id="first" name="first" /><br />
+          </div>
+          <div class="formData">
+            <label for="last">Nom</label><br />
+            <input class="text-control" type="text" id="last" name="last" /><br />
+          </div>
+          <div class="formData">
+            <label for="email">Email</label><br />
+            <input class="text-control" type="email" id="email" name="email" /><br />
+          </div>
+          <div class="formData">
+            <label for="message" class="message">Votre message</label>
+            <textarea class="text-area text-control" id="message" name="message" rows="10" cols="38"></textarea>
+          </div>
+          <button class=btContact btContact-mobile btContact-mobile-modal type=submit>
+            Envoyer
+          </button>
           <button class=btContact btContact-desktop btContact-desktop-modal type=submit>
-        Envoyer
-</button>
-      </form>
+            Envoyer
+          </button>
+        </form>
+      </div>
     </div>
   </div>
-</div>
 </body>
 
 </html>

@@ -23,7 +23,7 @@ export default class PhotographerCardBig extends PhotographerCard {
 	}
 	render() {
 		const article = document.createElement("article");
-		article.className = this.articleClassName;
+		article.className = "photographer-card-big";
 		this.DOM.appendChild(article);
 		article.innerHTML = /* html */ `
 						<div class="photographer-card-link-imgContainer photographer-card-big-imgContainer">
@@ -56,7 +56,8 @@ export default class PhotographerCardBig extends PhotographerCard {
 	 */
 	insertBtContactDesktop(article) {
 		new BtContact(article, {
-			className: "btContact btContact-desktop",
+			className: "btContact",
+			className2: "btContact-desktop",
 			type: "button",
 			text: "Contactez moi",
 		});
@@ -70,7 +71,8 @@ export default class PhotographerCardBig extends PhotographerCard {
 	 */
 	insertBtContactMobile(article) {
 		new BtContact(article, {
-			className: "btContact btContact-mobile",
+			className: "btContact",
+			className2: "btContact-mobile",
 			type: "button",
 			text: "Contactez moi",
 		});

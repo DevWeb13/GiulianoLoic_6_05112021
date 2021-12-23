@@ -1,9 +1,9 @@
-<article class="<%- articleClassName %>">
+<article class="photographer-card-big">
   <div class="photographer-card-link-imgContainer photographer-card-big-imgContainer">
     <img src="<%- imgLink %>" alt="" cover />
   </div>
   <h2>
-    <%- nom %>
+    <%- name %>
   </h2>
   <p class="location">
     <%- location %>
@@ -20,4 +20,6 @@
   </nav>
   <%- include("../btContact/btContact.html", { className:"btContact btContact-desktop", type: "button"
     ,text: "Contactez moi" }) %>
+    <%- include("../btContact/btContact.html", { className:"btContact btContact-mobile", type: "button" ,
+      text: "Contactez moi" }); %>
 </article>
