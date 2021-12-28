@@ -112,7 +112,7 @@ const utils = {
 	 */
 	displayPhotographersCards: async function (photographers, tagsChecked) {
 		const main = document.createElement("main");
-		// main.id = "main";
+		main.id = "main";
 		document.body.appendChild(main);
 		photographers.forEach((/** @type {{ tags: any[]; }} */ photographer) => {
 			if (tagsChecked === undefined || tagsChecked.length === 0) {

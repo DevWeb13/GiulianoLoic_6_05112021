@@ -21,9 +21,9 @@ export default class Widget {
 				<ul class="optList hidden" role="presentation">
 					<!-- Chaque option ne contient que la valeur à afficher, Nous verrons plus loin
 	comment gérer la valeur réelle qui sera envoyée avec les données du formulaire -->
-					<li class="option" role="option">Popularité</li>
-					<li class="option" role="option">Date</li>
-					<li class="option" role="option">Titre</li>
+					<li class="option" onclick="referesMediaList('Popularité')" role="option">Popularité</li>
+					<li class="option" onclick="referesMediaList('Date')" role="option">Date</li>
+					<li class="option" onclick="referesMediaList('Titre')" role="option">Titre</li>
 				</ul>
 			</div>
 		</form>

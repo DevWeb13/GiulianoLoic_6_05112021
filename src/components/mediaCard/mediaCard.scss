@@ -65,20 +65,21 @@
 		}
 		.like {
 			cursor: pointer;
-
 			@include desktop {
 				font-size: 1rem;
 			}
-		}
+			&::after {
+				content: "\f004";
+				font-family: "Font Awesome 5 Free";
 
-		.like::after {
-			content: "\f004";
-			font-family: "Font Awesome 5 Free";
-			font-weight: bold;
-			margin-left: 0.3125rem;
-			font-size: 0.6875rem;
-			@include desktop {
-				font-size: 1.125rem;
+				margin-left: 0.3125rem;
+				font-size: 0.6875rem;
+				@include desktop {
+					font-size: 1.125rem;
+				}
+			}
+			&[bold="true"] {
+				font-weight: bold;
 			}
 		}
 	}

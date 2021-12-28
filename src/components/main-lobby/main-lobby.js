@@ -10,6 +10,7 @@ export default class MainLobby {
 	render() {
 		const mainLobby = document.createElement("main");
 		this.DOM.appendChild(mainLobby);
+		mainLobby.setAttribute("id", "main");
 		this.photographers.forEach(
 			(/** @type {{ tags: any[]; }} */ photographer) => {
 				if (this.tagsChecked === undefined || this.tagsChecked.length === 0) {
