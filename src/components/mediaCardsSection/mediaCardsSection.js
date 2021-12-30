@@ -6,12 +6,104 @@ export default class MediaCardsSection {
 		this.DOM.id = "mediaCardsSection";
 		domTarget.appendChild(this.DOM);
 		this.photographerMedias = props.photographerMedias;
+		this.target = props.target;
 		this.totalLikes = 0;
-		this.displayMediaCard(this.DOM);
+		this.popularArray = [];
+		this.dateArray = [];
+		this.titreArray = [];
+
+		this.displayMediaCardsWithFilter();
 	}
 
-	displayMediaCard(section) {
-		this.photographerMedias.forEach(
+	displayMediaCardsWithFilter() {
+		if (this.target === "Popularité") {
+			this.createPopularArray(this.photographerMedias);
+			this.displayMediaCard(this.DOM, this.popularArray);
+		}
+		if (this.target === "Date") {
+			this.createDateArray(this.photographerMedias);
+			this.displayMediaCard(this.DOM, this.dateArray);
+		}
+		if (this.target === "Titre") {
+			this.createTitreArray(this.photographerMedias);
+			this.displayMediaCard(this.DOM, this.titreArray);
+		}
+	}
+
+	createTitreArray(medias) {
+		let arrayTitre = [];
+		medias.forEach((media) => {
+			arrayTitre.push(media.title);
+		});
+		arrayTitre.sort();
+		arrayTitre.forEach((title) => {
+			medias.forEach((media) => {
+				if (title === media.title) {
+					this.titreArray.push(media);
+				}
+			});
+		});
+		console.log(this.titreArray);
+		this.titreArray = [...new Set(this.titreArray)];
+	}
+
+	createDateArray(medias) {
+		let arrayDate = [];
+		medias.forEach((media) => {
+			arrayDate.push(media.date);
+		});
+		arrayDate.sort().reverse();
+		arrayDate.forEach((date) => {
+			medias.forEach((media) => {
+				if (date === media.date) {
+					this.dateArray.push(media);
+				}
+			});
+		});
+		this.dateArray = [...new Set(this.dateArray)];
+	}
+
+	createPopularArray(medias) {
+		let arrayLikes = [];
+		medias.forEach((media) => {
+			arrayLikes.push(media.likes);
+		});
+		arrayLikes.sort(function (a, b) {
+			return b - a;
+		});
+		arrayLikes.forEach((likes) => {
+			medias.forEach((media) => {
+				if (likes === media.likes) {
+					this.popularArray.push(media);
+				}
+			});
+		});
+		this.popularArray = [...new Set(this.popularArray)];
+	}
+	// createArrayFilter(medias) {
+	// 	medias.forEach((media) => {
+	// 		this.popular.push(media.likes);
+	//
+	// 	});
+
+	// 	return = this.popular.sort(function (a, b) {
+	// 		return b - a;
+	// 	});
+
+	// 	popularArrayFilter.forEach((popular) => {
+	// 		medias.forEach((media) => {
+	// 			if (popular === media.likes) {
+	// 				this.newPopularArrayMedias.push(media);
+	// 			}
+	// 		});
+	// 	});
+
+	// 	let uniqueArr = [...new Set(this.newPopularArrayMedias)];
+	// 	console.log(uniqueArr);
+	// }
+
+	displayMediaCard(section, medias) {
+		medias.forEach(
 			(
 				/** @type {{ photographerId: any; image: string; video: string; title: any; likes: any; }} */ media
 			) => {
@@ -20,7 +112,6 @@ export default class MediaCardsSection {
 					videoLink: "img/videos/" + media.video,
 					imgTitle: media.title,
 					like: media.likes,
-					// totalLikes: this.totalLikes,
 				});
 				this.totalLikes += mediaCard.like;
 			}

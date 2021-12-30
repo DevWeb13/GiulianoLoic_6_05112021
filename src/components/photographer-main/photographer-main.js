@@ -13,6 +13,7 @@ export default class PhotographerMain {
 		this.photographer = {};
 		this.medias = props.medias;
 		this.photographerMedias = [];
+		this.widgetValue = "";
 		this.recupMedia();
 		this.recupPhotographer();
 		new PhotographerCardBig(this.DOM, {
@@ -20,20 +21,22 @@ export default class PhotographerMain {
 			articleClassName: "photographer-card-big",
 		});
 
-		// window.referesMediaList = (target) => {
-		// 	this.refresh(target);
-		// };
-		// this.displayPhotographerCardBig(this.DOM);
 		new Widget(this.DOM);
-		const mediaCardsSection = new MediaCardsSection(this.DOM, {
+
+		let mediaCardsSection = new MediaCardsSection(this.DOM, {
 			photographerMedias: this.photographerMedias,
+			target: "Popularité",
 		});
-		console.log(mediaCardsSection.totalLikes);
+
 		new Aside(this.DOM, {
 			...this.photographer,
 			photographerMedias: this.photographerMedias,
 			totalLikes: mediaCardsSection.totalLikes,
 		});
+
+		window.refreshMediaList = (filter) => {
+			this.refresh(filter);
+		};
 	}
 
 	recupPhotographer() {
@@ -53,6 +56,16 @@ export default class PhotographerMain {
 	}
 
 	refresh(filter) {
-		console.log(filter);
+		this.DOM.removeChild(document.getElementById("mediaCardsSection"));
+		this.DOM.removeChild(document.querySelector("aside"));
+		let mediaCardsSection = new MediaCardsSection(this.DOM, {
+			photographerMedias: this.photographerMedias,
+			target: filter,
+		});
+		new Aside(this.DOM, {
+			...this.photographer,
+			photographerMedias: this.photographerMedias,
+			totalLikes: mediaCardsSection.totalLikes,
+		});
 	}
 }

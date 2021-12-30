@@ -1,39 +1,38 @@
 export default class Widget {
 	constructor(domTarget) {
-		this.DOM = domTarget;
+		this.DOM = document.createElement("div");
+		this.DOM.classList.add("no-widget");
+		this.DOM.id = "widget";
+		domTarget.appendChild(this.DOM);
 		this.render();
 	}
 	render() {
 		this.DOM.innerHTML += /* html */ `
-		<div class="no-widget" id="widget">
-		<label for="select" onclick=toggleOptList(select)>Trier par</label>
-		<form>
-			<select name="Popularité">
-				<option>Popularité</option>
-				<option>Date</option>
-				<option>Titre</option>
-			</select>
-			<div class="select" tabindex="0" id="select" role="listbox">
-				<!-- Ce containeur sera utilisé pour afficher la valeur courante du widget -->
-				<span class="value">Popularité</span>
-				<!-- Ce conteneur contiendra toutes les options disponibles pour le widget.
-	Comme c'est une liste, il y sens à utiliser l'élément ul. -->
-				<ul class="optList hidden" role="presentation">
-					<!-- Chaque option ne contient que la valeur à afficher, Nous verrons plus loin
-	comment gérer la valeur réelle qui sera envoyée avec les données du formulaire -->
-					<li class="option" onclick="referesMediaList('Popularité')" role="option">Popularité</li>
-					<li class="option" onclick="referesMediaList('Date')" role="option">Date</li>
-					<li class="option" onclick="referesMediaList('Titre')" role="option">Titre</li>
-				</ul>
-			</div>
-		</form>
-	</div>
-		
-		
+			<label for="select" onclick=toggleOptList(select)>Trier par</label>
+				<form>
+					<select name="Popularité">
+						<option>Popularité</option>
+						<option>Date</option>
+						<option>Titre</option>
+					</select>
+					<div class="select" tabindex="0" id="select" role="listbox">
+						<!-- Ce containeur sera utilisé pour afficher la valeur courante du widget -->
+						<span class="value">Popularité</span>
+						<!-- Ce conteneur contiendra toutes les options disponibles pour le widget.
+						Comme c'est une liste, il y sens à utiliser l'élément ul. -->
+						<ul class="optList hidden" role="presentation">
+							<!-- Chaque option ne contient que la valeur à afficher, Nous verrons plus loin
+							comment gérer la valeur réelle qui sera envoyée avec les données du formulaire -->
+							<li class="option" onclick="refreshMediaList('Popularité')" role="option">Popularité</li>
+							<li class="option" onclick="refreshMediaList('Date')" role="option">Date</li>
+							<li class="option" onclick="refreshMediaList('Titre')" role="option">Titre</li>
+						</ul>
+					</div>
+				</form>
 		`;
-		const widget = document.getElementById("widget");
-		widget.classList.remove("no-widget");
-		widget.classList.add("widget");
+		// const widget = document.getElementById("widget");
+		this.DOM.classList.remove("no-widget");
+		this.DOM.classList.add("widget");
 
 		// Cette fonction est utilisée chaque fois que nous voulons désactiver un
 		// widget personnalisé. Elle prend un paramètre
@@ -208,7 +207,12 @@ export default class Widget {
 					// Nous changeons la classe de la liste pour l'enrouler/dérouler
 					optList.classList.toggle("hidden");
 					select.classList.toggle("active");
+					if (!select.classList.contains("active")) {
+						let valueElm = document.querySelector(".value");
+						window.refreshMediaList(valueElm.innerHTML);
+					}
 				}
+
 				updateValue(select, index);
 			});
 		});

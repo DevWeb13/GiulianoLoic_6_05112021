@@ -148,6 +148,8 @@ const views = {
 	 * @return  {promise}  Fonctionnalités et affichage de la vue lobby
 	 */
 	lobby: async function () {
+		window.scroll(0, 0); // reset the scroll position to the top left of the document.
+
 		const photographers = await fetchPhotographers();
 		new Header(body, tagsChecked, "header");
 		new BtContact(body, {
@@ -166,6 +168,8 @@ const views = {
 	 * @return  {promise}  Fonctionnalités et affichage de la vue photographer
 	 */
 	photographer: async function () {
+		window.scroll(0, 0); // reset the scroll position to the top left of the document.
+
 		tagsChecked = [];
 		const photographers = await fetchPhotographers();
 		const medias = await fetchMedia();
