@@ -8,18 +8,6 @@ import PhotographerCard from "../photographer-card/photographer-card";
 export default class PhotographerCardBig extends PhotographerCard {
 	constructor(domTarget, props) {
 		super(domTarget, props);
-		// this.DOM = domTarget;
-		// this.articleClassName = props.articleClassName;
-		// this.btClassName = props.btClassName;
-		// this.imgLink = "./img/PhotographersIDPhotos/" + props.portrait;
-		// this.nom = props.name;
-		// this.location = props.city + ", " + props.country;
-		// this.tagline = props.tagline;
-		// this.price = props.price + "€/jour";
-		// this.tags = props.tags;
-		// this.id = props.id;
-
-		// this.render();
 	}
 	render() {
 		const article = document.createElement("article");

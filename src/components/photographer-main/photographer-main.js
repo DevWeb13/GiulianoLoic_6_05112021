@@ -1,4 +1,4 @@
-import PhotographerCardBig from "../photographer-card-big/photographer.card.big";
+import PhotographerCardBig from "../photographer-card-big/photographer-card-big";
 import Widget from "../widget/widget";
 import MediaCardsSection from "../mediaCardsSection/mediaCardsSection";
 import Aside from "../aside/aside";
@@ -16,6 +16,7 @@ export default class PhotographerMain {
 		this.widgetValue = "";
 		this.recupMedia();
 		this.recupPhotographer();
+
 		new PhotographerCardBig(this.DOM, {
 			...this.photographer,
 			articleClassName: "photographer-card-big",

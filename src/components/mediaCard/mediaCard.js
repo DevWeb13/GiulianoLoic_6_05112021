@@ -5,7 +5,6 @@ export default class MediaCard {
 		this.videoLink = props.videoLink;
 		this.imgTitle = props.imgTitle;
 		this.like = props.like;
-		// this.totalLikes = props.totalLikes;
 		this.render();
 	}
 	render() {
@@ -35,11 +34,10 @@ export default class MediaCard {
 			if (!like.hasAttribute("bold")) {
 				like.setAttribute("bold", true);
 				this.like++;
-				// this.totalLikes++;
+				this.newLike = this.like;
 			} else {
 				like.removeAttribute("bold");
 				this.like--;
-				// this.totalLikes--;
 			}
 			like.textContent = this.like;
 		});

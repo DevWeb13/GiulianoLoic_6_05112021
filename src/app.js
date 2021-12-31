@@ -4,6 +4,7 @@ import BtContact from "./components/btContact/btContact";
 import Header from "./components/header/header";
 import PhotographerCard from "./components/photographer-card/photographer-card";
 import PhotographerMain from "./components/photographer-main/photographer-main";
+import FormModal from "./components/form-modal/form-modal";
 
 const body = document.body;
 /**
@@ -174,11 +175,12 @@ const views = {
 		const photographers = await fetchPhotographers();
 		const medias = await fetchMedia();
 		new Header(body, tagsChecked, "header", "header-photographer");
-		new PhotographerMain(body, {
+		let photographerMain = new PhotographerMain(body, {
 			photographers: photographers,
 			medias: medias,
 			id: id,
 		});
+		new FormModal(body, { name: photographerMain.photographer.name });
 		utils.tagsManage();
 	},
 

@@ -23,12 +23,21 @@ export default class BtContact {
 		});
 		this.DOM.type = props.type;
 		this.DOM.textContent = props.text;
-		this.DOM.onclick = this.goToContent;
-		if (props.className.indexOf("goToContent") !== -1) {
+		if (this.DOM.classList.contains("goToContent")) {
 			window.onscroll = () => this.scrollHandler();
+			this.DOM.onclick = this.goToContent;
+		}
+		if (this.DOM.classList.contains("btContact")) {
+			this.DOM.onclick = this.goFormContact;
 		}
 		domtarget.appendChild(this.DOM);
 		this.visible = false;
+	}
+
+	goFormContact() {
+		const bground = document.querySelector(".bground");
+		bground.setAttribute("visible", "true");
+		console.log(bground);
 	}
 
 	goToContent() {
@@ -36,7 +45,6 @@ export default class BtContact {
 	}
 
 	scrollHandler() {
-		if (!this.DOM.classList.contains("goToContent")) return;
 		const shouldBeVisible = window.scrollY > 20;
 		// console.log(" shouldBeVisible", shouldBeVisible, "isVisible", this.visible);
 		if (this.visible === shouldBeVisible) return;
