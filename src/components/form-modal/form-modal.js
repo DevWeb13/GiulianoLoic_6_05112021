@@ -196,7 +196,7 @@ export default class FormModal {
 
 		this.DOM = document.createElement("div");
 		this.DOM.classList.add("bground");
-		this.DOM.setAttribute("visible", "false");
+		this.DOM.style.display = "none";
 		domTarget.appendChild(this.DOM);
 		this.content = document.createElement("div");
 		this.content.classList.add("content");
@@ -204,7 +204,9 @@ export default class FormModal {
 		this.close = document.createElement("button");
 		this.close.classList.add("close");
 		this.close.type = "button";
-		this.close.onclick = this.closeFormContact;
+		this.close.onclick = () => {
+			this.closeFormContact();
+		};
 		this.content.appendChild(this.close);
 		this.formModal = document.createElement("div");
 		this.formModal.classList.add("form-modal");
@@ -215,5 +217,7 @@ export default class FormModal {
 		console.log(this.DOM);
 	}
 
-	closeFormContact() {}
+	closeFormContact() {
+		this.DOM.style.display = "none";
+	}
 }

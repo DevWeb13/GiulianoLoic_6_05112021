@@ -36,7 +36,8 @@ export default class BtContact {
 
 	goFormContact() {
 		const bground = document.querySelector(".bground");
-		bground.setAttribute("visible", "true");
+		// bground.setAttribute("visible", "true");
+		bground.style.display = "block";
 		console.log(bground);
 	}
 
