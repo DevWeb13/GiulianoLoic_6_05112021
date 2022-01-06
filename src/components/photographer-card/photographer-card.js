@@ -4,7 +4,6 @@ import Tags from "../tags/tags";
  */
 export default class PhotographerCard {
 	constructor(domTarget, props) {
-		this.DOM = domTarget;
 		this.imgLink = "./img/PhotographersIDPhotos/" + props.portrait;
 		this.name = props.name;
 		this.location = props.city + ", " + props.country;
@@ -12,43 +11,68 @@ export default class PhotographerCard {
 		this.price = props.price + "€/jour";
 		this.tags = props.tags;
 		this.id = props.id;
-		this.render();
+		this.render(domTarget);
 	}
-	render() {
-		const article = document.createElement("article");
-		article.className = "photographer-card";
-		this.DOM.appendChild(article);
-		const button = document.createElement("button");
-		button.classList.add("photographer-card-link");
-		button.id = this.id;
-		article.appendChild(button);
-		const imgContainer = document.createElement("div");
-		imgContainer.classList.add("photographer-card-link-imgContainer");
-		button.appendChild(imgContainer);
-		imgContainer.innerHTML = /* html */ `
-				<img src=${this.imgLink}  alt="" cover width="208px" height="208px"/>
-		`;
-		button.innerHTML += /* html */ `
-				<h2>
-          ${this.name}
-        </h2>
-		`;
-		article.innerHTML += /* html */ `
-				<p class="location">
-					${this.location}
-				</p>
-				<p class="tagline tagline_photographerPages">
-					${this.tagline}
-				</p>
-				<p class="price">
-					${this.price}
-				</p>
-    `;
-		const nav = document.createElement("nav");
-		nav.title = this.name + "Tags";
+
+	render(domTarget) {
+		this.DOM = document.createElement("article");
+		this.DOM.classList.add("photographer-card");
+		domTarget.appendChild(this.DOM);
+		this.button = document.createElement("button");
+		this.button.classList.add("photographer-card-link");
+		this.button.id = this.id;
+		this.DOM.appendChild(this.button);
+		this.goPhotographerPage();
+		this.imgContainer = document.createElement("div");
+		this.imgContainer.classList.add("photographer-card-link-imgContainer");
+		this.button.appendChild(this.imgContainer);
+		this.insertImg();
+		this.imgContainer.appendChild(this.img);
+		this.h2 = document.createElement("h2");
+		this.h2.textContent = this.name;
+		this.button.appendChild(this.h2);
+		this.insertLocationElm();
+		this.insertTagline();
+		this.priceElm = document.createElement("p");
+		this.priceElm.classList.add("price");
+		this.priceElm.textContent = this.price;
+		this.DOM.appendChild(this.priceElm);
+		this.nav = document.createElement("nav");
+		this.nav.title = this.name + " Tags";
 		this.tags.forEach((/** @type {any} */ tag) => {
-			new Tags(nav, tag, "tags");
+			new Tags(this.nav, "", tag, "tags");
 		});
-		article.appendChild(nav);
+		this.DOM.appendChild(this.nav);
+	}
+
+	goPhotographerPage() {
+		this.button.onclick = () => {
+			window.location.href = "./photographer.html?id=" + this.button.id;
+
+			console.log(this.button.id);
+			return this.id;
+		};
+	}
+
+	insertTagline() {
+		this.taglineElm = document.createElement("p");
+		this.taglineElm.classList.add("tagline");
+		this.taglineElm.textContent = this.tagline;
+		this.DOM.appendChild(this.taglineElm);
+	}
+
+	insertImg() {
+		this.img = document.createElement("img");
+		this.img.src = this.imgLink;
+		this.img.alt = "";
+		this.img.setAttribute("width", "208px");
+		this.img.setAttribute("height", "208px");
+	}
+
+	insertLocationElm() {
+		this.locationElm = document.createElement("p");
+		this.locationElm.classList.add("location");
+		this.locationElm.textContent = this.location;
+		this.DOM.appendChild(this.locationElm);
 	}
 }

@@ -9,63 +9,38 @@ export default class PhotographerMain {
 		this.DOM.id = "photographer-main";
 		domTarget.appendChild(this.DOM);
 		this.id = props.id;
-		this.photographers = props.photographers;
-		this.photographer = {};
-		this.medias = props.medias;
-		this.photographerMedias = [];
+		this.photographer = props.photographer;
+		this.mediasChosen = props.mediasChosen;
 		this.widgetValue = "";
-		this.recupMedia();
-		this.recupPhotographer();
-
 		new PhotographerCardBig(this.DOM, {
 			...this.photographer,
-			articleClassName: "photographer-card-big",
 		});
-
 		new Widget(this.DOM);
-
 		let mediaCardsSection = new MediaCardsSection(this.DOM, {
-			photographerMedias: this.photographerMedias,
+			photographerMedias: this.mediasChosen,
 			target: "Popularité",
 		});
-
 		new Aside(this.DOM, {
 			...this.photographer,
-			photographerMedias: this.photographerMedias,
+			photographerMedias: this.mediasChosen,
 			totalLikes: mediaCardsSection.totalLikes,
 		});
-
+		// @ts-ignore
 		window.refreshMediaList = (filter) => {
 			this.refresh(filter);
 		};
-	}
-
-	recupPhotographer() {
-		this.photographers.forEach((photographer) => {
-			if (photographer.id == this.id) {
-				this.photographer = photographer;
-			}
-		});
-	}
-
-	recupMedia() {
-		this.medias.forEach((media) => {
-			if (media.photographerId == this.id) {
-				this.photographerMedias.push(media);
-			}
-		});
 	}
 
 	refresh(filter) {
 		this.DOM.removeChild(document.getElementById("mediaCardsSection"));
 		this.DOM.removeChild(document.querySelector("aside"));
 		let mediaCardsSection = new MediaCardsSection(this.DOM, {
-			photographerMedias: this.photographerMedias,
+			photographerMedias: this.mediasChosen,
 			target: filter,
 		});
 		new Aside(this.DOM, {
 			...this.photographer,
-			photographerMedias: this.photographerMedias,
+			photographerMedias: this.mediasChosen,
 			totalLikes: mediaCardsSection.totalLikes,
 		});
 	}

@@ -5,12 +5,12 @@ export default class Header {
 	 * [constructor description]
 	 *
 	 * @param   {HTMLElement}  domTarget   [domTarget description]
-	 * @param		{array} tagsChecked
+	 *
 	 * @param   {String}  className   [className description]
 	 * @param   {String}  [className2]  [className2 description]
 	 */
-	constructor(domTarget, tagsChecked, className, className2) {
-		this.DOM = domTarget;
+	constructor(domTarget, photographers, tagsChecked, className, className2) {
+		this.photographers = photographers;
 		this.tagsChecked = tagsChecked;
 		this.className = [className];
 		if (className2) this.className.push(className2);
@@ -24,35 +24,51 @@ export default class Header {
 			"animals",
 			"events",
 		];
-		this.render();
-	}
-	render() {
-		this.DOM.innerHTML = "";
-		const header = document.createElement("header");
-		this.DOM.appendChild(header);
+		this.DOM = document.createElement("header");
 		this.className.forEach((newClass) => {
-			header.classList.add(newClass);
+			this.DOM.classList.add(newClass);
 		});
-		header.innerHTML = /* html */ `
-			<button class="logo" title="logo" alt="Fisheye Home Page" onclick="goHome()">
-				<img src="./img/logo/logo.svg" alt="" >
-			</button>
-			<h1 class="lobbyH1">Nos photographes</h1>
-			 `;
+		domTarget.appendChild(this.DOM);
+		this.logoBt = document.createElement("button");
+		this.logoBt.classList.add("logo");
+		this.logoBt.title = "logo";
+		// this.logoBt.alt = "Fisheye Home Page";
+		this.DOM.appendChild(this.logoBt);
+		this.logoBt.onclick = this.goHome;
+		this.logoImg = document.createElement("img");
+		this.logoImg.src = "./img/logo/logo.svg";
+		this.logoImg.alt = "";
+		this.logoBt.appendChild(this.logoImg);
 		if (this.className.length === 1) {
-			const nav = document.createElement("nav");
+			this.h1 = document.createElement("h1");
+			this.h1.classList.add("lobbyH1");
+			this.h1.textContent = "Nos photographes";
+			this.DOM.appendChild(this.h1);
+			this.nav = document.createElement("nav");
 			this.tagsValueArray.forEach((tagValue) => {
-				new Tags(nav, tagValue, "tags", "tags-link");
+				new Tags(
+					this.nav,
+					this.photographers,
+					tagValue,
+					"tags",
+					"tags-link",
+					this.tagsChecked
+				);
 			});
-			header.appendChild(nav);
-			const tags = document.querySelectorAll(".tags-link");
+			this.DOM.appendChild(this.nav);
+			this.tags = document.querySelectorAll(".tags-link");
 			this.tagsChecked.forEach((tagChecked) => {
-				tags.forEach((tag) => {
+				this.tags.forEach((tag) => {
 					if (tag.innerHTML == tagChecked) {
 						tag.setAttribute("isChecked", "true");
 					}
 				});
 			});
 		}
+		// return this.tagsChecked;
+	}
+	goHome() {
+		console.log("test");
+		window.location.href = "http://localhost:3000";
 	}
 }
