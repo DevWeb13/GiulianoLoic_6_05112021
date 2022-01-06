@@ -42,7 +42,7 @@ export default class Tags {
 				tagsChecked: this.tagsChecked,
 			});
 		} else {
-			window.location.href = "http://localhost:3000?tag=" + this.tag;
+			window.location.href = "?tag=" + this.tag;
 		}
 	}
 
