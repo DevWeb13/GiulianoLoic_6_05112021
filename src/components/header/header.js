@@ -69,6 +69,6 @@ export default class Header {
 	}
 	goHome() {
 		console.log("test");
-		window.location.href = "http://localhost:3000";
+		window.location.href = "www/";
 	}
 }
