@@ -1,6 +1,8 @@
-import { fetchPhotographers } from "./services/dataManager";
-import { fetchChosenPhotographer } from "./services/dataManager";
-import { fetchChosenMedia } from "./services/dataManager";
+import {
+	fetchPhotographers,
+	fetchChosenPhotographer,
+	fetchChosenMedia,
+} from "./services/dataManager";
 import BtContact from "./components/btContact/btContact";
 import Header from "./components/header/header";
 import MainLobby from "./components/main-lobby/main-lobby";
@@ -23,9 +25,9 @@ const views = {
 	 */
 	lobby: async function () {
 		const photographers = await fetchPhotographers();
-		let tagsChecked = [];
-		let url = new URL(window.location.href);
-		let tag = url.searchParams.get("tag");
+		const tagsChecked = [];
+		const url = new URL(window.location.href);
+		const tag = url.searchParams.get("tag");
 		if (tag) {
 			tagsChecked.push("#" + tag);
 		}
@@ -36,8 +38,8 @@ const views = {
 			text: "Passer au contenu",
 		});
 		new MainLobby(body, {
-			photographers: photographers,
-			tagsChecked: tagsChecked,
+			photographers,
+			tagsChecked,
 		});
 	},
 
@@ -47,16 +49,16 @@ const views = {
 	 * @return  {promise}  Fonctionnalités et affichage de la vue photographer
 	 */
 	photographer: async function () {
-		let tagsChecked = [];
-		let url = new URL(window.location.href);
-		let id = url.searchParams.get("id");
+		const tagsChecked = [];
+		const url = new URL(window.location.href);
+		const id = url.searchParams.get("id");
 		const photographer = await fetchChosenPhotographer(id);
 		const mediasChosen = await fetchChosenMedia(id);
 		new Header(body, "", tagsChecked, "header", "header-photographer");
 		new PhotographerMain(body, {
-			photographer: photographer,
-			mediasChosen: mediasChosen,
-			id: id,
+			photographer,
+			mediasChosen,
+			id,
 		});
 		new FormModal(body, { name: photographer.name });
 	},

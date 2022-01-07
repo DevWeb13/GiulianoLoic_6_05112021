@@ -7,8 +7,6 @@ async function fetchPhotographers() {
 	return data.photographers;
 }
 
-export { fetchPhotographers };
-
 async function fetchChosenPhotographer(id) {
 	await fetchPhotographers();
 	data.photographers.forEach((data) => {
@@ -18,8 +16,6 @@ async function fetchChosenPhotographer(id) {
 	});
 	return photographer;
 }
-
-export { fetchChosenPhotographer };
 
 async function fetchChosenMedia(id) {
 	const res = await fetch("./data/FishEyeData.json");
@@ -32,4 +28,4 @@ async function fetchChosenMedia(id) {
 	return mediasChosen;
 }
 
-export { fetchChosenMedia };
+export { fetchChosenMedia, fetchPhotographers, fetchChosenPhotographer };

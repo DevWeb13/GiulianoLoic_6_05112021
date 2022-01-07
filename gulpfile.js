@@ -1,21 +1,21 @@
 // const gulp = require("gulp");
 const { src, dest, series, lastRun } = require("gulp");
-const ejs = require("gulp-ejs");
-const sourcemaps = require("gulp-sourcemaps");
-const concat = require("gulp-concat");
-const sass = require("gulp-sass")(require("sass"));
-const postcss = require("gulp-postcss");
 const autoprefixer = require("autoprefixer");
-const cssnano = require("cssnano");
-const uglifycss = require("gulp-uglifycss");
-const image = require("gulp-image");
-const resizer = require("gulp-image-resize");
 const browserSync = require("browser-sync").create();
-const watch = require("gulp-watch");
-const webpack = require("webpack");
+const concat = require("gulp-concat");
+const cssnano = require("cssnano");
+const ejs = require("gulp-ejs");
+const image = require("gulp-image");
 const newLocal = "./webpack.config";
-const webpackCfg = require(newLocal);
+const postcss = require("gulp-postcss");
+const resizer = require("gulp-image-resize");
+const sass = require("gulp-sass")(require("sass"));
+const sourcemaps = require("gulp-sourcemaps");
+const uglifycss = require("gulp-uglifycss");
+const watch = require("gulp-watch");
 const way2enjoy = require("way2enjoy-gulp");
+const webpack = require("webpack");
+const webpackCfg = require(newLocal);
 
 const paths = {
 	html: {
@@ -38,12 +38,6 @@ const paths = {
 		src: ["./src/**/*.js"],
 		// dest: "./www/js/",
 	},
-
-	//  Mentor: A quoi sert et dois je installer cachebust? ******************************************************
-	// cachebust: {
-	//   src: ["./dist/**/*.html"],
-	//   dest: "./dist/",
-	// },
 };
 
 function optimizeVideo() {
@@ -72,6 +66,7 @@ function optimizeImg() {
 		.pipe(dest(paths.images.dest));
 }
 
+// eslint-disable-next-line no-unused-vars
 function buildJs(cb) {
 	return new Promise((resolve, reject) => {
 		webpack(webpackCfg, (err, stats) => {
