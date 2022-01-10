@@ -39,7 +39,6 @@ export default class BtContact {
 		bground.setAttribute("visible", "true");
 		// bground.style.display = "block";
 		bground.parentElement.style.overflow = "hidden";
-		console.log(bground);
 	}
 
 	goToContent() {

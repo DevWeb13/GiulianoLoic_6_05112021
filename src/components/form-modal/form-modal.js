@@ -415,6 +415,6 @@ export default class FormModal {
 
 	closeFormContact() {
 		this.DOM.removeAttribute("visible");
-		this.DOM.parentElement.style.overflow = "scroll";
+		this.DOM.parentElement.style.overflow = "auto";
 	}
 }
