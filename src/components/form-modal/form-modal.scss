@@ -90,7 +90,9 @@
 				display: inline-block;
 				margin-bottom: 5px;
 				color: #312e2e;
+				margin-top: 14px;
 				@include desktop {
+					margin-top: 0px;
 					font-size: 36px;
 					margin-bottom: 2px;
 				}
@@ -101,7 +103,6 @@
 				outline: none;
 			}
 			.text-control {
-				margin-bottom: 14px;
 				padding: 8px;
 				width: 100%;
 				border-radius: 5px;
@@ -111,21 +112,17 @@
 					border: 2px solid black;
 				}
 				@include desktop {
+					margin-bottom: 14px;
 					height: 67px;
 					margin-bottom: 0;
 				}
 			}
 			.formData[data-error]::after {
 				content: attr(data-error);
-				font-size: 1rem;
 				color: red;
 				display: block;
-				// margin-top: 7px;
-				margin-bottom: 7px;
 				text-align: right;
-				line-height: 0.3;
 				opacity: 0;
-				// transition: 0.3s;
 				position: absolute;
 				right: 5%;
 			}
@@ -154,25 +151,32 @@
 				}
 			}
 		}
-	}
-}
-#validDiv {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background: #db8876;
-	color: white;
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 100%;
-	width: 100%;
-	padding: 1rem;
-	text-align: center;
-	p {
-		font-size: 1.5rem;
-		@include desktop {
+		.validDiv {
 			font-size: 2rem;
+			text-align: center;
+			position: relative;
+			top: 40%;
+			margin: 0 5%;
 		}
 	}
 }
+// #validDiv {
+// 	display: flex;
+// 	justify-content: center;
+// 	align-items: center;
+// 	background: #db8876;
+// 	color: white;
+// 	position: absolute;
+// 	top: 0;
+// 	left: 0;
+// 	height: 100%;
+// 	width: 100%;
+// 	padding: 1rem;
+// 	text-align: center;
+// 	p {
+// 		font-size: 1.5rem;
+// 		@include desktop {
+// 			font-size: 2rem;
+// 		}
+// 	}
+// }

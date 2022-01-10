@@ -2,6 +2,7 @@ import PhotographerCardBig from "../photographer-card-big/photographer-card-big"
 import Widget from "../widget/widget";
 import MediaCardsSection from "../mediaCardsSection/mediaCardsSection";
 import Aside from "../aside/aside";
+
 import { exposeMethod } from "../../services/utils";
 
 export default class PhotographerMain {
@@ -26,6 +27,7 @@ export default class PhotographerMain {
 			photographerMedias: this.mediasChosen,
 			totalLikes: mediaCardsSection.totalLikes,
 		});
+
 		exposeMethod("refreshMediaList", (filter) => {
 			this.refresh(filter);
 		});
