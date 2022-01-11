@@ -416,5 +416,17 @@ export default class FormModal {
 	closeFormContact() {
 		this.DOM.removeAttribute("visible");
 		this.DOM.parentElement.style.overflow = "auto";
+		this.reactivBackgroundBoutons();
+	}
+
+	reactivBackgroundBoutons() {
+		this.buttons = document.querySelectorAll("button");
+		for (let i = 0; i < this.buttons.length; i++) {
+			const elm = this.buttons[i];
+			console.log(elm);
+			elm.removeAttribute("disabled");
+		}
+		this.widgetLabel = document.getElementById("select");
+		this.widgetLabel.setAttribute("tabindex", "0");
 	}
 }

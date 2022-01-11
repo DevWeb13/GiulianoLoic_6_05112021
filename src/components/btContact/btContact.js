@@ -37,8 +37,15 @@ export default class BtContact {
 	goFormContact() {
 		const bground = document.querySelector(".bground");
 		bground.setAttribute("visible", "true");
-		// bground.style.display = "block";
 		bground.parentElement.style.overflow = "hidden";
+		this.buttons = document.querySelectorAll("button");
+		for (let i = 0; i < this.buttons.length - 3; i++) {
+			const elm = this.buttons[i];
+			console.log(elm);
+			elm.setAttribute("disabled", "");
+		}
+		this.widgetLabel = document.getElementById("select");
+		this.widgetLabel.removeAttribute("tabindex");
 	}
 
 	goToContent() {
@@ -47,7 +54,6 @@ export default class BtContact {
 
 	scrollHandler() {
 		const shouldBeVisible = window.scrollY > 20;
-		// console.log(" shouldBeVisible", shouldBeVisible, "isVisible", this.visible);
 		if (this.visible === shouldBeVisible) return;
 		this.DOM.setAttribute("visible", shouldBeVisible.toString());
 		this.visible = shouldBeVisible;
