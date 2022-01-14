@@ -61,6 +61,7 @@ const views = {
 			id,
 		});
 		new FormModal(body, { name: photographer.name });
+		// new LightBox(body, { mediasChosen });
 	},
 };
 

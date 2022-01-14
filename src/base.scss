@@ -17,6 +17,7 @@ body {
 	width: 100%;
 	@include desktop {
 		max-width: 90rem;
+		// position: relative;
 	}
 }
 

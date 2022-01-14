@@ -80,27 +80,6 @@ export default class MediaCardsSection {
 		});
 		this.popularArray = [...new Set(this.popularArray)];
 	}
-	// createArrayFilter(medias) {
-	// 	medias.forEach((media) => {
-	// 		this.popular.push(media.likes);
-	//
-	// 	});
-
-	// 	return = this.popular.sort(function (a, b) {
-	// 		return b - a;
-	// 	});
-
-	// 	popularArrayFilter.forEach((popular) => {
-	// 		medias.forEach((media) => {
-	// 			if (popular === media.likes) {
-	// 				this.newPopularArrayMedias.push(media);
-	// 			}
-	// 		});
-	// 	});
-
-	// 	let uniqueArr = [...new Set(this.newPopularArrayMedias)];
-	// 	console.log(uniqueArr);
-	// }
 
 	displayMediaCard(section, medias) {
 		medias.forEach(
