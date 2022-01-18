@@ -87,6 +87,7 @@ export default class MediaCardsSection {
 				/** @type {{ photographerId: any; image: string; video: string; title: any; likes: any; }} */ media
 			) => {
 				let mediaCard = new MediaCard(section, {
+					medias: medias,
 					imgLink: "./img/photos/" + media.image,
 					videoLink: "img/videos/" + media.video,
 					imgTitle: media.title,

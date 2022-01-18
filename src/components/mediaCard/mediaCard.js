@@ -7,24 +7,14 @@ export default class MediaCard {
 		this.videoLink = props.videoLink;
 		this.imgTitle = props.imgTitle;
 		this.like = props.like;
-		// this.render();
+		this.medias = props.medias;
 		this.DOM = document.createElement("article");
 		this.DOM.classList.add("mediaCard");
 		domTarget.appendChild(this.DOM);
 		this.buttonImg = document.createElement("button");
 		this.buttonImg.classList.add("imgContainer");
-		this.buttonImg.onclick = () => {
-			this.body = domTarget.parentNode.parentNode;
-			new LightBox(this.body, {
-				imgLink: this.imgLink,
-				videoLink: this.videoLink,
-				imgTitle: this.imgTitle,
-			});
-			this.body.style.overflow = "hidden";
-			// this.lightBox = document.getElementById("lightBox");
-			// this.lightBox.setAttribute("visible", "true");
-			// console.log(this.imgLink);
-		};
+		this.buttonImg.setAttribute("aria-label", this.imgTitle);
+		this.openLightBox(domTarget);
 		this.DOM.appendChild(this.buttonImg);
 		this.displayImgOrVideo(this.buttonImg);
 		this.infoContainer = document.createElement("div");
@@ -39,6 +29,25 @@ export default class MediaCard {
 		this.likeBt.textContent = this.like;
 		this.infoContainer.appendChild(this.likeBt);
 		this.incrementLike(this.likeBt);
+	}
+
+	openLightBox(domTarget) {
+		this.buttonImg.onclick = () => {
+			this.body = domTarget.parentNode.parentNode;
+			new LightBox(this.body, {
+				medias: this.medias,
+				imgTitle: this.imgTitle,
+			});
+			window.scroll(0, 0);
+			this.body.style.overflow = "hidden";
+			this.buttons = document.querySelectorAll("button");
+			for (let i = 0; i < this.buttons.length - 3; i++) {
+				const elm = this.buttons[i];
+				elm.setAttribute("disabled", "");
+			}
+			this.widgetLabel = document.getElementById("select");
+			this.widgetLabel.removeAttribute("tabindex");
+		};
 	}
 
 	incrementLike(like) {

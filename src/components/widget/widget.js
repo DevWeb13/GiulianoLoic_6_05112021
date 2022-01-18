@@ -15,7 +15,7 @@ export default class Widget {
 						<option>Date</option>
 						<option>Titre</option>
 					</select>
-					<div class="select" tabindex="0" id="select" role="listbox">
+					<div class="select" tabindex="0" id="select" role="listbox" aria-label="Toggle blue light">
 						<!-- Ce containeur sera utilisé pour afficher la valeur courante du widget -->
 						<span class="value">Popularité</span>
 						<!-- Ce conteneur contiendra toutes les options disponibles pour le widget.
@@ -23,9 +23,9 @@ export default class Widget {
 						<ul class="optList hidden" role="presentation">
 							<!-- Chaque option ne contient que la valeur à afficher, Nous verrons plus loin
 							comment gérer la valeur réelle qui sera envoyée avec les données du formulaire -->
-							<li class="option" onclick="refreshMediaList('Popularité')" role="option">Popularité</li>
-							<li class="option" onclick="refreshMediaList('Date')" role="option">Date</li>
-							<li class="option" onclick="refreshMediaList('Titre')" role="option">Titre</li>
+							<li class="option" onclick="refreshMediaList('Popularité')" role="option" aria-label="Popularité">Popularité</li>
+							<li class="option" onclick="refreshMediaList('Date')" role="option"aria-label="Date">Date</li>
+							<li class="option" onclick="refreshMediaList('Titre')" role="option"aria-label="Titre">Titre</li>
 						</ul>
 					</div>
 				</form>
