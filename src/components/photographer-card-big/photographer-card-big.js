@@ -12,7 +12,6 @@ export default class PhotographerCardBig extends PhotographerCard {
 
 	render(domTarget) {
 		this.tagsChecked = [];
-		console.log(this.tagsChecked);
 		this.DOM = document.createElement("article");
 		this.DOM.classList.add("photographer-card-big");
 		domTarget.appendChild(this.DOM);

@@ -18,6 +18,14 @@ export default class LightBox {
 		this.leftArrow.classList.add("arrow");
 		this.leftArrow.id = "leftArrow";
 		this.displayCard.appendChild(this.leftArrow);
+
+		document.onkeyup = function (e) {
+			console.log(e);
+			if (e.keyCode === 39) {
+				console.log("good");
+			}
+		};
+
 		this.imgContainer = document.createElement("div");
 		this.imgContainer.id = "imgContainer";
 		this.displayCard.appendChild(this.imgContainer);
@@ -84,39 +92,63 @@ export default class LightBox {
 
 	changeImage(i) {
 		this.rightArrow.onclick = () => {
-			if (i !== this.medias.length - 1) {
-				i++;
-				if (this.medias[i].image) {
-					this.displayImage(i);
-				} else {
-					this.displayVideo(i);
-				}
-			} else {
-				i = 0;
-				if (this.medias[i].image) {
-					this.displayImage(i);
-				} else {
-					this.displayVideo(i);
-				}
-			}
+			i = this.goRight(i);
 		};
 		this.leftArrow.onclick = () => {
-			if (i !== 0) {
-				i--;
-				if (this.medias[i].image) {
-					this.displayImage(i);
-				} else {
-					this.displayVideo(i);
-				}
-			} else {
-				i = this.medias.length - 1;
-				if (this.medias[i].image) {
-					this.displayImage(i);
-				} else {
-					this.displayVideo(i);
-				}
-			}
+			i = this.goLeft(i);
 		};
+		document.onkeyup = (e) => {
+			i = this.keyManager(e, i);
+		};
+		return i;
+	}
+
+	keyManager(e, i) {
+		if (e.keyCode === 37) {
+			console.log("good");
+			i = this.goLeft(i);
+		}
+		if (e.keyCode === 39) {
+			i = this.goRight(i);
+		}
+		return i;
+	}
+
+	goLeft(i) {
+		if (i !== 0) {
+			i--;
+			if (this.medias[i].image) {
+				this.displayImage(i);
+			} else {
+				this.displayVideo(i);
+			}
+		} else {
+			i = this.medias.length - 1;
+			if (this.medias[i].image) {
+				this.displayImage(i);
+			} else {
+				this.displayVideo(i);
+			}
+		}
+		return i;
+	}
+
+	goRight(i) {
+		if (i !== this.medias.length - 1) {
+			i++;
+			if (this.medias[i].image) {
+				this.displayImage(i);
+			} else {
+				this.displayVideo(i);
+			}
+		} else {
+			i = 0;
+			if (this.medias[i].image) {
+				this.displayImage(i);
+			} else {
+				this.displayVideo(i);
+			}
+		}
 		return i;
 	}
 
