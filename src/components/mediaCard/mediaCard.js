@@ -26,6 +26,7 @@ export default class MediaCard {
 		this.infoContainer.appendChild(this.imgTitleElm);
 		this.likeBt = document.createElement("button");
 		this.likeBt.classList.add("like");
+		this.likeBt.setAttribute("aria-label", "likes");
 		this.likeBt.textContent = this.like;
 		this.infoContainer.appendChild(this.likeBt);
 		this.incrementLike(this.likeBt);

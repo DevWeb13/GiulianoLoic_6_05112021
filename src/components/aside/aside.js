@@ -1,3 +1,6 @@
+/**
+ * Composant "Aside" contenant le nombre de like total et le tarif journalier
+ */
 export default class Aside {
 	constructor(domTarget, props) {
 		this.DOM = document.createElement("aside");
@@ -15,7 +18,9 @@ export default class Aside {
 		this.priceElm.textContent = this.price + "€/jour";
 		this.DOM.appendChild(this.priceElm);
 	}
-
+	/**
+	 * Gestion des likes totaux
+	 */
 	totalLikesManager() {
 		this.likeButtons.forEach((button) => {
 			button.addEventListener("click", () => {

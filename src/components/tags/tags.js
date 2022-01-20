@@ -21,6 +21,7 @@ export default class Tags {
 			this.DOM.classList.add(newClass);
 		});
 		this.DOM.textContent = "#" + this.tag;
+		this.DOM.title = "tag";
 		domTarget.appendChild(this.DOM);
 		this.DOM.onclick = () => this.tagsManage(this.DOM);
 		this.addDisabled(this.DOM);

@@ -32,12 +32,11 @@ export default class Header {
 		this.logoBt = document.createElement("button");
 		this.logoBt.classList.add("logo");
 		this.logoBt.title = "logo";
-		// this.logoBt.alt = "Fisheye Home Page";
 		this.DOM.appendChild(this.logoBt);
 		this.logoBt.onclick = this.goHome;
 		this.logoImg = document.createElement("img");
 		this.logoImg.src = "./img/logo/logo.svg";
-		this.logoImg.alt = "";
+		this.logoImg.alt = "Fisheye Home page";
 		this.logoBt.appendChild(this.logoImg);
 		if (this.className.length === 1) {
 			this.h1 = document.createElement("h1");

@@ -1,17 +1,6 @@
-// export default function BtContact() {
-// 	const btContacts = document.querySelectorAll(".btContact[type=button]");
-// 	const bground = document.querySelector(".bground");
-
-// 	/**
-// 	 * Au clic sur un des boutons "Contactez moi" => Ouverture de la form-modal
-// 	 */
-// 	btContacts.forEach((btContact) =>
-// 		btContact.addEventListener("click", function () {
-// 			bground.setAttribute("visible", "true");
-// 		})
-// 	);
-// }
-
+/**
+ * Composants boutons de constact et "GoToContent"
+ */
 export default class BtContact {
 	constructor(domtarget, props) {
 		this.DOM = document.createElement("button");
@@ -33,7 +22,9 @@ export default class BtContact {
 		domtarget.appendChild(this.DOM);
 		this.visible = false;
 	}
-
+	/**
+	 * Ouverture du formulaire de contact
+	 */
 	goFormContact() {
 		const bground = document.querySelector(".bground");
 		bground.setAttribute("visible", "true");
@@ -47,11 +38,15 @@ export default class BtContact {
 		this.widgetLabel = document.getElementById("select");
 		this.widgetLabel.removeAttribute("tabindex");
 	}
-
+	/**
+	 * Dirige vers le "main"
+	 */
 	goToContent() {
 		window.location.href = "#main";
 	}
-
+	/**
+	 * Affichage de "GoToContent" lors du scroll vers le bas
+	 */
 	scrollHandler() {
 		const shouldBeVisible = window.scrollY > 20;
 		if (this.visible === shouldBeVisible) return;
