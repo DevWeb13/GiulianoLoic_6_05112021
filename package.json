@@ -10,7 +10,8 @@
     "buildJs": "npx gulp buildJs",
     "optimizeImg": "npx gulp optimizeImg",
     "optimizeVideo": "npx gulp optimizeVideo",
-    "watcher": "npx gulp watcher"
+    "watcher": "npx gulp watcher",
+    "doc": "jsdoc -c jsdoc.json"
   },
   "keywords": [],
   "author": "",
@@ -19,7 +20,7 @@
     "autoprefixer": "^10.4.0",
     "browser-sync": "^2.27.7",
     "cssnano": "^5.0.10",
-    "eslint": "^8.2.0",
+    "eslint": "^8.7.0",
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
     "gulp-ejs": "^5.1.0",
@@ -34,5 +35,9 @@
     "way2enjoy-gulp": "^1.0.1",
     "webpack": "^5.64.4",
     "webpack-cli": "^4.9.1"
+  },
+  "dependencies": {
+    "jsdoc": "^3.6.7",
+    "jsdoc-cli": "^1.0.1"
   }
 }

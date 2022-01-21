@@ -6,6 +6,7 @@ export default class FormModal {
 		this.name = props.name;
 		this.DOM = document.createElement("div");
 		this.DOM.classList.add("bground");
+
 		domTarget.appendChild(this.DOM);
 		this.content = document.createElement("div");
 		this.content.classList.add("content");
@@ -22,9 +23,9 @@ export default class FormModal {
 		this.content.appendChild(this.formModal);
 		this.insertName();
 		this.insertForm();
-		this.createInput("first", "Prénom", "text");
-		this.createInput("last", "Nom", "text");
-		this.createInput("email", "Email", "email");
+		this.createInput("first", "Prénom", "text", "First name");
+		this.createInput("last", "Nom", "text", "Last name");
+		this.createInput("email", "Email", "email", "Email");
 		this.createTextArea("message");
 		this.insertBtSubmit("mobile");
 		this.insertBtSubmit("desktop");
@@ -43,6 +44,7 @@ export default class FormModal {
 		);
 		this.btSubmit.type = "submit";
 		this.btSubmit.textContent = "Envoyer";
+		this.btSubmit.setAttribute("aria-label", "Send");
 		this.form.appendChild(this.btSubmit);
 		this.btSubmit.onclick = (e) => {
 			this.btSubmitManager(e);
@@ -149,7 +151,7 @@ export default class FormModal {
 	 * @param   {string}  inputType       Attribut "type" de l'input
 	 * @return  {void}                  Affichage et gestion des elements
 	 */
-	createInput(forIdNameValue, labelText, inputType) {
+	createInput(forIdNameValue, labelText, inputType, ariaLabel) {
 		this.insertFormData();
 		this.label = document.createElement("label");
 		this.label.setAttribute("for", forIdNameValue);
@@ -157,6 +159,7 @@ export default class FormModal {
 		this.formData.appendChild(this.label);
 		this.input = document.createElement("input");
 		this.input.classList.add("text-control");
+		this.input.setAttribute("aria-label", ariaLabel);
 		this.input.type = inputType;
 		this.input.id = forIdNameValue;
 		this.input.name = forIdNameValue;
@@ -286,6 +289,7 @@ export default class FormModal {
 		this.close = document.createElement("button");
 		this.close.classList.add("close");
 		this.close.type = "button";
+		this.close.title = "Close Contact form";
 		this.close.onclick = () => {
 			this.closeFormContact();
 		};

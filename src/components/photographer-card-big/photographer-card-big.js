@@ -72,6 +72,7 @@ export default class PhotographerCardBig extends PhotographerCard {
 			className2: "btContact-desktop",
 			type: "button",
 			text: "Contactez moi",
+			name: this.name,
 		});
 	}
 	/**

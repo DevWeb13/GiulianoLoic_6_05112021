@@ -1,13 +1,14 @@
 import Tags from "../tags/tags";
-
+/**
+ * Composant header
+ */
 export default class Header {
 	/**
-	 * [constructor description]
-	 *
-	 * @param   {HTMLElement}  domTarget   [domTarget description]
-	 *
-	 * @param   {String}  className   [className description]
-	 * @param   {String}  [className2]  [className2 description]
+	 * @param   {HTMLElement}  domTarget  Element parent du composant
+	 * @param {array} photographers Tableau des photographes
+	 * @param {array} tagsChecked Tableau contenant les tags sélectionnés
+	 * @param   {String}  className  Class
+	 * @param   {String}  [className2]  Seconde class(optionnel)
 	 */
 	constructor(domTarget, photographers, tagsChecked, className, className2) {
 		this.photographers = photographers;
@@ -64,10 +65,11 @@ export default class Header {
 				});
 			});
 		}
-		// return this.tagsChecked;
 	}
+	/**
+	 * Retour accueil
+	 */
 	goHome() {
-		console.log("test");
 		window.location.href = "./";
 	}
 }

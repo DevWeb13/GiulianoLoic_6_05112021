@@ -11,20 +11,15 @@ export default class LightBox {
 		this.close = document.createElement("button");
 		this.close.type = "button";
 		this.close.classList.add("close");
+		this.close.title = "Close dialog";
 		this.displayCard.appendChild(this.close);
 		this.closeLightBox();
 		this.leftArrow = document.createElement("button");
 		this.leftArrow.type = "button";
 		this.leftArrow.classList.add("arrow");
 		this.leftArrow.id = "leftArrow";
+		this.leftArrow.title = "Previous image";
 		this.displayCard.appendChild(this.leftArrow);
-
-		document.onkeyup = function (e) {
-			console.log(e);
-			if (e.keyCode === 39) {
-				console.log("good");
-			}
-		};
 
 		this.imgContainer = document.createElement("div");
 		this.imgContainer.id = "imgContainer";
@@ -33,6 +28,7 @@ export default class LightBox {
 		this.rightArrow.type = "button";
 		this.rightArrow.classList.add("arrow");
 		this.rightArrow.id = "rightArrow";
+		this.rightArrow.title = "Next image";
 		this.displayCard.appendChild(this.rightArrow);
 		this.p = document.createElement("p");
 		this.DOM.appendChild(this.p);
@@ -87,6 +83,9 @@ export default class LightBox {
 		this.img.alt = "";
 		this.imgContainer.appendChild(this.img);
 		this.img.src = "./img/photos/" + this.medias[i].image;
+		this.img.title = this.medias[i].title;
+		this.img.setAttribute("aria-label", "Lilac breasted roller");
+		this.img.setAttribute("tabindex", "0");
 		this.p.textContent = this.medias[i].title;
 	}
 

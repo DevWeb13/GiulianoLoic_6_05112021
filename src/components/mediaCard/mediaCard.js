@@ -13,7 +13,8 @@ export default class MediaCard {
 		domTarget.appendChild(this.DOM);
 		this.buttonImg = document.createElement("button");
 		this.buttonImg.classList.add("imgContainer");
-		this.buttonImg.setAttribute("aria-label", this.imgTitle);
+		this.buttonImg.setAttribute("aria-label", "image closeup view");
+		this.buttonImg.title = this.imgTitle;
 		this.openLightBox(domTarget);
 		this.DOM.appendChild(this.buttonImg);
 		this.displayImgOrVideo(this.buttonImg);

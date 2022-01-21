@@ -12,11 +12,13 @@ export default class BtContact {
 		});
 		this.DOM.type = props.type;
 		this.DOM.textContent = props.text;
+		this.name = props.name;
 		if (this.DOM.classList.contains("goToContent")) {
 			window.onscroll = () => this.scrollHandler();
 			this.DOM.onclick = this.goToContent;
 		}
 		if (this.DOM.classList.contains("btContact")) {
+			this.DOM.title = "Contact me " + this.name;
 			this.DOM.onclick = this.goFormContact;
 		}
 		domtarget.appendChild(this.DOM);
