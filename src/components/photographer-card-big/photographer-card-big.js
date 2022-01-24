@@ -6,10 +6,17 @@ import PhotographerCard from "../photographer-card/photographer-card";
  * Carte du photographe dans sa page perso
  */
 export default class PhotographerCardBig extends PhotographerCard {
+	/**
+	 * @param {HTMLElement} domTarget
+	 * @param {{ tags: any; portrait?: any; name?: any; city?: any; country?: any; tagline?: any; price?: any; id?: any; }} props
+	 */
 	constructor(domTarget, props) {
 		super(domTarget, props);
 	}
 
+	/**
+	 * @param {HTMLElement} domTarget
+	 */
 	render(domTarget) {
 		this.tagsChecked = [];
 		this.DOM = document.createElement("article");
@@ -29,7 +36,7 @@ export default class PhotographerCardBig extends PhotographerCard {
 		this.insertLocationElm();
 		this.insertTagline();
 		this.nav = document.createElement("nav");
-		this.tags.forEach((tag) => {
+		this.tags.forEach((/** @type {any} */ tag) => {
 			new Tags(this.nav, "", tag, "tags", "tags-link", this.tagsChecked);
 		});
 		this.DOM.appendChild(this.nav);
@@ -60,11 +67,7 @@ export default class PhotographerCardBig extends PhotographerCard {
 	}
 
 	/**
-	 * Insertion du bouton contact version desktop
-	 *
-	 * @param   {HTMLElement}  article  Description du photographe
-	 *
-	 * @return  {void}       	 Insertion du bouton contact version desktop
+	 * @param {HTMLElement} article
 	 */
 	insertBtContactDesktop(article) {
 		new BtContact(article, {
@@ -75,12 +78,9 @@ export default class PhotographerCardBig extends PhotographerCard {
 			name: this.name,
 		});
 	}
+
 	/**
-	 * Insertion du bouton contact version mobile
-	 *
-	 * @param   {HTMLElement}  article  Description du photographe
-	 *
-	 * @return  {void}       	 Insertion du bouton contact version mobile
+	 * @param {HTMLElement} article
 	 */
 	insertBtContactMobile(article) {
 		new BtContact(article, {
@@ -88,6 +88,7 @@ export default class PhotographerCardBig extends PhotographerCard {
 			className2: "btContact-mobile",
 			type: "button",
 			text: "Contactez moi",
+			name: this.name,
 		});
 	}
 }

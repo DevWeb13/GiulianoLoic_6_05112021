@@ -1,9 +1,15 @@
 export default class LightBox {
+	/**
+	 * @param {{ appendChild: (arg0: HTMLElement) => void; }} domTarget
+	 * @param {{ imgTitle: any; medias: any; }} props
+	 */
 	constructor(domTarget, props) {
 		this.imgTitle = props.imgTitle;
 		this.medias = props.medias;
 		this.DOM = document.createElement("section");
 		this.DOM.id = "lightBox";
+		this.DOM.setAttribute("aria-hidden", "false");
+		this.DOM.setAttribute("role", "dialog");
 		domTarget.appendChild(this.DOM);
 		this.displayCard = document.createElement("nav");
 		this.displayCard.id = "displayCard";
@@ -12,8 +18,11 @@ export default class LightBox {
 		this.close.type = "button";
 		this.close.classList.add("close");
 		this.close.title = "Close dialog";
+		this.close.focus();
 		this.displayCard.appendChild(this.close);
-		this.closeLightBox();
+		this.close.onclick = () => {
+			this.closeLightbox();
+		};
 		this.leftArrow = document.createElement("button");
 		this.leftArrow.type = "button";
 		this.leftArrow.classList.add("arrow");
@@ -45,15 +54,22 @@ export default class LightBox {
 		}
 	}
 
+	/**
+	 * @param {number} i
+	 */
 	displayVideo(i) {
 		this.deletePreviousImage();
 		this.createVideo(i);
 	}
 
+	/**
+	 * @param {number} i
+	 */
 	createVideo(i) {
 		this.video = document.createElement("video");
 		this.video.controls = true;
 		this.video.autoplay = true;
+		this.video.setAttribute("aria-label", this.medias[i].description);
 		this.imgContainer.appendChild(this.video);
 		this.source = document.createElement("source");
 		this.source.src = "./img/videos/" + this.medias[i].video;
@@ -73,22 +89,32 @@ export default class LightBox {
 		}
 	}
 
+	/**
+	 * @param {number} i
+	 */
 	displayImage(i) {
 		this.deletePreviousImage();
 		this.createImg(i);
 	}
 
+	/**
+	 * @param {number} i
+	 */
 	createImg(i) {
 		this.img = document.createElement("img");
 		this.img.alt = "";
 		this.imgContainer.appendChild(this.img);
 		this.img.src = "./img/photos/" + this.medias[i].image;
 		this.img.title = this.medias[i].title;
+		this.img.alt = this.medias[i].description;
 		this.img.setAttribute("aria-label", "Lilac breasted roller");
 		this.img.setAttribute("tabindex", "0");
 		this.p.textContent = this.medias[i].title;
 	}
 
+	/**
+	 * @param {number} i
+	 */
 	changeImage(i) {
 		this.rightArrow.onclick = () => {
 			i = this.goRight(i);
@@ -102,6 +128,10 @@ export default class LightBox {
 		return i;
 	}
 
+	/**
+	 * @param {KeyboardEvent} e
+	 * @param {number} i
+	 */
 	keyManager(e, i) {
 		if (e.keyCode === 37) {
 			console.log("good");
@@ -110,9 +140,16 @@ export default class LightBox {
 		if (e.keyCode === 39) {
 			i = this.goRight(i);
 		}
+		if (e.keyCode === 27) {
+			console.log("test");
+			this.closeLightbox();
+		}
 		return i;
 	}
 
+	/**
+	 * @param {number} i
+	 */
 	goLeft(i) {
 		if (i !== 0) {
 			i--;
@@ -132,6 +169,9 @@ export default class LightBox {
 		return i;
 	}
 
+	/**
+	 * @param {number} i
+	 */
 	goRight(i) {
 		if (i !== this.medias.length - 1) {
 			i++;
@@ -151,18 +191,17 @@ export default class LightBox {
 		return i;
 	}
 
-	closeLightBox() {
-		this.close.onclick = () => {
-			this.DOM.parentElement.style.overflow = "auto";
-			this.DOM.parentNode.removeChild(this.DOM);
-			this.buttons = document.querySelectorAll("button");
-			for (let i = 0; i < this.buttons.length; i++) {
-				const elm = this.buttons[i];
-				console.log(elm);
-				elm.removeAttribute("disabled");
-			}
-			this.widgetLabel = document.getElementById("select");
-			this.widgetLabel.setAttribute("tabindex", "0");
-		};
+	closeLightbox() {
+		this.DOM.parentElement.style.overflow = "auto";
+		this.DOM.parentElement.setAttribute("aria-hidden", "false");
+		this.DOM.parentNode.removeChild(this.DOM);
+		this.buttons = document.querySelectorAll("button");
+		for (let i = 0; i < this.buttons.length; i++) {
+			const elm = this.buttons[i];
+
+			elm.removeAttribute("disabled");
+		}
+		this.widgetLabel = document.getElementById("select");
+		this.widgetLabel.setAttribute("tabindex", "0");
 	}
 }

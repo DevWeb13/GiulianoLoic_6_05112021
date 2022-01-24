@@ -2,11 +2,14 @@
  * Composant formulaire de contact
  */
 export default class FormModal {
+	/**
+	 * @param {{ appendChild: (arg0: HTMLDivElement) => void; }} domTarget
+	 * @param {{ name: any; }} props
+	 */
 	constructor(domTarget, props) {
 		this.name = props.name;
 		this.DOM = document.createElement("div");
 		this.DOM.classList.add("bground");
-
 		domTarget.appendChild(this.DOM);
 		this.content = document.createElement("div");
 		this.content.classList.add("content");
@@ -23,17 +26,34 @@ export default class FormModal {
 		this.content.appendChild(this.formModal);
 		this.insertName();
 		this.insertForm();
-		this.createInput("first", "Prénom", "text", "First name");
-		this.createInput("last", "Nom", "text", "Last name");
-		this.createInput("email", "Email", "email", "Email");
+		this.createInput(
+			"first",
+			"Prénom",
+			"text",
+			"First name",
+			this.name.slice(0, this.name.indexOf(" "))
+		);
+		this.createInput(
+			"last",
+			"Nom",
+			"text",
+			"Last name",
+			this.name.slice(this.name.indexOf(" ") + 1, this.name.length)
+		);
+		this.createInput(
+			"email",
+			"Email",
+			"email",
+			"Email",
+			this.name.replace(" ", "_") + "@photo.com"
+		);
 		this.createTextArea("message");
 		this.insertBtSubmit("mobile");
 		this.insertBtSubmit("desktop");
 	}
+
 	/**
-	 * Insertion du bouton submit
-	 *
-	 * @param   {string}  screenSize  Taile de l'écran
+	 * @param {string} screenSize
 	 */
 	insertBtSubmit(screenSize) {
 		this.btSubmit = document.createElement("button");
@@ -50,12 +70,9 @@ export default class FormModal {
 			this.btSubmitManager(e);
 		};
 	}
+
 	/**
-	 * Gestion du bt submit
-	 *
-	 * @param   {event}  e  events
-	 *
-	 * @return  {void}     Affiche le message de validation ou entoure en rouge l'input mal rempli
+	 * @param {MouseEvent} e
 	 */
 	btSubmitManager(e) {
 		e.preventDefault();
@@ -89,12 +106,10 @@ export default class FormModal {
 			};
 		}
 	}
+
 	/**
-	 * Verifie que toutes les données rempli sont correct
-	 *
-	 * @param   {array}  formDatas  Tableau contenant les erreurs
-	 *
-	 * @return  {boolean}             return false si erreur(s) => si aucune erreur = undefined
+	 * @param {string | any[]} formDatas
+	 * @return {boolean} return true si aucune erreur
 	 */
 	verifDataValid(formDatas) {
 		for (let i = 0; i < formDatas.length; i++) {
@@ -105,12 +120,9 @@ export default class FormModal {
 			}
 		}
 	}
+
 	/**
-	 * Insertion du "textArea" du message
-	 *
-	 * @param   {string}  forClassIdNameValue  Valeur du "for" du label de "textArea"
-	 *
-	 * @return  {void}                       Affichage et gestion du "textArea"
+	 * @param {string} forClassIdNameValue
 	 */
 	createTextArea(forClassIdNameValue) {
 		this.insertFormData();
@@ -125,6 +137,9 @@ export default class FormModal {
 		this.textArea.name = forClassIdNameValue;
 		this.textArea.rows = 10;
 		this.textArea.cols = 38;
+		this.textArea.placeholder = "Minimum: 8 caractéres";
+		this.textArea.required = true;
+		this.textArea.setAttribute("aria-required", "true");
 		this.formData.appendChild(this.textArea);
 		this.verifMessage();
 	}
@@ -144,14 +159,13 @@ export default class FormModal {
 		};
 	}
 	/**
-	 * Création input avec son label et sa "formData"
-	 *
-	 * @param   {string}  forIdNameValue  Valeur du "for", "id", "name" des elements
-	 * @param   {string}  labelText       Texte du "label"
-	 * @param   {string}  inputType       Attribut "type" de l'input
-	 * @return  {void}                  Affichage et gestion des elements
+	 * @param {string} forIdNameValue	 Valeur du "for", "id", "name" des elements
+	 * @param {string} labelText			 Texte du "label"
+	 * @param {string} inputType			 Attribut "type" de l'input
+	 * @param {string} ariaLabel			 Attribut "aria-label" de l'element
+	 * @param {string} placeholder	Attribut "placeholder"
 	 */
-	createInput(forIdNameValue, labelText, inputType, ariaLabel) {
+	createInput(forIdNameValue, labelText, inputType, ariaLabel, placeholder) {
 		this.insertFormData();
 		this.label = document.createElement("label");
 		this.label.setAttribute("for", forIdNameValue);
@@ -163,15 +177,16 @@ export default class FormModal {
 		this.input.type = inputType;
 		this.input.id = forIdNameValue;
 		this.input.name = forIdNameValue;
+		this.input.placeholder = placeholder;
+		this.input.required = true;
+		this.input.setAttribute("aria-required", "true");
 		this.formData.appendChild(this.input);
 		this.verifInput(inputType);
 	}
 	/**
 	 * Verification saisie de l'input selon son type
 	 *
-	 * @param   {string}  inputType  Type de l'input
-	 *
-	 * @return  {void}              Verification saisie de l'input selon son type
+	 * @param {string} inputType
 	 */
 	verifInput(inputType) {
 		if (inputType === "text") {
@@ -179,11 +194,6 @@ export default class FormModal {
 		}
 		this.verifEmail();
 	}
-	/**
-	 * Verification input type "text"
-	 *
-	 * @return  {void}  Affiche ou supprime les messages d'erreurs
-	 */
 	verifNameSurname() {
 		/**
 		 * Regex (< 2 characters; Pas de chiffres)
@@ -208,11 +218,6 @@ export default class FormModal {
 		};
 		return;
 	}
-	/**
-	 * Verification input type "email"
-	 *
-	 * @return  {void}  Affiche ou supprime les messages d'erreurs
-	 */
 	verifEmail() {
 		/**
 		 * Regex de vérification d'email
@@ -231,25 +236,26 @@ export default class FormModal {
 			}
 		};
 	}
+	// /**
+	//  * Affichage du message d'erreur
+	//  *
+	//  * @param   {HTMLElement}  cible      Element avec erreur
+	//  * @param   {string}  errorText Texte correspondant à l'erreur
+	//  *
+	//  * @return  {void}             Affichage du message d'erreur
+	//  */
 	/**
-	 * Affichage du message d'erreur
-	 *
-	 * @param   {HTMLElement}  cible      Element avec erreur
-	 * @param   {string}  errorText Texte correspondant à l'erreur
-	 *
-	 * @return  {void}             Affichage du message d'erreur
+	 * @param {HTMLElement} cible	Element avec erreur
+	 * @param {string} errorText	Texte correspondant à l'erreur
 	 */
 	showError(cible, errorText) {
 		cible.removeAttribute("data-valid");
 		cible.setAttribute("data-error-visible", "true");
 		cible.setAttribute("data-error", errorText);
 	}
+
 	/**
-	 * Suppression du message d'erreur
-	 *
-	 * @param   {HTMLElement}  cible      Element avec erreur
-	 *
-	 * @return  {void}             Suppression du message d'erreur
+	 * @param {HTMLElement} cible		Element sans erreur
 	 */
 	hideError(cible) {
 		cible.removeAttribute("data-error-visible");
@@ -310,7 +316,6 @@ export default class FormModal {
 		this.buttons = document.querySelectorAll("button");
 		for (let i = 0; i < this.buttons.length; i++) {
 			const elm = this.buttons[i];
-			console.log(elm);
 			elm.removeAttribute("disabled");
 		}
 		this.widgetLabel = document.getElementById("select");

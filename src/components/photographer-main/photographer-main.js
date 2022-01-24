@@ -6,6 +6,10 @@ import Aside from "../aside/aside";
 import { exposeMethod } from "../../services/utils";
 
 export default class PhotographerMain {
+	/**
+	 * @param {{ appendChild: (arg0: HTMLElement) => void; }} domTarget
+	 * @param {{ id: any; photographer: any; mediasChosen: any; }} props
+	 */
 	constructor(domTarget, props) {
 		this.DOM = document.createElement("main");
 		this.DOM.id = "photographer-main";
@@ -28,11 +32,14 @@ export default class PhotographerMain {
 			totalLikes: mediaCardsSection.totalLikes,
 		});
 
-		exposeMethod("refreshMediaList", (filter) => {
+		exposeMethod("refreshMediaList", (/** @type {any} */ filter) => {
 			this.refresh(filter);
 		});
 	}
 
+	/**
+	 * @param {any} filter
+	 */
 	refresh(filter) {
 		this.DOM.removeChild(document.getElementById("mediaCardsSection"));
 		this.DOM.removeChild(document.querySelector("aside"));

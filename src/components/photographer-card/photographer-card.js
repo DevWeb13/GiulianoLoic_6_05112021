@@ -3,6 +3,10 @@ import Tags from "../tags/tags";
  * Carte du photographe dans le lobby
  */
 export default class PhotographerCard {
+	/**
+	 * @param {HTMLElement} domTarget
+	 * @param {{ tags: any; portrait?: any; name?: any; city?: any; country?: any; tagline?: any; price?: any; id?: any; }} props
+	 */
 	constructor(domTarget, props) {
 		this.imgLink = "./img/PhotographersIDPhotos/" + props.portrait;
 		this.name = props.name;
@@ -14,6 +18,9 @@ export default class PhotographerCard {
 		this.render(domTarget);
 	}
 
+	/**
+	 * @param {HTMLElement} domTarget
+	 */
 	render(domTarget) {
 		this.DOM = document.createElement("article");
 		this.DOM.classList.add("photographer-card");

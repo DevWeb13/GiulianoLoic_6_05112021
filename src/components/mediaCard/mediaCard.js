@@ -8,6 +8,8 @@ export default class MediaCard {
 		this.imgTitle = props.imgTitle;
 		this.like = props.like;
 		this.medias = props.medias;
+		this.description = props.description;
+
 		this.DOM = document.createElement("article");
 		this.DOM.classList.add("mediaCard");
 		domTarget.appendChild(this.DOM);
@@ -36,6 +38,8 @@ export default class MediaCard {
 	openLightBox(domTarget) {
 		this.buttonImg.onclick = () => {
 			this.body = domTarget.parentNode.parentNode;
+			this.body.setAttribute("aria-hidden", "true");
+
 			new LightBox(this.body, {
 				medias: this.medias,
 				imgTitle: this.imgTitle,
@@ -47,6 +51,7 @@ export default class MediaCard {
 				const elm = this.buttons[i];
 				elm.setAttribute("disabled", "");
 			}
+
 			this.widgetLabel = document.getElementById("select");
 			this.widgetLabel.removeAttribute("tabindex");
 		};
@@ -70,11 +75,10 @@ export default class MediaCard {
 		if (this.imgLink.indexOf(".jpg") !== -1) {
 			this.img = document.createElement("img");
 			this.img.src = this.imgLink;
-			this.img.alt = "";
+			this.img.alt = this.description;
 			button.appendChild(this.img);
 		} else {
 			this.video = document.createElement("video");
-			// video.controls = true;
 			button.appendChild(this.video);
 			this.source = document.createElement("source");
 			this.source.src = this.videoLink;

@@ -1,4 +1,8 @@
+// @ts-nocheck
 export default class Widget {
+	/**
+	 * @param {HTMLElement} domTarget
+	 */
 	constructor(domTarget) {
 		this.DOM = document.createElement("div");
 		this.DOM.classList.add("no-widget");
@@ -37,6 +41,9 @@ export default class Widget {
 		// Cette fonction est utilisée chaque fois que nous voulons désactiver un
 		// widget personnalisé. Elle prend un paramètre
 		// select : le nœud DOM avec la classe select à désactiver
+		/**
+		 * @param {Element} select
+		 */
 		function deactivateSelect(select) {
 			// Si le widget n'est pas actif, il n'y a rien à faire
 			if (!select.classList.contains("active")) return;
@@ -52,6 +59,10 @@ export default class Widget {
 		// Elle prend deux paramètres :
 		// select : le nœud DOM de la classe `select` à activer
 		// selectList : la liste de tous les nœuds DOM de la classe `select`
+		/**
+		 * @param {Element} select
+		 * @param {NodeListOf<Element> | Element[]} selectList
+		 */
 		function activeSelect(select, selectList) {
 			// Si le widget est déjà actif il n'y a rien à faire
 			if (select.classList.contains("active")) return;
@@ -68,6 +79,9 @@ export default class Widget {
 		// liste des options
 		// Elle prend un paramètre :
 		// select : le nœud DOM de la liste à basculer
+		/**
+		 * @param {Element} select
+		 */
 		function toggleOptList(select) {
 			// La liste est prise à partir du widget
 			let optList = select.querySelector(".optList");
@@ -81,6 +95,10 @@ export default class Widget {
 		// select : le nœud DOM de la classe `select`
 		//          contenant l'option à mettre en surbrillance
 		// option : le nœud DOM de la classe `option` à mettre en surbrillance
+		/**
+		 * @param {Element} select
+		 * @param {Element} option
+		 */
 		function highlightOption(select, option) {
 			// Obtenir la liste de toutes les options disponibles pour l'élémént sélectionné
 			let optionList = select.querySelectorAll(".option");
@@ -135,6 +153,10 @@ export default class Widget {
 		// du widget natif. Elle prend deux paramètres :
 		// select : le nœud DOM de la classe `select` contenant la valuer à mettre à jour
 		// index  : l'index de la valeur choisie
+		/**
+		 * @param {Element} select
+		 * @param {number} index
+		 */
 		function updateValue(select, index) {
 			// Nous devons obtenir le widget natif correspondant au widget personnalisé
 			// Dans notre exemple, le widget natif est un parent du widget personnalisé
@@ -160,6 +182,9 @@ export default class Widget {
 		// Cette fonction renvoie l'index courant dans le widget natif
 		// Elle prend un paramètre :
 		// select : le nœud DOM avec la classe `select` relative au widget natif
+		/**
+		 * @param {Element} select
+		 */
 		function getIndex(select) {
 			// Nous avons besoin d'avoir accès au widget natif pour le widget personnalisé
 			// Dans notre exemple, le widget natif est un parent du widget personnalisé
@@ -209,6 +234,7 @@ export default class Widget {
 					select.classList.toggle("active");
 					if (!select.classList.contains("active")) {
 						let valueElm = document.querySelector(".value");
+						// @ts-ignore
 						window.refreshMediaList(valueElm.innerHTML);
 					}
 				}

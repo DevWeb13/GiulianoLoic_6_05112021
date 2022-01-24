@@ -7,6 +7,9 @@ async function fetchPhotographers() {
 	return data.photographers;
 }
 
+/**
+ * @param {any} id
+ */
 async function fetchChosenPhotographer(id) {
 	await fetchPhotographers();
 	data.photographers.forEach((data) => {
@@ -17,6 +20,9 @@ async function fetchChosenPhotographer(id) {
 	return photographer;
 }
 
+/**
+ * @param {any} id
+ */
 async function fetchChosenMedia(id) {
 	const res = await fetch("./data/FishEyeData.json");
 	data = await res.json();

@@ -1,6 +1,14 @@
 import MainLobby from "../main-lobby/main-lobby";
 
 export default class Tags {
+	/**
+	 * @param {HTMLElement} domTarget
+	 * @param {string | any[]} photographers
+	 * @param {string} tag
+	 * @param {string} className
+	 * @param {string} [className2]
+	 * @param {any[]} [tagsChecked]
+	 */
 	constructor(
 		domTarget,
 		photographers,
@@ -27,6 +35,9 @@ export default class Tags {
 		this.addDisabled(this.DOM);
 	}
 
+	/**
+	 * @param {HTMLButtonElement} element
+	 */
 	tagsManage(element) {
 		this.tagsCheckedManager(element);
 		this.pagesManager();
@@ -47,6 +58,9 @@ export default class Tags {
 		}
 	}
 
+	/**
+	 * @param {HTMLButtonElement} element
+	 */
 	tagsCheckedManager(element) {
 		if (!element.hasAttribute("isChecked")) {
 			element.setAttribute("isChecked", "true");
@@ -57,6 +71,9 @@ export default class Tags {
 		}
 	}
 
+	/**
+	 * @param {HTMLButtonElement} button
+	 */
 	addDisabled(button) {
 		if (this.className.length === 1) {
 			button.disabled = true;

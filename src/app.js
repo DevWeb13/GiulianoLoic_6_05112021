@@ -34,8 +34,10 @@ const views = {
 		new Header(body, photographers, tagsChecked, "header");
 		new BtContact(body, {
 			className: "goToContent",
+			className2: null,
 			type: "button",
 			text: "Passer au contenu",
+			name: "",
 		});
 		new MainLobby(body, {
 			photographers,
@@ -47,6 +49,7 @@ const views = {
 	 * Gestion of view photographer
 	 *
 	 * @return  {promise}  Fonctionnalités et affichage de la vue photographer
+	 *
 	 */
 	photographer: async function () {
 		const tagsChecked = [];
@@ -54,7 +57,7 @@ const views = {
 		const id = url.searchParams.get("id");
 		const photographer = await fetchChosenPhotographer(id);
 		const mediasChosen = await fetchChosenMedia(id);
-		new Header(body, "", tagsChecked, "header", "header-photographer");
+		new Header(body, null, tagsChecked, "header", "header-photographer");
 		new PhotographerMain(body, {
 			photographer,
 			mediasChosen,
@@ -65,6 +68,9 @@ const views = {
 	},
 };
 
-if (window.location.pathname.split("/").pop() == "") views.lobby();
-else if (window.location.pathname.split("/").pop() == "photographer.html")
-	views.photographer();
+PagesMahager();
+function PagesMahager() {
+	if (window.location.pathname.split("/").pop() == "") views.lobby();
+	else if (window.location.pathname.split("/").pop() == "photographer.html")
+		views.photographer();
+}

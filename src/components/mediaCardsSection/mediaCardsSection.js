@@ -1,6 +1,10 @@
 import MediaCard from "../mediaCard/mediaCard";
 
 export default class MediaCardsSection {
+	/**
+	 * @param {{ appendChild: (arg0: HTMLElement) => void; }} domTarget
+	 * @param {{ photographerMedias: any; target: any; }} props
+	 */
 	constructor(domTarget, props) {
 		this.DOM = document.createElement("section");
 		this.DOM.id = "mediaCardsSection";
@@ -30,6 +34,9 @@ export default class MediaCardsSection {
 		}
 	}
 
+	/**
+	 * @param {any[]} medias
+	 */
 	createTitreArray(medias) {
 		let arrayTitre = [];
 		medias.forEach((media) => {
@@ -43,10 +50,12 @@ export default class MediaCardsSection {
 				}
 			});
 		});
-		console.log(this.titreArray);
 		this.titreArray = [...new Set(this.titreArray)];
 	}
 
+	/**
+	 * @param {any[]} medias
+	 */
 	createDateArray(medias) {
 		let arrayDate = [];
 		medias.forEach((media) => {
@@ -81,10 +90,14 @@ export default class MediaCardsSection {
 		this.popularArray = [...new Set(this.popularArray)];
 	}
 
+	/**
+	 * @param {HTMLElement} section
+	 * @param {any[]} medias
+	 */
 	displayMediaCard(section, medias) {
 		medias.forEach(
 			(
-				/** @type {{ photographerId: any; image: string; video: string; title: any; likes: any; }} */ media
+				/** @type {{ photographerId: any; image: string; video: string; title: any; likes: any; description: string}} */ media
 			) => {
 				let mediaCard = new MediaCard(section, {
 					medias: medias,
@@ -92,6 +105,7 @@ export default class MediaCardsSection {
 					videoLink: "img/videos/" + media.video,
 					imgTitle: media.title,
 					like: media.likes,
+					description: media.description,
 				});
 				this.totalLikes += mediaCard.like;
 			}

@@ -1,67 +1,4 @@
-{
-  "photographers": [
-    {
-      "name": "Mimi Keel",
-      "id": 243,
-      "city": "London",
-      "country": "UK",
-      "tags": ["portrait", "events", "travel", "animals"],
-      "tagline": "Voir le beau dans le quotidien",
-      "price": 400,
-      "portrait": "MimiKeel.jpg"
-    },
-    {
-      "name": "Ellie-Rose Wilkens",
-      "id": 930,
-      "city": "Paris",
-      "country": "France",
-      "tags": ["sports", "architecture"],
-      "tagline": "Capturer des compositions complexes",
-      "price": 250,
-      "portrait": "EllieRoseWilkens.jpg"
-    },
-    {
-      "name": "Tracy Galindo",
-      "id": 82,
-      "city": "Montreal",
-      "country": "Canada",
-      "tags": ["art", "fashion", "events"],
-      "tagline": "Photographe freelance",
-      "price": 500,
-      "portrait": "TracyGalindo.jpg"
-    },
-    {
-      "name": "Nabeel Bradford",
-      "id": 527,
-      "city": "Mexico City",
-      "country": "Mexico",
-      "tags": ["travel", "portrait"],
-      "tagline": "Toujours aller de l'avant",
-      "price": 350,
-      "portrait": "NabeelBradford.jpg"
-    },
-    {
-      "name": "Rhode Dubois",
-      "id": 925,
-      "city": "Barcelona",
-      "country": "Spain",
-      "tags": ["sports", "fashion", "events", "animals"],
-      "tagline": "Je crée des souvenirs",
-      "price": 275,
-      "portrait": "RhodeDubois.jpg"
-    },
-    {
-      "name": "Marcel Nikolic",
-      "id": 195,
-      "city": "Berlin",
-      "country": "Germany",
-      "tags": ["travel", "architecture"],
-      "tagline": "Toujours à la recherche de LA photo",
-      "price": 300,
-      "portrait": "MarcelNikolic.jpg"
-    }
-  ],
-  "media": [
+ "media": [
     {
       "id": 342550,
       "photographerId": 82,
@@ -71,7 +8,7 @@
       "likes": 62,
       "date": "2011-12-08",
       "price": 55,
-      "description": "femme vétue d'un ensemble jaune posant devant un terrain de basket"
+      ""
     },
     {
       "id": 8520927,
@@ -81,8 +18,7 @@
       "tags": ["fashion"],
       "likes": 11,
       "date": "2011-11-06",
-      "price": 55,
-      "description": "femme vétue d'un ensemble vert posant au milieu d'un pont"
+      "price": 55
     },
     {
       "id": 9025895,
@@ -92,19 +28,17 @@
       "tags": ["fashion"],
       "likes": 72,
       "date": "2013-08-12",
-      "price": 55,
-      "description": "femme vétue d'un ensemble à rayure posant devant un mur carrelé"
+      "price": 55
     },
     {
       "id": 9275938,
       "photographerId": 82,
       "title": "Wedding Gazebo",
-      "image": "Event_WeddingGazebo.jpg",
+      "image": "Event-_WeddingGazebo.jpg",
       "tags": ["events"],
       "likes": 69,
       "date": "2018-02-22",
-      "price": 55,
-      "description": "femme vétue d'un ensemble jaune posant devant un terrain de basket"
+      "price": 55
     },
     {
       "id": 2053494,
@@ -114,8 +48,7 @@
       "tags": ["events"],
       "likes": 2,
       "date": "2020-05-25",
-      "price": 55,
-      "description": "couple en tenue de soirée arrivant à une fête de mariage"
+      "price": 55
     },
     {
       "id": 7324238,
@@ -125,8 +58,7 @@
       "tags": ["events"],
       "likes": 33,
       "date": "2019-06-12",
-      "price": 55,
-      "description": "photo d'une salle de fête décorrée pour le 18ème anniversaire de quelqu'un"
+      "price": 55
     },
     {
       "id": 8328953,
@@ -136,8 +68,7 @@
       "tags": ["art"],
       "likes": 24,
       "date": "2011-12-08",
-      "price": 100,
-      "description": "tête de chaval sculptée dans du bois"
+      "price": 100
     },
     {
       "id": 7502053,
@@ -147,8 +78,7 @@
       "tags": ["art"],
       "likes": 88,
       "date": "2007-05-07",
-      "price": 55,
-      "description": "photo d'une peinture sur fond bleu avec un triangle blanc au milieu d'un homme au long coup "
+      "price": 55
     },
     {
       "id": 8523492,
@@ -158,8 +88,7 @@
       "tags": ["art"],
       "likes": 24,
       "date": "2018-05-05",
-      "price": 55,
-      "description": "photo d'un tunnel de métro éclairé au néon avec des tags sur les murs"
+      "price": 55
     },
     {
       "id": 75902334,
@@ -169,8 +98,7 @@
       "tags": ["art"],
       "likes": 75,
       "date": "2019-11-25",
-      "price": 55,
-      "description": "peinture de quatres rangées de quatres pigeons rouge ou bleu de profil avec un gros oeil "
+      "price": 55
     },
 
     {
@@ -178,11 +106,10 @@
       "photographerId": 925,
       "title": "8 Rows",
       "image": "Sport_2000_with_8.jpg",
-      "tags": ["sport"],
+      "tags": ["sports"],
       "likes": 52,
       "date": "2013-02-30",
-      "price": 70,
-      "description": "aviron pris du dessus avec cinq rameurs visibles"
+      "price": 70
     },
     {
       "id": 92758372,
@@ -192,8 +119,7 @@
       "tags": ["fashion"],
       "likes": 58,
       "date": "2018-07-17",
-      "price": 70,
-      "description": "photo d'un homme blanc en costume de lin derrière une femme noire en robe bleu ciel posant avec chacun une main vers le ciel "
+      "price": 70
     },
     {
       "id": 32958383,
@@ -203,8 +129,7 @@
       "tags": ["fashion"],
       "likes": 11,
       "date": "2019-08-12",
-      "price": 70,
-      "description": "photo d'une femme noire en robe rouge a froufrou descendant des marches dans une rue"
+      "price": 70
     },
     {
       "id": 928587383,
@@ -214,8 +139,7 @@
       "tags": ["events"],
       "likes": 2,
       "date": "2019-01-02",
-      "price": 70,
-      "description": "photo d'une réunion de travail "
+      "price": 70
     },
     {
       "id": 725639493,
@@ -225,8 +149,7 @@
       "tags": ["events"],
       "likes": 3,
       "date": "2019-05-20",
-      "price": 70,
-      "description": "photo d'une conférance avec un homme parlant dans un micro devant un écran et plusieurs personnes assise et l'écoutant"
+      "price": 70
     },
     {
       "id": 23394384,
@@ -236,8 +159,7 @@
       "tags": ["events"],
       "likes": 52,
       "date": "2019-07-18",
-      "price": 70,
-      "description": "photo d'un joueur de clavier au chevaux longs sur scène en noir et blanc"
+      "price": 70
     },
     {
       "id": 87367293,
@@ -247,8 +169,7 @@
       "tags": ["events"],
       "likes": 23,
       "date": "2018-02-22",
-      "price": 70,
-      "description": "photo d'un chanteur sur une scène vétu d'une chemise a franges déchirées"
+      "price": 70
     },
     {
       "id": 593834784,
@@ -258,8 +179,7 @@
       "tags": ["animals"],
       "likes": 52,
       "date": "2017-03-13",
-      "price": 70,
-      "description": "photo d'un jeune cerf regardant l'objectif dans une clairière"
+      "price": 70
     },
     {
       "id": 83958935,
@@ -269,8 +189,7 @@
       "tags": ["animals"],
       "likes": 52,
       "date": "2016-06-12",
-      "price": 70,
-      "description": "video d'un jeune chien noir et blanc jouant avec sa laisse sur une plage"
+      "price": 70
     },
 
     {
@@ -281,8 +200,7 @@
       "tags": ["travel"],
       "likes": 23,
       "date": "2017-03-18",
-      "price": 45,
-      "description": "vidéo d'une crête montagneuse prise par drone"
+      "price": 45
     },
     {
       "id": 343423425,
@@ -292,8 +210,7 @@
       "tags": ["travel"],
       "likes": 101,
       "date": "2017-04-03",
-      "price": 45,
-      "description": "photo de gens se baignant dans une source chaude"
+      "price": 45
     },
     {
       "id": 73434243,
@@ -303,8 +220,7 @@
       "tags": ["travel"],
       "likes": 99,
       "date": "2018-04-30",
-      "price": 45,
-      "description": "photo d'une route dans la colline"
+      "price": 45
     },
     {
       "id": 23425523,
@@ -314,8 +230,7 @@
       "tags": ["travel"],
       "likes": 34,
       "date": "2016-04-05",
-      "price": 45,
-      "description": "photo d'un petit pont dans une forêt"
+      "price": 45
     },
     {
       "id": 23134513,
@@ -325,8 +240,7 @@
       "tags": ["travel"],
       "likes": 23,
       "date": "2017-03-18",
-      "price": 45,
-      "description": "photo de la proue d'un petit bateau traversant un fyord"
+      "price": 45
     },
     {
       "id": 92352352,
@@ -336,8 +250,7 @@
       "tags": ["portrait"],
       "likes": 66,
       "date": "2018-05-24",
-      "price": 45,
-      "description": "photo d'une jeune fille rousse avec un chignon et des taches de rousseur "
+      "price": 45
     },
     {
       "id": 34513453,
@@ -347,8 +260,7 @@
       "tags": ["portait"],
       "likes": 52,
       "date": "2017-04-21",
-      "price": 45,
-      "description": "photo d'un jeune homme noir sur fond obscur "
+      "price": 45
     },
     {
       "id": 23523533,
@@ -358,8 +270,7 @@
       "tags": ["portait"],
       "likes": 95,
       "date": "2018-11-02",
-      "price": 45,
-      "description": "photo en noir et blanc d'une jeune fille noire avec les cheveux et les sourcils décolorés en blond et fixant l'objectif "
+      "price": 45
     },
     {
       "id": 525834234,
@@ -369,8 +280,7 @@
       "tags": ["portait"],
       "likes": 25,
       "date": "2019-01-02",
-      "price": 45,
-      "description": "photo en noir et blanc d'un vieil homme blanc fumant et fixant l'objectif adosser à un mur blanc"
+      "price": 45
     },
 
     {
@@ -381,8 +291,7 @@
       "tags": ["travel"],
       "likes": 88,
       "date": "2019-02-03",
-      "price": 45,
-      "description": "photo d'une personne seule avec un sac à dos sur un rocher surplombant des collines"
+      "price": 45
     },
     {
       "id": 625025343,
@@ -392,41 +301,37 @@
       "tags": ["travel"],
       "likes": 85,
       "date": "2019-04-03",
-      "price": 45,
-      "description": "photo d'un village au maison colorées construit a flanc de falaise au bord de la mer"
+      "price": 45
     },
     {
       "id": 2525345343,
       "photographerId": 243,
-      "title": "Wednesday Portrait",
+      "title": "Wednesday Potrait",
       "image": "Portrait_Wednesday.jpg",
-      "tags": ["portrait"],
+      "tags": ["portait"],
       "likes": 34,
       "date": "2019-04-07",
-      "price": 45,
-      "description": "photo en noir et blanc d'une enfant allongée dans l'herbe et soutenant sa tête entre ses mains"
+      "price": 45
     },
     {
       "id": 2523434634,
       "photographerId": 243,
       "title": "Nora Portrait",
       "image": "Portrait_Nora.jpg",
-      "tags": ["portrait"],
+      "tags": ["portait"],
       "likes": 63,
       "date": "2019-04-07",
-      "price": 45,
-      "description": "photo d'une jeune fille noire à lunette appuyé sur une banquette dans un restaurant et fixant l'objectif"
+      "price": 45
     },
     {
       "id": 398847109,
       "photographerId": 243,
       "title": "Raw Black Portrait",
       "image": "Portrait_Background.jpg",
-      "tags": ["portrait"],
+      "tags": ["portait"],
       "likes": 55,
       "date": "2019-06-20",
-      "price": 45,
-      "description": "photo en noir et blanc d'une jeune femme avec la tête légèrement penchée en arrière sur fond obscur"
+      "price": 45
     },
     {
       "id": 2534342,
@@ -436,8 +341,7 @@
       "tags": ["events"],
       "likes": 25,
       "date": "2019-06-21",
-      "price": 45,
-      "description": "photo d'une longue table dréssée pour un mariage sur la plage"
+      "price": 45
     },
     {
       "id": 65235234,
@@ -447,8 +351,7 @@
       "tags": ["events"],
       "likes": 52,
       "date": "2019-06-25",
-      "price": 45,
-      "description": "photo d'un couple marié prise entre de gros rocher dans la nature"
+      "price": 45
     },
     {
       "id": 23523434,
@@ -458,8 +361,7 @@
       "tags": ["events"],
       "likes": 77,
       "date": "2019-06-28",
-      "price": 45,
-      "description": "photo d'un couple marié avec le mari qui tiens la mariée légérement penchée en arrière par la taille devant l'hôtel en extérieur"
+      "price": 45
     },
     {
       "id": 5234343,
@@ -469,8 +371,7 @@
       "tags": ["animals"],
       "likes": 142,
       "date": "2019-08-23",
-      "price": 60,
-      "description": "troupeau de chavaux sauvages trottant dans la montagne"
+      "price": 60
     },
     {
       "id": 95234343,
@@ -480,8 +381,7 @@
       "tags": ["animals"],
       "likes": 59,
       "date": "2019-07-02",
-      "price": 60,
-      "description": "photo d'un petit oiseau multicolore posé sur une branche"
+      "price": 60
     },
 
     {
@@ -492,8 +392,7 @@
       "tags": ["travel"],
       "likes": 25,
       "date": "2019-04-03",
-      "price": 60,
-      "description": "photo d'un village japonais avec une tour dans le fond et deux femme vétues d'habits traditionnels au premier plan"
+      "price": 60
     },
     {
       "id": 2523434,
@@ -503,8 +402,7 @@
       "tags": ["travel"],
       "likes": 53,
       "date": "2019-05-06",
-      "price": 60,
-      "description": "photo d'un canal de venise avec des gondoliers"
+      "price": 60
     },
     {
       "id": 95293534,
@@ -514,8 +412,7 @@
       "tags": ["travel"],
       "likes": 33,
       "date": "2019-05-12",
-      "price": 60,
-      "description": "photo d'un lac de montagne avec une maison au bord de l'eau dans le fond"
+      "price": 60
     },
     {
       "id": 356234343,
@@ -525,8 +422,7 @@
       "tags": ["travel"],
       "likes": 53,
       "date": "2019-06-20",
-      "price": 60,
-      "description": "photo d'un velo de ville attaché en bas d'un escalier dans une rue pavée "
+      "price": 60
     },
     {
       "id": 235234343,
@@ -536,8 +432,7 @@
       "tags": ["travel"],
       "likes": 63,
       "date": "2019-06-26",
-      "price": 60,
-      "description": "photo d'une porte prise à l'intérieur d'un petit temple et donnant sur une colline avec des arbres"
+      "price": 60
     },
     {
       "id": 6234234343,
@@ -547,8 +442,7 @@
       "tags": ["architecture"],
       "likes": 52,
       "date": "2019-06-30",
-      "price": 60,
-      "description": "photo d'un batiment avec plusieurs dômes avec des dorrures prises à saint petersbourg"
+      "price": 60
     },
     {
       "id": 6525666253,
@@ -558,8 +452,7 @@
       "tags": ["architecture"],
       "likes": 63,
       "date": "2019-07-20",
-      "price": 60,
-      "description": "photo d'un village à flan de montagne au bord d'un fleuve"
+      "price": 60
     },
     {
       "id": 98252523433,
@@ -569,8 +462,7 @@
       "tags": ["architecture"],
       "likes": 88,
       "date": "2020-01-05",
-      "price": 60,
-      "description": "photo de la tour de pise prise d'en bas "
+      "price": 60
     },
     {
       "id": 9259398453,
@@ -580,8 +472,7 @@
       "tags": ["architecture"],
       "likes": 57,
       "date": "2020-01-20",
-      "price": 65,
-      "description": "vidéo prise par un drone d'un échangeur autoroutier à buenos aires"
+      "price": 65
     },
     {
       "id": 3523523534,
@@ -591,8 +482,7 @@
       "tags": ["architecture"],
       "likes": 54,
       "date": "2020-05-05",
-      "price": 60,
-      "description": "photo d'angle d'un immeuble hausmanien"
+      "price": 60
     },
 
     {
@@ -600,66 +490,60 @@
       "photographerId": 930,
       "title": "Tricks in the Air",
       "video": "Sport_Tricks_in_the_air.mp4",
-      "tags": ["sport"],
+      "tags": ["sports"],
       "likes": 150,
       "date": "2018-02-30",
-      "price": 70,
-      "description": "vidéo d'une gymaste suspendu par les bras et tournant sur elle même"
+      "price": 70
     },
     {
       "id": 235234343,
       "photographerId": 930,
       "title": "Climber",
       "image": "Sport_Next_Hold.jpg",
-      "tags": ["sport"],
+      "tags": ["sports"],
       "likes": 101,
       "date": "2018-03-05",
-      "price": 65,
-      "description": "photo d'une jeune femme pratiquant l'escalade sur un rocher"
+      "price": 65
     },
     {
       "id": 235343222,
       "photographerId": 930,
       "title": "Surfer",
       "image": "sport_water_tunnel.jpg",
-      "tags": ["sport"],
+      "tags": ["sports"],
       "likes": 103,
       "date": "2018-03-10",
-      "price": 70,
-      "description": "photo d'un surfeur dans un tube"
+      "price": 70
     },
     {
       "id": 7775342343,
       "photographerId": 930,
       "title": "Skier",
       "image": "Sport_Sky_Cross.jpg",
-      "tags": ["sport"],
+      "tags": ["sports"],
       "likes": 77,
       "date": "2018-04-16",
-      "price": 50,
-      "description": "photo d'un skieur réalisant une figure"
+      "price": 50
     },
     {
       "id": 9253445784,
       "photographerId": 930,
       "title": "Race End",
       "image": "Sport_Race_End.jpg",
-      "tags": ["sport"],
+      "tags": ["sports"],
       "likes": 88,
       "date": "2018-04-22",
-      "price": 65,
-      "description": "photo de la fin d'une course de sprint"
+      "price": 65
     },
     {
       "id": 22299394,
       "photographerId": 930,
       "title": "Jump!",
       "image": "Sport_Jump.jpg",
-      "tags": ["sport"],
+      "tags": ["sports"],
       "likes": 95,
       "date": "2018-04-27",
-      "price": 70,
-      "description": "photo d'un skateur dans un bowl réalisant une figure"
+      "price": 70
     },
     {
       "id": 3452342633,
@@ -669,8 +553,7 @@
       "tags": ["architecture"],
       "likes": 52,
       "date": "2018-05-03",
-      "price": 75,
-      "description": "photo d'un toit de verre prise du rdc d'un immeuble blanc "
+      "price": 75
     },
     {
       "id": 939234243,
@@ -680,8 +563,7 @@
       "tags": ["architecture"],
       "likes": 55,
       "date": "2018-05-10",
-      "price": 72,
-      "description": "photo d'un batiment à l'architecture en forme de vague"
+      "price": 72
     },
     {
       "id": 222959233,
@@ -691,8 +573,7 @@
       "tags": ["architecture"],
       "likes": 85,
       "date": "2018-05-15",
-      "price": 71,
-      "description": "photo d'un batiment en forme de fer à cheval prise du rdc"
+      "price": 71
     },
     {
       "id": 965933434,
@@ -702,8 +583,7 @@
       "tags": ["architecture"],
       "likes": 66,
       "date": "2018-05-20",
-      "price": 58,
-      "description": "photo d'un immeuble vitré et ressemblant à une cage "
+      "price": 58
     },
     {
       "id": 777723343,
@@ -713,9 +593,20 @@
       "tags": ["architecture"],
       "likes": 79,
       "date": "2018-05-21",
-      "price": 80,
-      "description": "photo de deux immeubles avec des formes courbées et relié par un pont fermé et courbé"
+      "price": 80
     }
   ]
 }
- 
+
+
+**********************************************************************************************************************************************************************
+	/**
+	 * contructeur de la clase Azside
+	 *
+	 * @param   {HTMLElement}  domTarget  [domTarget description]
+	 * @param   {Object}  props
+	 * @param   {String} props.price
+	 * @param   {String} props.totalLikes
+	 *
+	 * @constructor
+	 */

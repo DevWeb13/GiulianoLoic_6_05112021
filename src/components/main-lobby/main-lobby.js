@@ -1,6 +1,10 @@
 import PhotographerCard from "../photographer-card/photographer-card";
 
 export default class MainLobby {
+	/**
+	 * @param {HTMLElement} domTarget
+	 * @param {{ photographers: any; tagsChecked: any; }} props
+	 */
 	constructor(domTarget, props) {
 		this.photographers = props.photographers;
 		this.tagsChecked = props.tagsChecked;

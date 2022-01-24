@@ -2,6 +2,10 @@
  * Composants boutons de constact et "GoToContent"
  */
 export default class BtContact {
+	/**
+	 * @param {{ appendChild: (arg0: HTMLButtonElement) => void; }} domtarget
+	 * @param {{ className: string | any[]; className2: string | any; type: string; text: string; name: string; }} props
+	 */
 	constructor(domtarget, props) {
 		this.DOM = document.createElement("button");
 		if (typeof props.className === "string")
@@ -34,7 +38,6 @@ export default class BtContact {
 		this.buttons = document.querySelectorAll("button");
 		for (let i = 0; i < this.buttons.length - 3; i++) {
 			const elm = this.buttons[i];
-			console.log(elm);
 			elm.setAttribute("disabled", "");
 		}
 		this.widgetLabel = document.getElementById("select");
