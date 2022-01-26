@@ -96,7 +96,7 @@ export default class FormModal {
 			this.validDiv = document.createElement("div");
 			this.validDiv.classList.add("validDiv");
 			this.validDiv.textContent =
-				"Votre méssage a bien été envoyé à " + this.name;
+				"Votre message a bien été envoyé à " + this.name;
 			this.content.appendChild(this.validDiv);
 
 			this.close.onclick = () => {
@@ -236,14 +236,7 @@ export default class FormModal {
 			}
 		};
 	}
-	// /**
-	//  * Affichage du message d'erreur
-	//  *
-	//  * @param   {HTMLElement}  cible      Element avec erreur
-	//  * @param   {string}  errorText Texte correspondant à l'erreur
-	//  *
-	//  * @return  {void}             Affichage du message d'erreur
-	//  */
+
 	/**
 	 * @param {HTMLElement} cible	Element avec erreur
 	 * @param {string} errorText	Texte correspondant à l'erreur

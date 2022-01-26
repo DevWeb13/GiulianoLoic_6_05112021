@@ -3,74 +3,35 @@ import {
 	fetchChosenPhotographer,
 	fetchChosenMedia,
 } from "./services/dataManager";
-import BtContact from "./components/btContact/btContact";
-import Header from "./components/header/header";
-import MainLobby from "./components/main-lobby/main-lobby";
-import PhotographerMain from "./components/photographer-main/photographer-main";
-import FormModal from "./components/form-modal/form-modal";
 
-/* *************************************************************************************************************************************************************************************************************************************************************** */
+// /* *************************************************************************************************************************************************************************************************************************************************************** */
 const body = document.body;
 
-/**
- * Object contains functions for views
- *
- * @var {object}
- */
-const views = {
-	/**
-	 * Gestion of view lobby
-	 *
-	 * @return  {promise}  Fonctionnalités et affichage de la vue lobby
-	 */
-	lobby: async function () {
-		const photographers = await fetchPhotographers();
-		const tagsChecked = [];
-		const url = new URL(window.location.href);
-		const tag = url.searchParams.get("tag");
-		if (tag) {
-			tagsChecked.push("#" + tag);
-		}
-		new Header(body, photographers, tagsChecked, "header");
-		new BtContact(body, {
-			className: "goToContent",
-			className2: null,
-			type: "button",
-			text: "Passer au contenu",
-			name: "",
-		});
-		new MainLobby(body, {
-			photographers,
-			tagsChecked,
-		});
-	},
+import Index from "./components/index/index";
+import PhotographerPage from "./components/photographerPage/photographerPage";
 
-	/**
-	 * Gestion of view photographer
-	 *
-	 * @return  {promise}  Fonctionnalités et affichage de la vue photographer
-	 *
-	 */
-	photographer: async function () {
-		const tagsChecked = [];
+/**
+ * Gestion de l'affichage des pages
+ *
+ * @return  {promise}  Affiche la page demandé
+ */
+async function PagesMahager() {
+	if (window.location.pathname.split("/").pop() == "") {
+		const photographers = await fetchPhotographers();
+		new Index(body, {
+			photographers,
+		});
+	} else if (window.location.pathname.split("/").pop() == "photographer.html") {
 		const url = new URL(window.location.href);
 		const id = url.searchParams.get("id");
 		const photographer = await fetchChosenPhotographer(id);
 		const mediasChosen = await fetchChosenMedia(id);
-		new Header(body, null, tagsChecked, "header", "header-photographer");
-		new PhotographerMain(body, {
+		new PhotographerPage(body, {
+			id,
 			photographer,
 			mediasChosen,
-			id,
 		});
-		new FormModal(body, { name: photographer.name });
-		// new LightBox(body, { mediasChosen });
-	},
-};
+	}
+}
 
 PagesMahager();
-function PagesMahager() {
-	if (window.location.pathname.split("/").pop() == "") views.lobby();
-	else if (window.location.pathname.split("/").pop() == "photographer.html")
-		views.photographer();
-}
