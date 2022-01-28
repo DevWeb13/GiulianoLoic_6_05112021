@@ -205,7 +205,6 @@ export default class FormModal {
 			// @ts-ignore
 			let cible = e.target.parentNode;
 			if (textValue.length < 2) {
-				console.log(-2);
 				this.showError(cible, "Veuillez entrer 2 caractéres minimum");
 			} else if (!firstLastRegex.test(textValue)) {
 				this.showError(
