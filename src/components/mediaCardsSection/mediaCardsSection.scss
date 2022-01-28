@@ -3,6 +3,9 @@
 	align-items: center;
 	justify-content: center;
 	flex-wrap: wrap;
+	#mediaCards {
+		display: none;
+	}
 	// @include desktop {
 	// 	width: 106.59%;
 	// }

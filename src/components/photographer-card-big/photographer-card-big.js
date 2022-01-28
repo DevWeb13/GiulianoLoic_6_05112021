@@ -55,8 +55,6 @@ export default class PhotographerCardBig extends PhotographerCard {
 		this.img = document.createElement("img");
 		this.img.src = this.imgLink;
 		this.img.alt = "";
-		this.img.setAttribute("width", "208px");
-		this.img.setAttribute("height", "208px");
 	}
 
 	insertLocationElm() {

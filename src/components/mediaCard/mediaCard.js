@@ -23,7 +23,7 @@ export default class MediaCard {
 		this.infoContainer = document.createElement("div");
 		this.infoContainer.classList.add("infoContainer");
 		this.DOM.appendChild(this.infoContainer);
-		this.imgTitleElm = document.createElement("p");
+		this.imgTitleElm = document.createElement("h2");
 		this.imgTitleElm.classList.add("imgTitle");
 		this.imgTitleElm.textContent = this.imgTitle;
 		this.infoContainer.appendChild(this.imgTitleElm);

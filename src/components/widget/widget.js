@@ -12,9 +12,10 @@ export default class Widget {
 	}
 	render() {
 		this.DOM.innerHTML += /* html */ `
-			<label for="select" onclick=toggleOptList(select)>Trier par</label>
+			<label>Trier par</label>
 				<form>
-					<select name="Popularité">
+				<label for="popularite" id="label">Tri</label>
+					<select name="popularite" id="popularite">
 						<option>Popularité</option>
 						<option>Date</option>
 						<option>Titre</option>

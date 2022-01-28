@@ -9,6 +9,10 @@ export default class MediaCardsSection {
 		this.DOM = document.createElement("section");
 		this.DOM.id = "mediaCardsSection";
 		domTarget.appendChild(this.DOM);
+		this.h2 = document.createElement("h2");
+		this.h2.textContent = "Media Cards";
+		this.h2.id = "mediaCards";
+		this.DOM.appendChild(this.h2);
 		this.photographerMedias = props.photographerMedias;
 		this.target = props.target;
 		this.totalLikes = 0;

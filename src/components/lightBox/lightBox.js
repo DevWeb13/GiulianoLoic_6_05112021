@@ -134,14 +134,12 @@ export default class LightBox {
 	 */
 	keyManager(e, i) {
 		if (e.keyCode === 37) {
-			console.log("good");
 			i = this.goLeft(i);
 		}
 		if (e.keyCode === 39) {
 			i = this.goRight(i);
 		}
 		if (e.keyCode === 27) {
-			console.log("test");
 			this.closeLightbox();
 		}
 		return i;

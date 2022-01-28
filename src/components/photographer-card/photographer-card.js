@@ -25,7 +25,7 @@ export default class PhotographerCard {
 		this.DOM = document.createElement("article");
 		this.DOM.classList.add("photographer-card");
 		domTarget.appendChild(this.DOM);
-		this.button = document.createElement("button");
+		this.button = document.createElement("a");
 		this.button.classList.add("photographer-card-link");
 		this.button.id = this.id;
 		this.DOM.appendChild(this.button);
@@ -72,8 +72,8 @@ export default class PhotographerCard {
 		this.img = document.createElement("img");
 		this.img.src = this.imgLink;
 		this.img.alt = "";
-		this.img.setAttribute("width", "208px");
-		this.img.setAttribute("height", "208px");
+		// this.img.setAttribute("width", "208px");
+		// this.img.setAttribute("height", "208px");
 	}
 
 	insertLocationElm() {
