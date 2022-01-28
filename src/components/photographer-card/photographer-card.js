@@ -26,6 +26,7 @@ export default class PhotographerCard {
 		this.DOM.classList.add("photographer-card");
 		domTarget.appendChild(this.DOM);
 		this.button = document.createElement("a");
+		this.button.tabIndex = 0;
 		this.button.classList.add("photographer-card-link");
 		this.button.id = this.id;
 		this.DOM.appendChild(this.button);
