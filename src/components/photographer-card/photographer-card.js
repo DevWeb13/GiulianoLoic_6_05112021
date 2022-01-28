@@ -30,6 +30,7 @@ export default class PhotographerCard {
 		this.button.classList.add("photographer-card-link");
 		this.button.id = this.id;
 		this.DOM.appendChild(this.button);
+		this.goPhotographerPageWithEnter();
 		this.goPhotographerPage();
 		this.imgContainer = document.createElement("div");
 		this.imgContainer.classList.add("photographer-card-link-imgContainer");
@@ -53,11 +54,18 @@ export default class PhotographerCard {
 		this.DOM.appendChild(this.nav);
 	}
 
+	goPhotographerPageWithEnter() {
+		this.button.onkeyup = (e) => {
+			if (e.keyCode === 13) {
+				window.location.href = "./photographer.html?id=" + this.button.id;
+				return this.id;
+			}
+		};
+	}
+
 	goPhotographerPage() {
 		this.button.onclick = () => {
 			window.location.href = "./photographer.html?id=" + this.button.id;
-
-			console.log(this.button.id);
 			return this.id;
 		};
 	}
