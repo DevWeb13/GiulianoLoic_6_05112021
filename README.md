@@ -112,6 +112,6 @@ L'évaluateur remettra en question vos décisions, soyez donc prêt à défendre
 - Créez un site accessible pour une plateforme de photographes 
 
 
-# [Site final](https://devweb13.github.io/GiulianoLoic_6_05112021_version_avant_10-11-21/www/)
+# [Site final](https://devweb13.github.io/GiulianoLoic_6_05112021/www/)
 
 
